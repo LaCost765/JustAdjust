@@ -76,6 +76,17 @@ extension GoalModel {
         case middle
         case low
         
+        var string: String {
+            switch self {
+            case .high:
+                return "Высокая"
+            case .middle:
+                return "Средняя"
+            case .low:
+                return "Низкая"
+            }
+        }
+        
         var iconName: String {
             switch self {
             case .high:
@@ -103,6 +114,18 @@ extension GoalModel {
                 return "по выходным"
             }
         }
+    }
+}
+
+extension GoalModel.FrequencyMode {
+    enum WeekDays {
+        case monday
+        case tuesday
+        case wednesday
+        case thursday
+        case friday
+        case saturday
+        case sunday
     }
 }
 

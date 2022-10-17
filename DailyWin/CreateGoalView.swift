@@ -10,7 +10,7 @@ import SwiftUI
 struct CreateGoalView: View {
     
     @State private var goalText: String = ""
-    @State private var selectedPriority = GoalPriorityMode.high.iconName
+    @State private var selectedPriority = GoalPriorityMode.high.string
     @State private var selectedFrequency = GoalFrequencyMode.everyday.string
     @State private var startDate: Date = Date()
     @State private var endDate: Date = Date()
@@ -22,67 +22,39 @@ struct CreateGoalView: View {
     var body: some View {
         NavigationView {
             Form {
-//                Section {
-//                    TextEditor(text: $goalText)
-//                } footer: {
-//                    Text("Опишите вашу цель")
-//                }
-//
-//                Section {
-//                    Picker("Приоритет", selection: $selectedPriority) {
-//                        ForEach(GoalPriorityMode.allCases, id: \.iconName) { mode in
-//                            Image(mode.iconName)
-//                        }
-//                    }
-//                    .pickerStyle(.segmented)
-//                } footer: {
-//                    Text("Укажите важность вашей цели. Данная настройка нужна лишь для вашего удобства при поиске или фильтрации ваших целей")
-//                }
-                
-//                Section {
-//                    Picker("Частота", selection: $selectedFrequency) {
-//                        ForEach(GoalFrequencyMode.allCases, id: \.string) { mode in
-//                            Text(mode.string)
-//                        }
-//                    }
-//                    .pickerStyle(.segmented)
-//                } footer: {
-//                    Text("Выбранная частота будет влиять на то, появится ли цель в списке задач на сегодня или нет")
-//                }
-//
                 Section {
-                    VStack {
-                        Picker("", selection: $selectedDateMode) {
-                            Text("Дата начала").tag(0)
-                            Text("Дата конца").tag(1)
-                        }
-                        .pickerStyle(.segmented)
-                        
-                        let isDatePickerEnabled = (selectedDateMode == 0) || needEndDate
-                        
-                        DatePicker("", selection: selectedDateMode == 0 ? $startDate : $endDate, displayedComponents: .date)
-                            .datePickerStyle(.graphical)
-                            .blur(radius: isDatePickerEnabled ? 0 : 10)
-                            .allowsHitTesting(isDatePickerEnabled)
-                        
-                        if selectedDateMode == 1 {
-                            Text(needEndDate ? "Удалить" : "Нажмите чтобы выбрать")
-                                .font(.headline)
-                                .foregroundColor(needEndDate ? .red : .blue)
-                                .onTapGesture {
-                                    withAnimation {
-                                        needEndDate.toggle()
-                                    }
-                                }
-                                .padding(.bottom)
-                                .transition(.opacity)
+                    TextField("Опишите вашу цель", text: $goalText)
+                }
+                
+                Section {
+                    NavigationLink {
+                        DatesSelectionView()
+                    } label: {
+                        Button("Окт 16. 2022 ... Окт 16. 2023") { }
+                    }
+                    
+                    Picker("Важность", selection: $selectedPriority) {
+                        ForEach(GoalPriorityMode.allCases, id: \.string) { mode in
+                            Text(mode.string.lowercased())
                         }
                     }
+                    
+                    Picker("Частота", selection: $selectedFrequency) {
+                        ForEach(GoalFrequencyMode.allCases, id: \.string) { mode in
+                            Text(mode.string)
+                        }
+                    }
+                } header: {
+                    Text("Параметры")
+                }
+                
+                Section {
+                    
                 } footer: {
-                    Text("Выберите даты")
+                    Text("Параметры испытания можно будет изменить, но это сбросит его текущий прогресс")
                 }
             }
-            .navigationTitle("Новая цель")
+            .navigationTitle("Новое испытание")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button("Сохранить") { }

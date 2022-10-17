@@ -15,6 +15,8 @@
 		412B459228FC51D600DEFB99 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B459128FC51D600DEFB99 /* DateExtension.swift */; };
 		412B459428FC54E800DEFB99 /* GoalsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B459328FC54E800DEFB99 /* GoalsListView.swift */; };
 		412B459628FC66F800DEFB99 /* CreateGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B459528FC66F800DEFB99 /* CreateGoalView.swift */; };
+		413E38FB28FD889D00917595 /* DatesSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E38FA28FD889D00917595 /* DatesSelectionView.swift */; };
+		41FDBBAF28FD95EF00D83FE6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41FDBBB128FD95EF00D83FE6 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,9 @@
 		412B459128FC51D600DEFB99 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		412B459328FC54E800DEFB99 /* GoalsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListView.swift; sourceTree = "<group>"; };
 		412B459528FC66F800DEFB99 /* CreateGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalView.swift; sourceTree = "<group>"; };
+		413E38FA28FD889D00917595 /* DatesSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesSelectionView.swift; sourceTree = "<group>"; };
+		41FDBBB028FD95EF00D83FE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		41FDBBB228FD95F200D83FE6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,11 +67,13 @@
 				412B457F28FBFCBA00DEFB99 /* DailyWinApp.swift */,
 				412B459328FC54E800DEFB99 /* GoalsListView.swift */,
 				412B459528FC66F800DEFB99 /* CreateGoalView.swift */,
+				413E38FA28FD889D00917595 /* DatesSelectionView.swift */,
 				412B458328FBFCBA00DEFB99 /* Assets.xcassets */,
 				412B458528FBFCBA00DEFB99 /* Preview Content */,
 				412B458D28FC47C900DEFB99 /* GoalModel.swift */,
 				412B458F28FC4A8400DEFB99 /* GoalView.swift */,
 				412B459128FC51D600DEFB99 /* DateExtension.swift */,
+				41FDBBB128FD95EF00D83FE6 /* Localizable.strings */,
 			);
 			path = DailyWin;
 			sourceTree = "<group>";
@@ -121,6 +128,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 412B457328FBFCBA00DEFB99;
 			productRefGroup = 412B457D28FBFCBA00DEFB99 /* Products */;
@@ -138,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				412B458728FBFCBA00DEFB99 /* Preview Assets.xcassets in Resources */,
+				41FDBBAF28FD95EF00D83FE6 /* Localizable.strings in Resources */,
 				412B458428FBFCBA00DEFB99 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +160,7 @@
 			files = (
 				412B459428FC54E800DEFB99 /* GoalsListView.swift in Sources */,
 				412B459228FC51D600DEFB99 /* DateExtension.swift in Sources */,
+				413E38FB28FD889D00917595 /* DatesSelectionView.swift in Sources */,
 				412B458028FBFCBA00DEFB99 /* DailyWinApp.swift in Sources */,
 				412B459628FC66F800DEFB99 /* CreateGoalView.swift in Sources */,
 				412B458E28FC47C900DEFB99 /* GoalModel.swift in Sources */,
@@ -159,6 +169,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		41FDBBB128FD95EF00D83FE6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41FDBBB028FD95EF00D83FE6 /* en */,
+				41FDBBB228FD95F200D83FE6 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		412B458828FBFCBA00DEFB99 /* Debug */ = {
@@ -211,7 +233,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -265,7 +287,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

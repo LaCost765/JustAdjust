@@ -9,6 +9,10 @@ import Foundation
 
 extension Date {
     
+    var shortFormatted: String {
+        self.getFormatted(dateStyle: .short, timeStyle: .none)
+    }
+    
     /// Преобразовать дату в строку
     /// - Parameters:
     ///   - dateStyle: Формат даты
@@ -18,6 +22,8 @@ extension Date {
         let formatter = DateFormatter()
         formatter.dateStyle = dateStyle
         formatter.timeStyle = timeStyle
+        formatter.locale = Locale(identifier: "ru")
+        formatter.doesRelativeDateFormatting = true
         return formatter.string(from: self)
     }
 }
