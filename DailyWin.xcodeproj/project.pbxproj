@@ -8,17 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		412B458028FBFCBA00DEFB99 /* DailyWinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B457F28FBFCBA00DEFB99 /* DailyWinApp.swift */; };
-		412B458228FBFCBA00DEFB99 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B458128FBFCBA00DEFB99 /* ContentView.swift */; };
 		412B458428FBFCBA00DEFB99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 412B458328FBFCBA00DEFB99 /* Assets.xcassets */; };
 		412B458728FBFCBA00DEFB99 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 412B458628FBFCBA00DEFB99 /* Preview Assets.xcassets */; };
+		412B458E28FC47C900DEFB99 /* GoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B458D28FC47C900DEFB99 /* GoalModel.swift */; };
+		412B459028FC4A8400DEFB99 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B458F28FC4A8400DEFB99 /* GoalView.swift */; };
+		412B459228FC51D600DEFB99 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B459128FC51D600DEFB99 /* DateExtension.swift */; };
+		412B459428FC54E800DEFB99 /* GoalsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B459328FC54E800DEFB99 /* GoalsListView.swift */; };
+		412B459628FC66F800DEFB99 /* CreateGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B459528FC66F800DEFB99 /* CreateGoalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		412B457C28FBFCBA00DEFB99 /* DailyWin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyWin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		412B457F28FBFCBA00DEFB99 /* DailyWinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWinApp.swift; sourceTree = "<group>"; };
-		412B458128FBFCBA00DEFB99 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		412B458328FBFCBA00DEFB99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		412B458628FBFCBA00DEFB99 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		412B458D28FC47C900DEFB99 /* GoalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalModel.swift; sourceTree = "<group>"; };
+		412B458F28FC4A8400DEFB99 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
+		412B459128FC51D600DEFB99 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		412B459328FC54E800DEFB99 /* GoalsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListView.swift; sourceTree = "<group>"; };
+		412B459528FC66F800DEFB99 /* CreateGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,9 +60,13 @@
 			isa = PBXGroup;
 			children = (
 				412B457F28FBFCBA00DEFB99 /* DailyWinApp.swift */,
-				412B458128FBFCBA00DEFB99 /* ContentView.swift */,
+				412B459328FC54E800DEFB99 /* GoalsListView.swift */,
+				412B459528FC66F800DEFB99 /* CreateGoalView.swift */,
 				412B458328FBFCBA00DEFB99 /* Assets.xcassets */,
 				412B458528FBFCBA00DEFB99 /* Preview Content */,
+				412B458D28FC47C900DEFB99 /* GoalModel.swift */,
+				412B458F28FC4A8400DEFB99 /* GoalView.swift */,
+				412B459128FC51D600DEFB99 /* DateExtension.swift */,
 			);
 			path = DailyWin;
 			sourceTree = "<group>";
@@ -137,8 +149,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				412B458228FBFCBA00DEFB99 /* ContentView.swift in Sources */,
+				412B459428FC54E800DEFB99 /* GoalsListView.swift in Sources */,
+				412B459228FC51D600DEFB99 /* DateExtension.swift in Sources */,
 				412B458028FBFCBA00DEFB99 /* DailyWinApp.swift in Sources */,
+				412B459628FC66F800DEFB99 /* CreateGoalView.swift in Sources */,
+				412B458E28FC47C900DEFB99 /* GoalModel.swift in Sources */,
+				412B459028FC4A8400DEFB99 /* GoalView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +291,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,6 +321,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

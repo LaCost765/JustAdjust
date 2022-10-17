@@ -11,7 +11,7 @@ import SwiftUI
 struct DailyWinApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GoalsListView()
         }
     }
 }
