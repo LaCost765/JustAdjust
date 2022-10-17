@@ -12,60 +12,74 @@ struct CreateGoalView: View {
     @State private var goalText: String = ""
     @State private var selectedPriority = GoalPriorityMode.high.iconName
     @State private var selectedFrequency = GoalFrequencyMode.everyday.string
-    @State private var selectedDate: Date = Date()
+    @State private var startDate: Date = Date()
+    @State private var endDate: Date = Date()
     @State private var needEndDate: Bool = false
+    
+    @State private var selectedDateMode = 0
+    let datesMode = ["Дата начала", "Дата конца"]
     
     var body: some View {
         NavigationView {
             Form {
-                Section {
-                    TextEditor(text: $goalText)
-                } footer: {
-                    Text("Опишите вашу цель")
-                }
+//                Section {
+//                    TextEditor(text: $goalText)
+//                } footer: {
+//                    Text("Опишите вашу цель")
+//                }
+//
+//                Section {
+//                    Picker("Приоритет", selection: $selectedPriority) {
+//                        ForEach(GoalPriorityMode.allCases, id: \.iconName) { mode in
+//                            Image(mode.iconName)
+//                        }
+//                    }
+//                    .pickerStyle(.segmented)
+//                } footer: {
+//                    Text("Укажите важность вашей цели. Данная настройка нужна лишь для вашего удобства при поиске или фильтрации ваших целей")
+//                }
                 
+//                Section {
+//                    Picker("Частота", selection: $selectedFrequency) {
+//                        ForEach(GoalFrequencyMode.allCases, id: \.string) { mode in
+//                            Text(mode.string)
+//                        }
+//                    }
+//                    .pickerStyle(.segmented)
+//                } footer: {
+//                    Text("Выбранная частота будет влиять на то, появится ли цель в списке задач на сегодня или нет")
+//                }
+//
                 Section {
-                    Picker("Приоритет", selection: $selectedPriority) {
-                        ForEach(GoalPriorityMode.allCases, id: \.iconName) { mode in
-                            Image(mode.iconName)
+                    VStack {
+                        Picker("", selection: $selectedDateMode) {
+                            Text("Дата начала").tag(0)
+                            Text("Дата конца").tag(1)
                         }
-                    }
-                    .pickerStyle(.segmented)
-                } footer: {
-                    Text("Укажите важность вашей цели. Данная настройка нужна лишь для вашего удобства при поиске или фильтрации ваших целей")
-                }
-                
-                Section {
-                    Picker("Частота", selection: $selectedFrequency) {
-                        ForEach(GoalFrequencyMode.allCases, id: \.string) { mode in
-                            Text(mode.string)
-                        }
-                    }
-                    .pickerStyle(.segmented)
-                } footer: {
-                    Text("Выбранная частота будет влиять на то, появится ли цель в списке задач на сегодня или нет")
-                }
-                
-                Section {
-                    ZStack {
-                        DatePicker("Дата", selection: $selectedDate, displayedComponents: .date)
-                            .datePickerStyle(.graphical)
-                            .blur(radius: needEndDate ? 0 : 10)
-                            .allowsHitTesting(needEndDate)
+                        .pickerStyle(.segmented)
                         
-                        if !needEndDate {
-                            Text("Нажмите чтобы выбрать")
-                                .font(.title2)
+                        let isDatePickerEnabled = (selectedDateMode == 0) || needEndDate
+                        
+                        DatePicker("", selection: selectedDateMode == 0 ? $startDate : $endDate, displayedComponents: .date)
+                            .datePickerStyle(.graphical)
+                            .blur(radius: isDatePickerEnabled ? 0 : 10)
+                            .allowsHitTesting(isDatePickerEnabled)
+                        
+                        if selectedDateMode == 1 {
+                            Text(needEndDate ? "Удалить" : "Нажмите чтобы выбрать")
+                                .font(.headline)
+                                .foregroundColor(needEndDate ? .red : .blue)
                                 .onTapGesture {
                                     withAnimation {
-                                        needEndDate = true
+                                        needEndDate.toggle()
                                     }
                                 }
+                                .padding(.bottom)
+                                .transition(.opacity)
                         }
-                        
                     }
                 } footer: {
-                    Text("Выберите дату, если хотите, чтобы после цель больше не появлялась")
+                    Text("Выберите даты")
                 }
             }
             .navigationTitle("Новая цель")
