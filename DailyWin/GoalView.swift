@@ -9,16 +9,16 @@ import SwiftUI
 
 struct GoalView: View {
     
-    let model: any GoalViewModel
+    let model: Goal
     
     var body: some View {
         VStack {
             HStack(alignment: .top, spacing: 0) {
-                Text(model.goalText)
+                Text(model.wrappedText)
                     .padding()
                     .font(.title.bold())
                 Spacer()
-                Image(model.priorityIconName)
+                Image(model.priorityMode.iconName)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 30)
@@ -36,9 +36,9 @@ struct GoalView: View {
                 }
                 Spacer()
                 VStack(alignment: .trailing) {
-                    Text(model.frequency)
+                    Text(model.frequencyMode.rawValue)
                         .font(.caption)
-                    Text(model.formattedEndDate)
+                    Text("Дата начала")
                         .font(.caption2)
                         .foregroundColor(.secondary)
                 }
@@ -48,20 +48,13 @@ struct GoalView: View {
     }
 }
 
-struct GoalView_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        let model = GoalModel(
-            text: "Сделать 50 отжиманий утром, еще 50 вечером",
-            daysInRow: 65,
-            frequencyMode: .weekdays,
-            priorityMode: .middle,
-            endDate: Date()
-        )
-        
-        GoalView(model: model)
-            .background(Color.secondary.opacity(0.3))
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .padding(.horizontal)
-    }
-}
+//struct GoalView_Previews: PreviewProvider {
+//
+//    static var previews: some View {
+//
+//        GoalView(model: model)
+//            .background(Color.secondary.opacity(0.3))
+//            .clipShape(RoundedRectangle(cornerRadius: 10))
+//            .padding(.horizontal)
+//    }
+//}

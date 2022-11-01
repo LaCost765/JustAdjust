@@ -9,16 +9,14 @@ import SwiftUI
 
 struct CreateGoalView: View {
     
+    @Environment(\.managedObjectContext) var moc
+    @Environment(\.dismiss) var dismiss
+    
     @State private var goalText: String = ""
     @State private var selectedPriority = GoalPriorityMode.high.string
     @State private var selectedFrequency = GoalFrequencyMode.everyday.string
     @State private var startDate: Date = Date()
-    @State private var endDate: Date = Date()
-    @State private var needEndDate: Bool = false
-    
-    @State private var selectedDateMode = 0
-    let datesMode = ["Дата начала", "Дата конца"]
-    
+        
     var body: some View {
         NavigationView {
             Form {
@@ -27,10 +25,13 @@ struct CreateGoalView: View {
                 }
                 
                 Section {
-                    NavigationLink {
-                        DatesSelectionView()
-                    } label: {
-                        Button("Окт 16. 2022 ... Окт 16. 2023") { }
+                    HStack {
+                        Text("Начало")
+                        Spacer()
+                        DatePicker("", selection: $startDate, displayedComponents: .date)
+                            .environment(\.locale, Locale.init(identifier: "ru"))
+                            .labelsHidden()
+                            .id(startDate)
                     }
                     
                     Picker("Важность", selection: $selectedPriority) {
@@ -49,17 +50,24 @@ struct CreateGoalView: View {
                 }
                 
                 Section {
-                    
+                    Button("Создать", action: createGoal)
                 } footer: {
                     Text("Параметры испытания можно будет изменить, но это сбросит его текущий прогресс")
                 }
             }
             .navigationTitle("Новое испытание")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                Button("Сохранить") { }
-            }
         }
+    }
+    
+    private func createGoal() {
+        let newGoal = Goal(context: moc)
+        newGoal.text = goalText
+        newGoal.startDate = startDate
+        newGoal.priority = selectedPriority
+        newGoal.frequency = selectedFrequency
+        try? moc.save()
+        dismiss()
     }
 }
 

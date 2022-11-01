@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct DailyWinApp: App {
+        
     var body: some Scene {
         WindowGroup {
             GoalsListView()
+                .environment(\.managedObjectContext, DataController.context)
         }
     }
 }
