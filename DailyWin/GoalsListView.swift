@@ -14,30 +14,45 @@ struct GoalsListView: View {
     @FetchRequest(sortDescriptors: []) var goals: FetchedResults<Goal>
     
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(goals) { goal in
-                    GoalView(model: goal)
-                        .background(Color.secondary.opacity(0.2))
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .padding(.horizontal)
-                        .padding(.vertical, 4)
-                        .listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
-                        .listRowSeparator(.hidden)
+        TabView {
+            NavigationView {
+                List {
+                    ForEach(goals) { goal in
+                        GoalView(model: goal)
+                            .background(Color.secondary.opacity(0.2))
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .padding(.horizontal)
+                            .padding(.vertical, 4)
+                            .listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
+                            .listRowSeparator(.hidden)
+                    }
+                    .onDelete(perform: deleteGoals)
                 }
-                .onDelete(perform: deleteGoals)
-            }
-            .listStyle(.plain)
-            .navigationTitle("Цели")
-            .sheet(isPresented: $showCreateScreen) {
-                CreateGoalView()
-            }
-            .toolbar {
-                Button {
-                    showCreateScreen = true
-                } label: {
-                    Image(systemName: "plus")
+                .listStyle(.plain)
+                .navigationTitle("Цели")
+                .sheet(isPresented: $showCreateScreen) {
+                    CreateGoalView()
                 }
+                .toolbar {
+                    Button {
+                        showCreateScreen = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
+            .tabItem {
+                Image(systemName: "house.fill")
+                Text("Цели")
+            }
+            
+            NavigationView {
+                Text("Цели на сегодня")
+                    .navigationTitle("Сегодня")
+            }
+            .tabItem {
+                Image(systemName: "star.fill")
+                Text("Сегодня")
             }
         }
     }
