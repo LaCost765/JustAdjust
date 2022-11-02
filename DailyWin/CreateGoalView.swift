@@ -16,6 +16,8 @@ struct CreateGoalView: View {
     @State private var selectedPriority = GoalPriorityMode.high.string
     @State private var selectedFrequency = GoalFrequencyMode.everyday.string
     @State private var startDate: Date = Date()
+    
+    @State private var showCalendar = false
         
     var body: some View {
         NavigationView {
@@ -28,10 +30,20 @@ struct CreateGoalView: View {
                     HStack {
                         Text("Начало")
                         Spacer()
+                        Button(startDate.getFormatted(dateStyle: .medium, timeStyle: .none)) {
+                            withAnimation {
+                                showCalendar.toggle()
+                            }
+                        }
+
+                    }
+                    
+                    if showCalendar {
                         DatePicker("", selection: $startDate, displayedComponents: .date)
                             .environment(\.locale, Locale.init(identifier: "ru"))
                             .labelsHidden()
                             .id(startDate)
+                            .datePickerStyle(.graphical)
                     }
                     
                     Picker("Важность", selection: $selectedPriority) {
@@ -51,8 +63,6 @@ struct CreateGoalView: View {
                 
                 Section {
                     Button("Создать", action: createGoal)
-                } footer: {
-                    Text("Параметры испытания можно будет изменить, но это сбросит его текущий прогресс")
                 }
             }
             .navigationTitle("Новое испытание")
