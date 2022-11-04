@@ -18,12 +18,13 @@ struct GoalView: View {
                     .padding()
                     .font(.title.bold())
                 Spacer()
-                Image(model.priorityMode.iconName)
+                Image(systemName: "flame.circle.fill")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 30)
                     .padding(.trailing)
                     .padding(.top)
+                    .foregroundColor(model.priorityMode.iconColor)
             }
 
             HStack {
@@ -47,14 +48,3 @@ struct GoalView: View {
         }
     }
 }
-
-//struct GoalView_Previews: PreviewProvider {
-//
-//    static var previews: some View {
-//
-//        GoalView(model: model)
-//            .background(Color.secondary.opacity(0.3))
-//            .clipShape(RoundedRectangle(cornerRadius: 10))
-//            .padding(.horizontal)
-//    }
-//}

@@ -12,7 +12,7 @@ struct DailyWinApp: App {
         
     var body: some Scene {
         WindowGroup {
-            GoalsListView()
+            MainTabView()
                 .environment(\.managedObjectContext, DataController.context)
         }
     }

@@ -43,7 +43,7 @@ struct CreateGoalView: View {
                             .environment(\.locale, Locale.init(identifier: "ru"))
                             .labelsHidden()
                             .id(startDate)
-                            .datePickerStyle(.graphical)
+                            .datePickerStyle(.wheel)
                     }
                     
                     Picker("Важность", selection: $selectedPriority) {
@@ -63,6 +63,7 @@ struct CreateGoalView: View {
                 
                 Section {
                     Button("Создать", action: createGoal)
+                        .disabled(goalText.isEmpty)
                 }
             }
             .navigationTitle("Новое испытание")

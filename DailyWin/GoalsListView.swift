@@ -14,55 +14,53 @@ struct GoalsListView: View {
     @FetchRequest(sortDescriptors: []) var goals: FetchedResults<Goal>
     
     var body: some View {
-        TabView {
-            NavigationView {
-                List {
-                    ForEach(goals) { goal in
-                        GoalView(model: goal)
-                            .background(Color.secondary.opacity(0.2))
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .padding(.horizontal)
-                            .padding(.vertical, 4)
-                            .listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
-                            .listRowSeparator(.hidden)
-                    }
-                    .onDelete(perform: deleteGoals)
-                }
-                .listStyle(.plain)
-                .navigationTitle("Цели")
-                .sheet(isPresented: $showCreateScreen) {
-                    CreateGoalView()
-                }
-                .toolbar {
-                    Button {
+        NavigationView {
+            List {
+                
+                if goals.isEmpty {
+                    Button("Добавить цель") {
                         showCreateScreen = true
+                    }
+                }
+                
+                ForEach(goals) { goal in
+                    NavigationLink {
+                        Text("\(Date().getNumberOfWeekDay())")
                     } label: {
-                        Image(systemName: "plus")
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text(goal.wrappedText)
+                                .font(.headline)
+                                .lineLimit(2)
+                            Text(goal.frequencyMode.string)
+                                .foregroundStyle(.secondary)
+                                .font(.subheadline)
+                        }
+                    }
+                    .swipeActions(edge: .trailing) {
+                        Button(role: .destructive) {
+                            deleteGoal(goal: goal)
+                        } label: {
+                            Label("Удалить", systemImage: "trash")
+                        }
                     }
                 }
             }
-            .tabItem {
-                Image(systemName: "house.fill")
-                Text("Цели")
+            .navigationTitle("Цели")
+            .sheet(isPresented: $showCreateScreen) {
+                CreateGoalView()
             }
-            
-            NavigationView {
-                Text("Цели на сегодня")
-                    .navigationTitle("Сегодня")
-            }
-            .tabItem {
-                Image(systemName: "star.fill")
-                Text("Сегодня")
+            .toolbar {
+                Button {
+                    showCreateScreen = true
+                } label: {
+                    Image(systemName: "plus")
+                }
             }
         }
     }
     
-    func deleteGoals(at offsets: IndexSet) {
-        for offset in offsets {
-            let goal = goals[offset]
-            moc.delete(goal)
-        }
-        
+    func deleteGoal(goal: Goal) {
+        moc.delete(goal)
         try? moc.save()
     }
 }

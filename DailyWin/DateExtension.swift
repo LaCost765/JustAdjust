@@ -9,8 +9,21 @@ import Foundation
 
 extension Date {
     
+    
+    
     var shortFormatted: String {
         self.getFormatted(dateStyle: .short, timeStyle: .none)
+    }
+    
+    func isLess(than date: Date) -> Bool {
+        let order = Calendar.current.compare(self, to: date, toGranularity: .day)
+        
+        switch order {
+        case .orderedSame, .orderedDescending:
+            return false
+        case .orderedAscending:
+            return true
+        }
     }
     
     /// Преобразовать дату в строку
@@ -25,5 +38,9 @@ extension Date {
         formatter.locale = Locale(identifier: "ru")
         formatter.doesRelativeDateFormatting = true
         return formatter.string(from: self)
+    }
+    
+    func getNumberOfWeekDay() -> Int {
+        return Calendar.current.component(.weekday, from: self)
     }
 }

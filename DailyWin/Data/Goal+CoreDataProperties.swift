@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-
+import SwiftUI
 
 extension Goal {
 
@@ -21,6 +21,7 @@ extension Goal {
     @NSManaged public var frequency: String?
     @NSManaged public var startDate: Date?
     @NSManaged public var priority: String?
+    @NSManaged public var lastCompleteDate: Date?
 }
 
 extension Goal : Identifiable { }
@@ -28,6 +29,36 @@ extension Goal : Identifiable { }
 extension Goal {
     var wrappedText: String {
         text ?? "Не удалось получить"
+    }
+    
+    var isNeedToday: Bool {
+        guard let startDate = startDate
+        else { return false }
+        
+        let now = Date()
+        let dateCondition = now > startDate
+        
+        var frequencyCondition: Bool {
+            let numberOfWeekday = now.getNumberOfWeekDay()
+            switch frequencyMode {
+            case .everyday:
+                return true
+            case .weekends:
+                return numberOfWeekday == 7 || numberOfWeekday == 1
+            case .weekdays:
+                return numberOfWeekday > 1 && numberOfWeekday < 7
+            }
+        }
+        
+        var uncompleteCondition: Bool {
+            guard let lastCompleteDate = lastCompleteDate else {
+                return true
+            }
+
+            return lastCompleteDate.isLess(than: .now)
+        }
+        
+        return dateCondition && frequencyCondition && uncompleteCondition
     }
 }
 
@@ -77,32 +108,25 @@ extension Goal {
             self.rawValue
         }
         
-        var iconName: String {
+        var iconColor: Color {
             switch self {
             case .high:
-                return "redFlame"
+                return .red
             case .middle:
-                return "orangeFlame"
+                return .orange
             case .low:
-                return "greenFlame"
+                return.green
             }
         }
     }
     
     enum FrequencyMode: String, CaseIterable {
-        case everyday
-        case weekdays
-        case weekends
+        case everyday = "каждый день"
+        case weekdays = "по будням"
+        case weekends = "по выходным"
         
         var string: String {
-            switch self {
-            case .everyday:
-                return "каждый день"
-            case .weekdays:
-                return "по будням"
-            case .weekends:
-                return "по выходным"
-            }
+            self.rawValue
         }
     }
 }
