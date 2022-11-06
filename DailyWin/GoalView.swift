@@ -39,7 +39,7 @@ struct GoalView: View {
                 VStack(alignment: .trailing) {
                     Text(model.frequencyMode.rawValue)
                         .font(.caption)
-                    Text("Дата начала")
+                    Text(model.startDate?.getFormatted(dateStyle: .medium, timeStyle: .none) ?? "")
                         .font(.caption2)
                         .foregroundColor(.secondary)
                 }

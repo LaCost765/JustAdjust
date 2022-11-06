@@ -71,6 +71,7 @@
 			children = (
 				41D91CE4290EA5A00053A98A /* Data */,
 				412B457F28FBFCBA00DEFB99 /* DailyWinApp.swift */,
+				41A3216929158A7500F1FD70 /* MainTabView.swift */,
 				412B459328FC54E800DEFB99 /* GoalsListView.swift */,
 				41D38550291563C800ACC0E5 /* TodayGoalsView.swift */,
 				412B459528FC66F800DEFB99 /* CreateGoalView.swift */,
@@ -97,7 +98,6 @@
 				41D91CE6290EA7680053A98A /* Goal+CoreDataProperties.swift */,
 				41D91CE1290EA4400053A98A /* CoreData.xcdatamodeld */,
 				41C1EC4329105E57006B4942 /* DataController.swift */,
-				41A3216929158A7500F1FD70 /* MainTabView.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";

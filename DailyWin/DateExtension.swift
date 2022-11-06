@@ -9,7 +9,10 @@ import Foundation
 
 extension Date {
     
-    
+    var date: Date {
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: self)
+        return Calendar.current.date(from: components)!
+    }
     
     var shortFormatted: String {
         self.getFormatted(dateStyle: .short, timeStyle: .none)

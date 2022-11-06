@@ -27,6 +27,7 @@ extension Goal {
 extension Goal : Identifiable { }
 
 extension Goal {
+   
     var wrappedText: String {
         text ?? "Не удалось получить"
     }
