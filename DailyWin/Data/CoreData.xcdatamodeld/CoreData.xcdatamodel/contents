@@ -8,6 +8,7 @@
         <relationship name="progressInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProgressInfo" inverseName="goal" inverseEntity="ProgressInfo"/>
     </entity>
     <entity name="ProgressInfo" representedClassName="ProgressInfo" syncable="YES" codeGenerationType="category">
+        <attribute name="bestResult" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="currentActionDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="currentStartDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="originStartDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>

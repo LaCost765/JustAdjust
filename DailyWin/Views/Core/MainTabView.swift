@@ -13,12 +13,12 @@ struct MainTabView: View {
     
     var body: some View {
         TabView {
-            TodayGoalsView()
+            GoalsListView()
                 .tabItem {
                     Image(systemName: "house.fill")
                 }
             
-            GoalsListView()
+            TodayGoalsView()
                 .tabItem {
                     Image(systemName: "star.fill")
                 }

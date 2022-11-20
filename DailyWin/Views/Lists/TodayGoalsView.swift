@@ -53,8 +53,7 @@ struct TodayGoalsView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                ForEach(goals) { goal in
-                    
+                ForEach(goals.filter({ $0.isNeedToday })) { goal in
                     GoalView(model: goal)
                         .background(.thickMaterial)
                         .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -74,13 +73,6 @@ struct TodayGoalsView: View {
                                 }
                             }
                         }
-                        .onLongPressGesture(minimumDuration: 0.25, perform: {
-                            UINotificationFeedbackGenerator().notificationOccurred(.success)
-                            withAnimation {
-                                selectedGoal = goal
-                                showOverlay = true
-                            }
-                        })
                         .overlay {
                             if showOverlay, goal == selectedGoal { overlay }
                         }

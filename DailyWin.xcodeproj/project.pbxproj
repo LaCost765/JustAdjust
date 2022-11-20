@@ -71,17 +71,11 @@
 		412B457E28FBFCBA00DEFB99 /* DailyWin */ = {
 			isa = PBXGroup;
 			children = (
+				41535742292AA89500274DF6 /* Views */,
 				41D91CE4290EA5A00053A98A /* Data */,
-				412B457F28FBFCBA00DEFB99 /* DailyWinApp.swift */,
-				41A3216929158A7500F1FD70 /* MainTabView.swift */,
-				41BEC3CF29196512002EA3EC /* GoalDetailsView.swift */,
-				412B459328FC54E800DEFB99 /* GoalsListView.swift */,
-				41D38550291563C800ACC0E5 /* TodayGoalsView.swift */,
-				412B459528FC66F800DEFB99 /* CreateGoalView.swift */,
-				412B458328FBFCBA00DEFB99 /* Assets.xcassets */,
+				41535746292AA8E200274DF6 /* Helpers */,
 				412B458528FBFCBA00DEFB99 /* Preview Content */,
-				412B458F28FC4A8400DEFB99 /* GoalView.swift */,
-				412B459128FC51D600DEFB99 /* DateExtension.swift */,
+				412B458328FBFCBA00DEFB99 /* Assets.xcassets */,
 			);
 			path = DailyWin;
 			sourceTree = "<group>";
@@ -92,6 +86,52 @@
 				412B458628FBFCBA00DEFB99 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		41535742292AA89500274DF6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				41535745292AA8CF00274DF6 /* Lists */,
+				41535744292AA8BE00274DF6 /* Details */,
+				41535743292AA8A000274DF6 /* Core */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		41535743292AA8A000274DF6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				412B457F28FBFCBA00DEFB99 /* DailyWinApp.swift */,
+				41A3216929158A7500F1FD70 /* MainTabView.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		41535744292AA8BE00274DF6 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				412B459528FC66F800DEFB99 /* CreateGoalView.swift */,
+				41BEC3CF29196512002EA3EC /* GoalDetailsView.swift */,
+				412B458F28FC4A8400DEFB99 /* GoalView.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		41535745292AA8CF00274DF6 /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				41D38550291563C800ACC0E5 /* TodayGoalsView.swift */,
+				412B459328FC54E800DEFB99 /* GoalsListView.swift */,
+			);
+			path = Lists;
+			sourceTree = "<group>";
+		};
+		41535746292AA8E200274DF6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				412B459128FC51D600DEFB99 /* DateExtension.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		419240C6291AC4C700210B76 /* Goal */ = {

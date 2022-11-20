@@ -20,6 +20,16 @@ extension Goal {
     func markCompleted() {
         lastActionDate = .now
         progressInfo?.markCompleted()
+        let currentProgress = Int16(currentProgressInDays)
+        
+        guard let bestResult = progressInfo?.bestResult else {
+            progressInfo?.bestResult = currentProgress
+            return
+        }
+        
+        if currentProgress > bestResult {
+            progressInfo?.bestResult = currentProgress
+        }
     }
     
     func markUncompleted() {
@@ -65,6 +75,14 @@ extension Goal {
 
 extension Goal {
     
+    var bestResult: String {
+        guard let result = progressInfo?.bestResult else {
+            return "отсутствует"
+        }
+        
+        return "\(result) \(getFormattedDays(for: Int(result)))"
+    }
+    
     var currentProgressInDays: Int {
         guard let progressInfo = progressInfo,
               let currentActionDate = progressInfo.currentActionDate,
@@ -85,27 +103,6 @@ extension Goal {
         }
     }
     
-    var formattedDaysInRow: String {
-        
-        let daysInRow = currentProgressInDays
-        
-        guard daysInRow < 10 || daysInRow > 20 else {
-            return "дней подряд"
-        }
-
-        let lastDigit = daysInRow % 10
-        switch lastDigit {
-        case 0:
-            return "дней"
-        case 1:
-            return "день"
-        case 2...4:
-            return "дня подряд"
-        default:
-            return "дней подряд"
-        }
-    }
-    
     var priorityMode: PriorityMode {
         guard let priority = priority,
               let mode = PriorityMode.init(rawValue: priority)
@@ -119,14 +116,33 @@ extension Goal {
         else { return .everyday }
         return frequencyMode
     }
+    
+    func getFormattedDays(for days: Int) -> String {
+        
+        guard days < 10 || days > 20 else {
+            return "дней подряд"
+        }
+
+        let lastDigit = days % 10
+        switch lastDigit {
+        case 0:
+            return "дней"
+        case 1:
+            return "день"
+        case 2...4:
+            return "дня подряд"
+        default:
+            return "дней подряд"
+        }
+    }
 }
 
 extension Goal {
     
     enum PriorityMode: String, CaseIterable {
-        case high = "Высокая"
-        case middle = "Средняя"
-        case low = "Низкая"
+        case high = "высокая"
+        case middle = "средняя"
+        case low = "низкая"
         
         var string: String {
             self.rawValue

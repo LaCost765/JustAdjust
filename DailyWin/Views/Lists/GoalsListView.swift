@@ -9,9 +9,9 @@ import SwiftUI
 
 struct GoalsListView: View {
     
-    @State private var showCreateScreen = false
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) var goals: FetchedResults<Goal>
+    @State private var showCreateScreen = false
     
     var body: some View {
         NavigationView {
@@ -50,10 +50,13 @@ struct GoalsListView: View {
                 CreateGoalView()
             }
             .toolbar {
-                Button {
-                    showCreateScreen = true
-                } label: {
-                    Image(systemName: "plus")
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Text(showCreateScreen ? " " : "").hidden()
+                    Button {
+                        showCreateScreen = true
+                    } label: {
+                        Label("Добавить", systemImage: "plus")
+                    }
                 }
             }
         }

@@ -29,10 +29,9 @@ struct GoalView: View {
 
             HStack {
                 HStack(spacing: 4) {
-//                    Text("\(model.daysInRow)")
-                    Text("")
+                    Text("\(model.currentProgressInDays)")
                         .font(.title2.bold())
-                    Text(model.formattedDaysInRow)
+                    Text(model.getFormattedDays(for: model.currentProgressInDays))
                         .font(.title3.bold())
                         .foregroundColor(.secondary)
                 }
@@ -40,8 +39,7 @@ struct GoalView: View {
                 VStack(alignment: .trailing) {
                     Text(model.frequencyMode.rawValue)
                         .font(.caption)
-                    Text("")
-//                    Text(model.startDate?.getFormatted(dateStyle: .medium, timeStyle: .none) ?? "")
+                    Text(model.progressInfo?.originStartDate?.getFormatted(dateStyle: .medium, timeStyle: .none) ?? "")
                         .font(.caption2)
                         .foregroundColor(.secondary)
                 }
