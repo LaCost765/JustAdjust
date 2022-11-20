@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="22A380" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Goal" representedClassName="Goal" syncable="YES">
-        <attribute name="daysInRow" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    <entity name="Goal" representedClassName="Goal" syncable="YES" codeGenerationType="category">
         <attribute name="frequency" optional="YES" attributeType="String"/>
-        <attribute name="lastCompleteDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="priority" optional="YES" attributeType="String"/>
-        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="text" optional="YES" attributeType="String"/>
+        <relationship name="progressInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProgressInfo" inverseName="goal" inverseEntity="ProgressInfo"/>
+    </entity>
+    <entity name="ProgressInfo" representedClassName="ProgressInfo" syncable="YES" codeGenerationType="category">
+        <attribute name="currentActionDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="currentStartDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="lastActionDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="originStartDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="goal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goal" inverseName="progressInfo" inverseEntity="Goal"/>
     </entity>
 </model>

@@ -14,8 +14,11 @@ struct TodayGoalsView: View {
     
     @FetchRequest(
         sortDescriptors: [],
+//        predicate: .init(
+//            format: "progressInfo.lastActionDate == nil OR progressInfo.lastActionDate < %@", Date.now.date as NSDate
+//        ),
         predicate: .init(
-            format: "lastCompleteDate == nil OR lastCompleteDate < %@", Date.now.date as NSDate
+            format: "progressInfo.lastActionDate == nil"
         ),
         animation: .easeIn
     )
@@ -30,7 +33,7 @@ struct TodayGoalsView: View {
                 .opacity(0.8)
             HStack {
                 Spacer()
-                Button(action: markGoalCompleted) {
+                Button(action: markGoalUncompleted) {
                     Image(systemName: "xmark.circle.fill")
                         .resizable()
                         .frame(width: 40, height: 40)
@@ -74,6 +77,13 @@ struct TodayGoalsView: View {
                                 }
                             }
                         }
+                        .onLongPressGesture(minimumDuration: 0.25, perform: {
+                            UINotificationFeedbackGenerator().notificationOccurred(.success)
+                            withAnimation {
+                                selectedGoal = goal
+                                showOverlay = true
+                            }
+                        })
                         .overlay {
                             if showOverlay, goal == selectedGoal { overlay }
                         }
@@ -87,11 +97,20 @@ struct TodayGoalsView: View {
     
     func markGoalCompleted() {
         withAnimation(.default.delay(0.2)) {
-            selectedGoal?.lastCompleteDate = .now.date
+            selectedGoal?.markCompleted()
             selectedGoal = nil
             showOverlay = false
         }
-//        try? moc.save()
+        try? moc.save()
+    }
+    
+    func markGoalUncompleted() {
+        withAnimation(.default.delay(0.2)) {
+            selectedGoal?.markUncompleted()
+            selectedGoal = nil
+            showOverlay = false
+        }
+        try? moc.save()
     }
 }
 

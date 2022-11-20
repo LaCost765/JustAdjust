@@ -27,3 +27,15 @@ class DataController: ObservableObject {
     
     private init() { }
 }
+
+extension DataController {
+    static var testGoal: Goal {
+        let goal = Goal(context: context)
+        goal.text = "Тестовая цель, не очень длинная, не очень короткая"
+//        goal.startDate = .now
+//        goal.daysInRow = 5
+        goal.frequency = "каждый день"
+        goal.priority = "Высокая"
+        return goal
+    }
+}

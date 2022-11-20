@@ -25,7 +25,7 @@ struct GoalsListView: View {
                 
                 ForEach(goals) { goal in
                     NavigationLink {
-                        Text("\(Date().getNumberOfWeekDay())")
+                        GoalDetailsView(goal: goal)
                     } label: {
                         VStack(alignment: .leading, spacing: 6) {
                             Text(goal.wrappedText)

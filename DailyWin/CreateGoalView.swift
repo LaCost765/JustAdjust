@@ -74,9 +74,16 @@ struct CreateGoalView: View {
     private func createGoal() {
         let newGoal = Goal(context: moc)
         newGoal.text = goalText
-        newGoal.startDate = startDate
         newGoal.priority = selectedPriority
         newGoal.frequency = selectedFrequency
+        
+        let progressInfo = ProgressInfo(
+            goal: newGoal,
+            startDate: startDate,
+            context: moc
+        )
+        newGoal.progressInfo = progressInfo
+        
         try? moc.save()
         dismiss()
     }

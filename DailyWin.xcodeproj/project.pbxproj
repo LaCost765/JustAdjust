@@ -14,12 +14,13 @@
 		412B459228FC51D600DEFB99 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B459128FC51D600DEFB99 /* DateExtension.swift */; };
 		412B459428FC54E800DEFB99 /* GoalsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B459328FC54E800DEFB99 /* GoalsListView.swift */; };
 		412B459628FC66F800DEFB99 /* CreateGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B459528FC66F800DEFB99 /* CreateGoalView.swift */; };
+		419240D2291AC73700210B76 /* ProgressInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419240D0291AC73700210B76 /* ProgressInfo+CoreDataClass.swift */; };
 		41A3216A29158A7500F1FD70 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A3216929158A7500F1FD70 /* MainTabView.swift */; };
+		41BEC3D029196512002EA3EC /* GoalDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BEC3CF29196512002EA3EC /* GoalDetailsView.swift */; };
 		41C1EC4429105E57006B4942 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C1EC4329105E57006B4942 /* DataController.swift */; };
 		41D38551291563C800ACC0E5 /* TodayGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D38550291563C800ACC0E5 /* TodayGoalsView.swift */; };
 		41D91CE3290EA4400053A98A /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41D91CE1290EA4400053A98A /* CoreData.xcdatamodeld */; };
 		41D91CE7290EA7680053A98A /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D91CE5290EA7680053A98A /* Goal+CoreDataClass.swift */; };
-		41D91CE8290EA7680053A98A /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D91CE6290EA7680053A98A /* Goal+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,12 +32,13 @@
 		412B459128FC51D600DEFB99 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		412B459328FC54E800DEFB99 /* GoalsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListView.swift; sourceTree = "<group>"; };
 		412B459528FC66F800DEFB99 /* CreateGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalView.swift; sourceTree = "<group>"; };
+		419240D0291AC73700210B76 /* ProgressInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgressInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		41A3216929158A7500F1FD70 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		41BEC3CF29196512002EA3EC /* GoalDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailsView.swift; sourceTree = "<group>"; };
 		41C1EC4329105E57006B4942 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		41D38550291563C800ACC0E5 /* TodayGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayGoalsView.swift; sourceTree = "<group>"; };
 		41D91CE2290EA4400053A98A /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		41D91CE5290EA7680053A98A /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
-		41D91CE6290EA7680053A98A /* Goal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				41D91CE4290EA5A00053A98A /* Data */,
 				412B457F28FBFCBA00DEFB99 /* DailyWinApp.swift */,
 				41A3216929158A7500F1FD70 /* MainTabView.swift */,
+				41BEC3CF29196512002EA3EC /* GoalDetailsView.swift */,
 				412B459328FC54E800DEFB99 /* GoalsListView.swift */,
 				41D38550291563C800ACC0E5 /* TodayGoalsView.swift */,
 				412B459528FC66F800DEFB99 /* CreateGoalView.swift */,
@@ -91,11 +94,27 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		41D91CE4290EA5A00053A98A /* Data */ = {
+		419240C6291AC4C700210B76 /* Goal */ = {
 			isa = PBXGroup;
 			children = (
 				41D91CE5290EA7680053A98A /* Goal+CoreDataClass.swift */,
-				41D91CE6290EA7680053A98A /* Goal+CoreDataProperties.swift */,
+			);
+			path = Goal;
+			sourceTree = "<group>";
+		};
+		419240CB291AC69E00210B76 /* ProgressInfo */ = {
+			isa = PBXGroup;
+			children = (
+				419240D0291AC73700210B76 /* ProgressInfo+CoreDataClass.swift */,
+			);
+			path = ProgressInfo;
+			sourceTree = "<group>";
+		};
+		41D91CE4290EA5A00053A98A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				419240CB291AC69E00210B76 /* ProgressInfo */,
+				419240C6291AC4C700210B76 /* Goal */,
 				41D91CE1290EA4400053A98A /* CoreData.xcdatamodeld */,
 				41C1EC4329105E57006B4942 /* DataController.swift */,
 			);
@@ -181,9 +200,10 @@
 				41A3216A29158A7500F1FD70 /* MainTabView.swift in Sources */,
 				41C1EC4429105E57006B4942 /* DataController.swift in Sources */,
 				412B459628FC66F800DEFB99 /* CreateGoalView.swift in Sources */,
-				41D91CE8290EA7680053A98A /* Goal+CoreDataProperties.swift in Sources */,
+				41BEC3D029196512002EA3EC /* GoalDetailsView.swift in Sources */,
 				412B459028FC4A8400DEFB99 /* GoalView.swift in Sources */,
 				41D91CE3290EA4400053A98A /* CoreData.xcdatamodeld in Sources */,
+				419240D2291AC73700210B76 /* ProgressInfo+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

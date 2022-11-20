@@ -14,6 +14,53 @@ extension Date {
         return Calendar.current.date(from: components)!
     }
     
+    var nextDay: Date {
+        guard let day = Calendar.current.date(byAdding: .day, value: 1, to: self) else {
+            fatalError()
+        }
+        return day
+    }
+    
+    var nextWeekendDay: Date {
+        guard let nextWeekend = Calendar.current.nextWeekend(startingAfter: self) else {
+            fatalError()
+        }
+        return nextWeekend.start
+    }
+    
+    var nextWeekday: Date {
+        var daysToAdd: Int {
+            switch self.getWeekdayNumber() {
+            case 2...5:
+                return 1
+            case 6:
+                return 3
+            case 7:
+                return 2
+            case 1:
+                return 1
+            default:
+                fatalError()
+            }
+        }
+        
+        guard let nextWeekDay = Calendar.current.date(byAdding: .day, value: daysToAdd, to: self) else {
+            fatalError()
+        }
+        
+        return nextWeekDay
+    }
+    
+    var isWeekend: Bool {
+        let number = self.getWeekdayNumber()
+        return (number == 7) || (number == 1)
+    }
+    
+    var isWeekday: Bool {
+        let number = self.getWeekdayNumber()
+        return (number > 1) && (number < 7)
+    }
+    
     var shortFormatted: String {
         self.getFormatted(dateStyle: .short, timeStyle: .none)
     }
@@ -43,7 +90,9 @@ extension Date {
         return formatter.string(from: self)
     }
     
-    func getNumberOfWeekDay() -> Int {
+    /// Получить номер дня недели
+    /// - Returns: Число от 1(вс) до 7(сб)
+    func getWeekdayNumber() -> Int {
         return Calendar.current.component(.weekday, from: self)
     }
 }
