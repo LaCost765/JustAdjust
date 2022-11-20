@@ -57,9 +57,9 @@ struct GoalDetailsView: View {
                         .scaledToFit()
                         .frame(width: 24)
                         .foregroundColor(.yellow)
-                    Text("Старт")
+                    Text("Прогресс")
                     Spacer()
-                    Text(goal.progressInfo?.originStartDate?.shortFormatted ?? "error")
+                    Text("\(goal.currentProgressInDays) \(goal.formattedDaysInRow)")
                         .foregroundColor(.secondary)
                 }
                 HStack {

@@ -18,10 +18,12 @@ public class Goal: NSManagedObject {
 extension Goal {
    
     func markCompleted() {
+        lastActionDate = .now
         progressInfo?.markCompleted()
     }
     
     func markUncompleted() {
+        lastActionDate = .now
         progressInfo?.markUncompleted()
     }
     
@@ -30,56 +32,78 @@ extension Goal {
     }
     
     var isNeedToday: Bool {
-        true
-//        guard let startDate = startDate
-//        else { return false }
-//
-//        let now = Date()
-//        let dateCondition = now > startDate
-//
-//        var frequencyCondition: Bool {
-//            let numberOfWeekday = now.getNumberOfWeekDay()
-//            switch frequencyMode {
-//            case .everyday:
-//                return true
-//            case .weekends:
-//                return numberOfWeekday == 7 || numberOfWeekday == 1
-//            case .weekdays:
-//                return numberOfWeekday > 1 && numberOfWeekday < 7
-//            }
-//        }
-//
-//        var uncompleteCondition: Bool {
-//            guard let lastCompleteDate = lastCompleteDate else {
-//                return true
-//            }
-//
-//            return lastCompleteDate.isLess(than: .now)
-//        }
-//
-//        return dateCondition && frequencyCondition && uncompleteCondition
+        guard let startDate = progressInfo?.originStartDate
+        else {
+            fatalError()
+        }
+
+        let dateCondition = .now > startDate
+
+        var frequencyCondition: Bool {
+            let numberOfWeekday = Date.now.weekdayNumber
+            switch frequencyMode {
+            case .everyday:
+                return true
+            case .weekends:
+                return numberOfWeekday == 7 || numberOfWeekday == 1
+            case .weekdays:
+                return numberOfWeekday > 1 && numberOfWeekday < 7
+            }
+        }
+
+        var uncompleteCondition: Bool {
+            guard let lastActionDate = lastActionDate else {
+                return true
+            }
+
+            return lastActionDate.isLess(than: .now)
+        }
+
+        return dateCondition && frequencyCondition && uncompleteCondition
     }
 }
 
 extension Goal {
-
+    
+    var currentProgressInDays: Int {
+        guard let progressInfo = progressInfo,
+              let currentActionDate = progressInfo.currentActionDate,
+              let currentStartDate = progressInfo.currentStartDate
+        else {
+            fatalError()
+        }
+        
+        if currentActionDate < .now || currentStartDate == currentActionDate {
+            return 0
+        }
+        
+        if let lastActionDate = lastActionDate {
+            return lastActionDate.getDifferenceInDays(with: currentStartDate)
+        } else {
+            // такого по идее быть не должно
+            return 0
+        }
+    }
+    
     var formattedDaysInRow: String {
-        ""
-//        guard daysInRow < 10 || daysInRow > 20 else {
-//            return "дней подряд"
-//        }
-//
-//        let lastDigit = daysInRow % 10
-//        switch lastDigit {
-//        case 0:
-//            return "дней"
-//        case 1:
-//            return "день"
-//        case 2...4:
-//            return "дня подряд"
-//        default:
-//            return "дней подряд"
-//        }
+        
+        let daysInRow = currentProgressInDays
+        
+        guard daysInRow < 10 || daysInRow > 20 else {
+            return "дней подряд"
+        }
+
+        let lastDigit = daysInRow % 10
+        switch lastDigit {
+        case 0:
+            return "дней"
+        case 1:
+            return "день"
+        case 2...4:
+            return "дня подряд"
+        default:
+            return "дней подряд"
+        }
     }
     
     var priorityMode: PriorityMode {

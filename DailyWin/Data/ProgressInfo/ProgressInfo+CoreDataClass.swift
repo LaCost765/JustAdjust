@@ -30,12 +30,10 @@ public class ProgressInfo: NSManagedObject {
 extension ProgressInfo {
     
     func markCompleted() {
-        lastActionDate = .now
         currentActionDate = calculateNextActionDate()
     }
     
     func markUncompleted() {
-        lastActionDate = .now
         let nextActionDate = calculateNextActionDate()
         currentActionDate = nextActionDate
         currentStartDate = nextActionDate

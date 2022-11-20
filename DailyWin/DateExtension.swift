@@ -9,6 +9,11 @@ import Foundation
 
 extension Date {
     
+    /// Номер дня недели: число от 1(вс) до 7(сб)
+    var weekdayNumber: Int {
+        return Calendar.current.component(.weekday, from: self)
+    }
+    
     var date: Date {
         let components = Calendar.current.dateComponents([.year, .month, .day], from: self)
         return Calendar.current.date(from: components)!
@@ -30,7 +35,7 @@ extension Date {
     
     var nextWeekday: Date {
         var daysToAdd: Int {
-            switch self.getWeekdayNumber() {
+            switch self.weekdayNumber {
             case 2...5:
                 return 1
             case 6:
@@ -52,12 +57,12 @@ extension Date {
     }
     
     var isWeekend: Bool {
-        let number = self.getWeekdayNumber()
+        let number = self.weekdayNumber
         return (number == 7) || (number == 1)
     }
     
     var isWeekday: Bool {
-        let number = self.getWeekdayNumber()
+        let number = self.weekdayNumber
         return (number > 1) && (number < 7)
     }
     
@@ -90,9 +95,17 @@ extension Date {
         return formatter.string(from: self)
     }
     
-    /// Получить номер дня недели
-    /// - Returns: Число от 1(вс) до 7(сб)
-    func getWeekdayNumber() -> Int {
-        return Calendar.current.component(.weekday, from: self)
+    func getDifferenceInDays(with date: Date) -> Int {
+        Calendar.current.numberOfDaysBetween(date, and: self)
+    }
+}
+
+extension Calendar {
+    func numberOfDaysBetween(_ from: Date, and to: Date) -> Int {
+        let fromDate = startOfDay(for: from)
+        let toDate = startOfDay(for: to)
+        let numberOfDays = dateComponents([.day], from: fromDate, to: toDate)
+        
+        return numberOfDays.day! + 1
     }
 }

@@ -14,11 +14,8 @@ struct TodayGoalsView: View {
     
     @FetchRequest(
         sortDescriptors: [],
-//        predicate: .init(
-//            format: "progressInfo.lastActionDate == nil OR progressInfo.lastActionDate < %@", Date.now.date as NSDate
-//        ),
         predicate: .init(
-            format: "progressInfo.lastActionDate == nil"
+            format: "lastActionDate == nil OR lastActionDate < %@", Date.now.date as NSDate
         ),
         animation: .easeIn
     )
