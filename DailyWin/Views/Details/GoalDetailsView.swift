@@ -73,17 +73,6 @@ struct GoalDetailsView: View {
                     Text("\(goal.bestResult)")
                         .foregroundColor(.secondary)
                 }
-                HStack {
-                    Image(systemName: "calendar")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 24)
-                        .foregroundColor(.blue)
-                    Text("Создано")
-                    Spacer()
-                    Text("\(goal.progressInfo?.originStartDate?.getFormatted(dateStyle: .medium, timeStyle: .none) ?? "ошибка")")
-                        .foregroundColor(.secondary)
-                }
             } header: {
                 Text("Прогресс")
             }

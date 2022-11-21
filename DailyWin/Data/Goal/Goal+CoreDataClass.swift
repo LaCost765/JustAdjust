@@ -47,7 +47,7 @@ extension Goal {
             fatalError()
         }
 
-        let dateCondition = .now > startDate
+        let dateCondition = .now.date >= startDate.date
 
         var frequencyCondition: Bool {
             let numberOfWeekday = Date.now.weekdayNumber

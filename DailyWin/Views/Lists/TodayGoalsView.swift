@@ -21,6 +21,10 @@ struct TodayGoalsView: View {
     )
     var goals: FetchedResults<Goal>
     
+    var todayGoals: [Goal] {
+        goals.filter { $0.isNeedToday }
+    }
+    
     @State private var selectedGoal: Goal?
     @State private var showOverlay = false
     
@@ -53,32 +57,32 @@ struct TodayGoalsView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                ForEach(goals.filter({ $0.isNeedToday })) { goal in
-                    GoalView(model: goal)
-                        .background(.thickMaterial)
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                        .blur(radius: goal == selectedGoal && showOverlay ? 3 : 0)
-                        .scaleEffect(goal == selectedGoal ? 1 : 0.97)
-                        .shadow(color: .secondary, radius: goal == selectedGoal ? 10 : 0)
-                        .transition(.scale)
-                        .onTapGesture {
-                            withAnimation {
-                                if selectedGoal == nil {
-                                    selectedGoal = goal
-                                } else if selectedGoal == goal {
-                                    showOverlay = true
-                                } else {
-                                    selectedGoal = nil
-                                    showOverlay = false
+                
+                if todayGoals.isEmpty {
+                    Text("На сегодня целей больше нет")
+                } else {
+                    ForEach(todayGoals) { goal in
+                        GoalView(model: goal)
+                            .todayCardStyle(isSelected: goal == selectedGoal, isOverlayShown: showOverlay)
+                            .onTapGesture {
+                                withAnimation {
+                                    if selectedGoal == nil {
+                                        selectedGoal = goal
+                                    } else if selectedGoal == goal {
+                                        showOverlay = true
+                                    } else {
+                                        selectedGoal = nil
+                                        showOverlay = false
+                                    }
                                 }
                             }
-                        }
-                        .overlay {
-                            if showOverlay, goal == selectedGoal { overlay }
-                        }
+                            .overlay {
+                                if showOverlay, goal == selectedGoal { overlay }
+                            }
+                    }
                 }
-                .padding(.horizontal)
             }
+            .padding(.horizontal)
             .navigationTitle("На сегодня")
             .navigationBarTitleDisplayMode(.large)
         }
@@ -107,5 +111,47 @@ struct TodayGoalsView_Previews: PreviewProvider {
     static var previews: some View {
         TodayGoalsView()
             .environment(\.managedObjectContext, DataController.context)
+    }
+}
+
+struct TodayGoalModifier: ViewModifier {
+   
+    let isGoalSelected: Bool
+    let showOverlay: Bool
+    
+    var blurAmount: CGFloat {
+        isGoalSelected && showOverlay ? 3 : 0
+    }
+    
+    var scaleAmount: CGFloat {
+        isGoalSelected ? 1 : 0.97
+    }
+    
+    var shadowAmount: CGFloat {
+        isGoalSelected ? 10 : 0
+    }
+    
+    func body(content: Content) -> some View {
+        content
+            .background(.thickMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .blur(radius: blurAmount)
+            .scaleEffect(scaleAmount)
+            .shadow(color: .secondary, radius: shadowAmount)
+            .transition(.scale)
+    }
+}
+
+extension View {
+    
+    func todayCardStyle(
+        isSelected: Bool,
+        isOverlayShown: Bool
+    ) -> some View {
+        let style = TodayGoalModifier(
+            isGoalSelected: isSelected,
+            showOverlay: isOverlayShown
+        )
+        return modifier(style)
     }
 }

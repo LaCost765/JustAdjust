@@ -3,4 +3,54 @@
    uuid = "58C8D9E8-DC4B-4B12-9493-158B24E65338"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DF23B348-C2A3-4E08-958F-78EDD569269C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DailyWin/Data/Goal/Goal+CoreDataClass.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "currentProgressInDays"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "DF23B348-C2A3-4E08-958F-78EDD569269C - 5f45eaafed151555"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DailyWin.Goal.currentProgressInDays.getter : Swift.Int"
+                  moduleName = "DailyWin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/egorcheck/Desktop/DailyWin/DailyWin/Data/Goal/Goal+CoreDataClass.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "576">
+               </Location>
+               <Location
+                  uuid = "DF23B348-C2A3-4E08-958F-78EDD569269C - 5f45eaafed151555"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DailyWin.Goal.currentProgressInDays.getter : Swift.Int"
+                  moduleName = "DailyWin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/egorcheck/Desktop/DailyWin/DailyWin/Data/Goal/Goal+CoreDataClass.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "620">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -35,15 +35,18 @@ struct CreateGoalView: View {
                                 showCalendar.toggle()
                             }
                         }
-
                     }
                     
                     if showCalendar {
-                        DatePicker("", selection: $startDate, displayedComponents: .date)
+                        DatePicker(
+                            "Выбрать дату",
+                            selection: $startDate,
+                            in: Date()...,
+                            displayedComponents: .date
+                        )
                             .environment(\.locale, Locale.init(identifier: "ru"))
-                            .labelsHidden()
-                            .id(startDate)
-                            .datePickerStyle(.wheel)
+                            .datePickerStyle(.graphical)
+                            
                     }
                     
                     Picker("Важность", selection: $selectedPriority) {
