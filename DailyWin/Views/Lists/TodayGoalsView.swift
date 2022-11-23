@@ -27,6 +27,7 @@ struct TodayGoalsView: View {
     
     @State private var selectedGoal: Goal?
     @State private var showOverlay = false
+    @State private var showAlert = false
     
     private var overlay: some View {
         ZStack {
@@ -54,38 +55,58 @@ struct TodayGoalsView: View {
         .clipShape(RoundedRectangle(cornerRadius: 20))
     }
     
+    private var stubView: some View {
+        VStack(spacing: 6) {
+            Text("Нет актуальных целей")
+                .font(.title)
+                .foregroundColor(.secondary)
+            Button {
+                showAlert = true
+            } label: {
+                Text("Почему?")
+                    .font(.subheadline)
+            }
+        }
+    }
+    
     var body: some View {
         NavigationView {
-            ScrollView {
-                
+            Group {
                 if todayGoals.isEmpty {
-                    Text("На сегодня целей больше нет")
+                    stubView.padding()
                 } else {
-                    ForEach(todayGoals) { goal in
-                        GoalView(model: goal)
-                            .todayCardStyle(isSelected: goal == selectedGoal, isOverlayShown: showOverlay)
-                            .onTapGesture {
-                                withAnimation {
-                                    if selectedGoal == nil {
-                                        selectedGoal = goal
-                                    } else if selectedGoal == goal {
-                                        showOverlay = true
-                                    } else {
-                                        selectedGoal = nil
-                                        showOverlay = false
+                    ScrollView {
+                        ForEach(todayGoals) { goal in
+                            GoalView(model: goal)
+                                .todayCardStyle(isSelected: goal == selectedGoal, isOverlayShown: showOverlay)
+                                .onTapGesture {
+                                    withAnimation {
+                                        if selectedGoal == nil {
+                                            selectedGoal = goal
+                                        } else if selectedGoal == goal {
+                                            showOverlay = true
+                                        } else {
+                                            selectedGoal = nil
+                                            showOverlay = false
+                                        }
                                     }
                                 }
-                            }
-                            .overlay {
-                                if showOverlay, goal == selectedGoal { overlay }
-                            }
+                                .overlay {
+                                    if showOverlay, goal == selectedGoal { overlay }
+                                }
+                        }
+                        .padding(.horizontal)
                     }
                 }
             }
-            .padding(.horizontal)
             .navigationTitle("На сегодня")
             .navigationBarTitleDisplayMode(.large)
         }
+        .alert("Почему нет целей?", isPresented: $showAlert, actions: {
+            Text("Хорошо")
+        }, message: {
+            Text("Скорее всего вы уже выполнили все цели на сегодня. Если нет, перейдите на другой экран и создайте новые")
+        })
     }
     
     func markGoalCompleted() {
