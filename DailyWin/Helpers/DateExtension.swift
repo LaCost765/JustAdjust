@@ -84,6 +84,10 @@ extension Date {
         Calendar.current.isDate(self, equalTo: date, toGranularity: .day)
     }
     
+    func isLessOrEqual(to date: Date) -> Bool {
+        self.isLess(than: date) || self.isEqual(to: date)
+    }
+    
     /// Получить следующую дату соответствующую номеру дня недели
     /// - Parameter number: Номер дня: от 1(вс) до 7(сб)
     /// - Returns: Дата
@@ -104,7 +108,7 @@ extension Date {
     ///   - dateStyle: Формат даты
     ///   - timeStyle: Формат времени
     /// - Returns: Дата в формате строки
-    func getFormatted(dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style) -> String {
+    func getFormatted(dateStyle: DateFormatter.Style = .long, timeStyle: DateFormatter.Style = .long) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = dateStyle
         formatter.timeStyle = timeStyle

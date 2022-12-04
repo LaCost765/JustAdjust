@@ -75,19 +75,11 @@ extension Goal {
             fatalError()
         }
         
-        if currentActionDate.isLess(than: currentDate) {
-            return 0
-        }
+        guard currentDate.isLessOrEqual(to: currentActionDate) else { return 0 }
+        guard currentStartDate.isLess(than: currentActionDate) else { return 0 }
         
-        if currentDate.isLess(than: currentStartDate) {
-            return 0
-        }
-        
-        if let lastActionDate = lastActionDate {
-            return lastActionDate.getDifferenceInDays(with: currentStartDate)
-        } else {
-            return 0
-        }
+        guard let lastActionDate = lastActionDate else { return 0}
+        return lastActionDate.getDifferenceInDays(with: currentStartDate)
     }
     
     /// Получить корректную форму во множественном числе слова "день"
