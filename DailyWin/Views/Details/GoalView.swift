@@ -14,7 +14,7 @@ struct GoalView: View {
     var body: some View {
         VStack {
             HStack(alignment: .top, spacing: 0) {
-                Text(model.wrappedText)
+                Text(model.textDescription)
                     .padding()
                     .font(.title.bold())
                 Spacer()
@@ -29,9 +29,9 @@ struct GoalView: View {
 
             HStack {
                 HStack(spacing: 4) {
-                    Text("\(model.currentProgressInDays)")
+                    Text("\(model.getCurrentProgressInDays())")
                         .font(.title2.bold())
-                    Text(model.getFormattedDays(for: model.currentProgressInDays))
+                    Text(model.getDaysDescription(for: model.getCurrentProgressInDays()))
                         .font(.title3.bold())
                         .foregroundColor(.secondary)
                 }

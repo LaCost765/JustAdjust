@@ -8,49 +8,38 @@
 
 import Foundation
 import CoreData
-import SwiftUI
+
+typealias GoalFrequencyMode = Goal.FrequencyMode
+typealias GoalPriorityMode = Goal.PriorityMode
 
 @objc(Goal)
 public class Goal: NSManagedObject {
     
-}
-
-extension Goal {
-   
-    func markCompleted() {
-        lastActionDate = .now
-        progressInfo?.markCompleted()
-        let currentProgress = Int16(currentProgressInDays)
-        
-        guard let bestResult = progressInfo?.bestResult else {
-            progressInfo?.bestResult = currentProgress
-            return
-        }
-        
-        if currentProgress > bestResult {
-            progressInfo?.bestResult = currentProgress
-        }
-    }
-    
-    func markUncompleted() {
-        lastActionDate = .now
-        progressInfo?.markUncompleted()
-    }
-    
-    var wrappedText: String {
+    /// Текстовое описание цели
+    var textDescription: String {
         text ?? "Не удалось получить"
     }
     
-    var isNeedToday: Bool {
+    /// Лучший рекорд
+    var bestResult: String {
+        guard let result = progressInfo?.bestResult else {
+            return "отсутствует"
+        }
+        
+        return "\(result) \(getDaysDescription(for: Int(result)))"
+    }
+    
+    /// Нужно ли отображать цель сегодня
+    func isNeedToday(currentDate: Date = .now.date) -> Bool {
         guard let startDate = progressInfo?.originStartDate
         else {
             fatalError()
         }
 
-        let dateCondition = .now.date >= startDate.date
+        let dateCondition = currentDate >= startDate.date
 
         var frequencyCondition: Bool {
-            let numberOfWeekday = Date.now.weekdayNumber
+            let numberOfWeekday = currentDate.weekdayNumber
             switch frequencyMode {
             case .everyday:
                 return true
@@ -66,7 +55,7 @@ extension Goal {
                 return true
             }
 
-            return lastActionDate.isLess(than: .now)
+            return lastActionDate.isLess(than: currentDate)
         }
 
         return dateCondition && frequencyCondition && uncompleteCondition
@@ -75,15 +64,10 @@ extension Goal {
 
 extension Goal {
     
-    var bestResult: String {
-        guard let result = progressInfo?.bestResult else {
-            return "отсутствует"
-        }
-        
-        return "\(result) \(getFormattedDays(for: Int(result)))"
-    }
-    
-    var currentProgressInDays: Int {
+    /// Получить текуший прогресс в днях
+    /// - Parameter currentDate: Текущая дата
+    /// - Returns: Количество дней
+    func getCurrentProgressInDays(currentDate: Date = .now.date) -> Int {
         guard let progressInfo = progressInfo,
               let currentActionDate = progressInfo.currentActionDate,
               let currentStartDate = progressInfo.currentStartDate
@@ -91,33 +75,25 @@ extension Goal {
             fatalError()
         }
         
-        if currentActionDate < .now || currentStartDate == currentActionDate {
+        if currentActionDate.isLess(than: currentDate) {
+            return 0
+        }
+        
+        if currentDate.isLess(than: currentStartDate) {
             return 0
         }
         
         if let lastActionDate = lastActionDate {
             return lastActionDate.getDifferenceInDays(with: currentStartDate)
         } else {
-            // такого по идее быть не должно
             return 0
         }
     }
     
-    var priorityMode: PriorityMode {
-        guard let priority = priority,
-              let mode = PriorityMode.init(rawValue: priority)
-        else { return .low }
-        return mode
-    }
-    
-    var frequencyMode: FrequencyMode {
-        guard let frequency = frequency,
-              let frequencyMode = FrequencyMode.init(rawValue: frequency)
-        else { return .everyday }
-        return frequencyMode
-    }
-    
-    func getFormattedDays(for days: Int) -> String {
+    /// Получить корректную форму во множественном числе слова "день"
+    /// - Parameter days: Количество дней
+    /// - Returns: Слово "день" в нужной форме
+    func getDaysDescription(for days: Int) -> String {
         
         guard days < 10 || days > 20 else {
             return "дней подряд"
@@ -136,40 +112,3 @@ extension Goal {
         }
     }
 }
-
-extension Goal {
-    
-    enum PriorityMode: String, CaseIterable {
-        case high = "высокая"
-        case middle = "средняя"
-        case low = "низкая"
-        
-        var string: String {
-            self.rawValue
-        }
-        
-        var iconColor: Color {
-            switch self {
-            case .high:
-                return .red
-            case .middle:
-                return .orange
-            case .low:
-                return.green
-            }
-        }
-    }
-    
-    enum FrequencyMode: String, CaseIterable {
-        case everyday = "каждый день"
-        case weekdays = "по будням"
-        case weekends = "по выходным"
-        
-        var string: String {
-            self.rawValue
-        }
-    }
-}
-
-typealias GoalFrequencyMode = Goal.FrequencyMode
-typealias GoalPriorityMode = Goal.PriorityMode

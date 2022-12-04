@@ -7,49 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DF23B348-C2A3-4E08-958F-78EDD569269C"
+            uuid = "70ECA9FE-540A-4C5B-A406-4A5B0B6B1873"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DailyWin/Data/Goal/Goal+CoreDataClass.swift"
+            filePath = "DailyWin/Data/CoreDataService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "currentProgressInDays"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "DF23B348-C2A3-4E08-958F-78EDD569269C - 5f45eaafed151555"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DailyWin.Goal.currentProgressInDays.getter : Swift.Int"
-                  moduleName = "DailyWin"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/egorcheck/Desktop/DailyWin/DailyWin/Data/Goal/Goal+CoreDataClass.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "87"
-                  endingLineNumber = "87"
-                  offsetFromSymbolStart = "576">
-               </Location>
-               <Location
-                  uuid = "DF23B348-C2A3-4E08-958F-78EDD569269C - 5f45eaafed151555"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DailyWin.Goal.currentProgressInDays.getter : Swift.Int"
-                  moduleName = "DailyWin"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/egorcheck/Desktop/DailyWin/DailyWin/Data/Goal/Goal+CoreDataClass.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "87"
-                  endingLineNumber = "87"
-                  offsetFromSymbolStart = "620">
-               </Location>
-            </Locations>
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "markGoalCompleted(goal:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

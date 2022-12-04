@@ -14,14 +14,60 @@
 		412B459228FC51D600DEFB99 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B459128FC51D600DEFB99 /* DateExtension.swift */; };
 		412B459428FC54E800DEFB99 /* GoalsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B459328FC54E800DEFB99 /* GoalsListView.swift */; };
 		412B459628FC66F800DEFB99 /* CreateGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B459528FC66F800DEFB99 /* CreateGoalView.swift */; };
+		412C1200293CA70D004CB0CE /* Goal+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADA0ED293BEB36001A1FC5 /* Goal+Enums.swift */; };
+		417AF42E292FE135000AB0A5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417AF42D292FE135000AB0A5 /* WidgetKit.framework */; };
+		417AF430292FE135000AB0A5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417AF42F292FE135000AB0A5 /* SwiftUI.framework */; };
+		417AF433292FE135000AB0A5 /* DailyWinWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AF432292FE135000AB0A5 /* DailyWinWidget.swift */; };
+		417AF435292FE136000AB0A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 417AF434292FE136000AB0A5 /* Assets.xcassets */; };
+		417AF439292FE136000AB0A5 /* DailyWinWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 417AF42B292FE135000AB0A5 /* DailyWinWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		419240D2291AC73700210B76 /* ProgressInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419240D0291AC73700210B76 /* ProgressInfo+CoreDataClass.swift */; };
+		419996CE293B9DAB00294C19 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419996CD293B9DAB00294C19 /* CoreDataService.swift */; };
+		419BC82329326526001E2C80 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B459128FC51D600DEFB99 /* DateExtension.swift */; };
+		419BC82429326553001E2C80 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41D91CE1290EA4400053A98A /* CoreData.xcdatamodeld */; };
+		419BC82529326556001E2C80 /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D91CE5290EA7680053A98A /* Goal+CoreDataClass.swift */; };
+		419BC82629326559001E2C80 /* ProgressInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419240D0291AC73700210B76 /* ProgressInfo+CoreDataClass.swift */; };
 		41A3216A29158A7500F1FD70 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A3216929158A7500F1FD70 /* MainTabView.swift */; };
+		41ADA0EE293BEB36001A1FC5 /* Goal+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADA0ED293BEB36001A1FC5 /* Goal+Enums.swift */; };
+		41ADA0FD293BEC3B001A1FC5 /* CoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADA0FC293BEC3B001A1FC5 /* CoreDataServiceTests.swift */; };
 		41BEC3D029196512002EA3EC /* GoalDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BEC3CF29196512002EA3EC /* GoalDetailsView.swift */; };
 		41C1EC4429105E57006B4942 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C1EC4329105E57006B4942 /* DataController.swift */; };
 		41D38551291563C800ACC0E5 /* TodayGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D38550291563C800ACC0E5 /* TodayGoalsView.swift */; };
 		41D91CE3290EA4400053A98A /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41D91CE1290EA4400053A98A /* CoreData.xcdatamodeld */; };
 		41D91CE7290EA7680053A98A /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D91CE5290EA7680053A98A /* Goal+CoreDataClass.swift */; };
+		41E01004293CE49400F03AFE /* CoreDataServiceTests+Everyday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E01003293CE49400F03AFE /* CoreDataServiceTests+Everyday.swift */; };
+		41E01006293CE5F100F03AFE /* CoreDataServiceTests+Weekdays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E01005293CE5F100F03AFE /* CoreDataServiceTests+Weekdays.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		417AF437292FE136000AB0A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 412B457428FBFCBA00DEFB99 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 417AF42A292FE135000AB0A5;
+			remoteInfo = DailyWinWidgetExtension;
+		};
+		41ADA0F7293BEBE4001A1FC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 412B457428FBFCBA00DEFB99 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 412B457B28FBFCBA00DEFB99;
+			remoteInfo = DailyWin;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		417AF43A292FE136000AB0A5 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				417AF439292FE136000AB0A5 /* DailyWinWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		412B457C28FBFCBA00DEFB99 /* DailyWin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyWin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,17 +78,45 @@
 		412B459128FC51D600DEFB99 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		412B459328FC54E800DEFB99 /* GoalsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListView.swift; sourceTree = "<group>"; };
 		412B459528FC66F800DEFB99 /* CreateGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalView.swift; sourceTree = "<group>"; };
+		417AF42B292FE135000AB0A5 /* DailyWinWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DailyWinWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		417AF42D292FE135000AB0A5 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		417AF42F292FE135000AB0A5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		417AF432292FE135000AB0A5 /* DailyWinWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWinWidget.swift; sourceTree = "<group>"; };
+		417AF434292FE136000AB0A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		417AF436292FE136000AB0A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		419240D0291AC73700210B76 /* ProgressInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgressInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		419996CD293B9DAB00294C19 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		41A3216929158A7500F1FD70 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		41ADA0ED293BEB36001A1FC5 /* Goal+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+Enums.swift"; sourceTree = "<group>"; };
+		41ADA0F3293BEBE4001A1FC5 /* DailyWinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyWinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		41ADA0FC293BEC3B001A1FC5 /* CoreDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceTests.swift; sourceTree = "<group>"; };
 		41BEC3CF29196512002EA3EC /* GoalDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailsView.swift; sourceTree = "<group>"; };
 		41C1EC4329105E57006B4942 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		41D38550291563C800ACC0E5 /* TodayGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayGoalsView.swift; sourceTree = "<group>"; };
 		41D91CE2290EA4400053A98A /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		41D91CE5290EA7680053A98A /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
+		41E01003293CE49400F03AFE /* CoreDataServiceTests+Everyday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataServiceTests+Everyday.swift"; sourceTree = "<group>"; };
+		41E01005293CE5F100F03AFE /* CoreDataServiceTests+Weekdays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataServiceTests+Weekdays.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		412B457928FBFCBA00DEFB99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		417AF428292FE135000AB0A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				417AF430292FE135000AB0A5 /* SwiftUI.framework in Frameworks */,
+				417AF42E292FE135000AB0A5 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41ADA0F0293BEBE4001A1FC5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -56,6 +130,9 @@
 			isa = PBXGroup;
 			children = (
 				412B457E28FBFCBA00DEFB99 /* DailyWin */,
+				417AF431292FE135000AB0A5 /* DailyWinWidget */,
+				41ADA0F4293BEBE4001A1FC5 /* DailyWinTests */,
+				417AF42C292FE135000AB0A5 /* Frameworks */,
 				412B457D28FBFCBA00DEFB99 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				412B457C28FBFCBA00DEFB99 /* DailyWin.app */,
+				417AF42B292FE135000AB0A5 /* DailyWinWidgetExtension.appex */,
+				41ADA0F3293BEBE4001A1FC5 /* DailyWinTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,10 +213,30 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		417AF42C292FE135000AB0A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				417AF42D292FE135000AB0A5 /* WidgetKit.framework */,
+				417AF42F292FE135000AB0A5 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		417AF431292FE135000AB0A5 /* DailyWinWidget */ = {
+			isa = PBXGroup;
+			children = (
+				417AF432292FE135000AB0A5 /* DailyWinWidget.swift */,
+				417AF434292FE136000AB0A5 /* Assets.xcassets */,
+				417AF436292FE136000AB0A5 /* Info.plist */,
+			);
+			path = DailyWinWidget;
+			sourceTree = "<group>";
+		};
 		419240C6291AC4C700210B76 /* Goal */ = {
 			isa = PBXGroup;
 			children = (
 				41D91CE5290EA7680053A98A /* Goal+CoreDataClass.swift */,
+				41ADA0ED293BEB36001A1FC5 /* Goal+Enums.swift */,
 			);
 			path = Goal;
 			sourceTree = "<group>";
@@ -150,6 +249,16 @@
 			path = ProgressInfo;
 			sourceTree = "<group>";
 		};
+		41ADA0F4293BEBE4001A1FC5 /* DailyWinTests */ = {
+			isa = PBXGroup;
+			children = (
+				41ADA0FC293BEC3B001A1FC5 /* CoreDataServiceTests.swift */,
+				41E01003293CE49400F03AFE /* CoreDataServiceTests+Everyday.swift */,
+				41E01005293CE5F100F03AFE /* CoreDataServiceTests+Weekdays.swift */,
+			);
+			path = DailyWinTests;
+			sourceTree = "<group>";
+		};
 		41D91CE4290EA5A00053A98A /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +266,7 @@
 				419240C6291AC4C700210B76 /* Goal */,
 				41D91CE1290EA4400053A98A /* CoreData.xcdatamodeld */,
 				41C1EC4329105E57006B4942 /* DataController.swift */,
+				419996CD293B9DAB00294C19 /* CoreDataService.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -171,15 +281,52 @@
 				412B457828FBFCBA00DEFB99 /* Sources */,
 				412B457928FBFCBA00DEFB99 /* Frameworks */,
 				412B457A28FBFCBA00DEFB99 /* Resources */,
+				417AF43A292FE136000AB0A5 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				417AF438292FE136000AB0A5 /* PBXTargetDependency */,
 			);
 			name = DailyWin;
 			productName = DailyWin;
 			productReference = 412B457C28FBFCBA00DEFB99 /* DailyWin.app */;
 			productType = "com.apple.product-type.application";
+		};
+		417AF42A292FE135000AB0A5 /* DailyWinWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 417AF43D292FE136000AB0A5 /* Build configuration list for PBXNativeTarget "DailyWinWidgetExtension" */;
+			buildPhases = (
+				417AF427292FE135000AB0A5 /* Sources */,
+				417AF428292FE135000AB0A5 /* Frameworks */,
+				417AF429292FE135000AB0A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DailyWinWidgetExtension;
+			productName = DailyWinWidgetExtension;
+			productReference = 417AF42B292FE135000AB0A5 /* DailyWinWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		41ADA0F2293BEBE4001A1FC5 /* DailyWinTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41ADA0F9293BEBE4001A1FC5 /* Build configuration list for PBXNativeTarget "DailyWinTests" */;
+			buildPhases = (
+				41ADA0EF293BEBE4001A1FC5 /* Sources */,
+				41ADA0F0293BEBE4001A1FC5 /* Frameworks */,
+				41ADA0F1293BEBE4001A1FC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41ADA0F8293BEBE4001A1FC5 /* PBXTargetDependency */,
+			);
+			name = DailyWinTests;
+			productName = DailyWinTests;
+			productReference = 41ADA0F3293BEBE4001A1FC5 /* DailyWinTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -193,6 +340,13 @@
 				TargetAttributes = {
 					412B457B28FBFCBA00DEFB99 = {
 						CreatedOnToolsVersion = 14.0;
+					};
+					417AF42A292FE135000AB0A5 = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+					41ADA0F2293BEBE4001A1FC5 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 412B457B28FBFCBA00DEFB99;
 					};
 				};
 			};
@@ -211,6 +365,8 @@
 			projectRoot = "";
 			targets = (
 				412B457B28FBFCBA00DEFB99 /* DailyWin */,
+				417AF42A292FE135000AB0A5 /* DailyWinWidgetExtension */,
+				41ADA0F2293BEBE4001A1FC5 /* DailyWinTests */,
 			);
 		};
 /* End PBXProject section */
@@ -225,6 +381,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		417AF429292FE135000AB0A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				417AF435292FE136000AB0A5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41ADA0F1293BEBE4001A1FC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -233,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				412B459428FC54E800DEFB99 /* GoalsListView.swift in Sources */,
+				419996CE293B9DAB00294C19 /* CoreDataService.swift in Sources */,
 				412B459228FC51D600DEFB99 /* DateExtension.swift in Sources */,
 				41D91CE7290EA7680053A98A /* Goal+CoreDataClass.swift in Sources */,
 				41D38551291563C800ACC0E5 /* TodayGoalsView.swift in Sources */,
@@ -244,10 +416,47 @@
 				412B459028FC4A8400DEFB99 /* GoalView.swift in Sources */,
 				41D91CE3290EA4400053A98A /* CoreData.xcdatamodeld in Sources */,
 				419240D2291AC73700210B76 /* ProgressInfo+CoreDataClass.swift in Sources */,
+				41ADA0EE293BEB36001A1FC5 /* Goal+Enums.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		417AF427292FE135000AB0A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				417AF433292FE135000AB0A5 /* DailyWinWidget.swift in Sources */,
+				412C1200293CA70D004CB0CE /* Goal+Enums.swift in Sources */,
+				419BC82329326526001E2C80 /* DateExtension.swift in Sources */,
+				419BC82529326556001E2C80 /* Goal+CoreDataClass.swift in Sources */,
+				419BC82429326553001E2C80 /* CoreData.xcdatamodeld in Sources */,
+				419BC82629326559001E2C80 /* ProgressInfo+CoreDataClass.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41ADA0EF293BEBE4001A1FC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41ADA0FD293BEC3B001A1FC5 /* CoreDataServiceTests.swift in Sources */,
+				41E01006293CE5F100F03AFE /* CoreDataServiceTests+Weekdays.swift in Sources */,
+				41E01004293CE49400F03AFE /* CoreDataServiceTests+Everyday.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		417AF438292FE136000AB0A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 417AF42A292FE135000AB0A5 /* DailyWinWidgetExtension */;
+			targetProxy = 417AF437292FE136000AB0A5 /* PBXContainerItemProxy */;
+		};
+		41ADA0F8293BEBE4001A1FC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 412B457B28FBFCBA00DEFB99 /* DailyWin */;
+			targetProxy = 41ADA0F7293BEBE4001A1FC5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		412B458828FBFCBA00DEFB99 /* Debug */ = {
@@ -367,6 +576,7 @@
 		412B458B28FBFCBA00DEFB99 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -397,6 +607,7 @@
 		412B458C28FBFCBA00DEFB99 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -424,6 +635,100 @@
 			};
 			name = Release;
 		};
+		417AF43B292FE136000AB0A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 49B53529R9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DailyWinWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DailyWinWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lacost.DailyWin.DailyWinWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		417AF43C292FE136000AB0A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 49B53529R9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DailyWinWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DailyWinWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lacost.DailyWin.DailyWinWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		41ADA0FA293BEBE4001A1FC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 49B53529R9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lacost.DailyWinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DailyWin.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DailyWin";
+			};
+			name = Debug;
+		};
+		41ADA0FB293BEBE4001A1FC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 49B53529R9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lacost.DailyWinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DailyWin.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DailyWin";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -441,6 +746,24 @@
 			buildConfigurations = (
 				412B458B28FBFCBA00DEFB99 /* Debug */,
 				412B458C28FBFCBA00DEFB99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		417AF43D292FE136000AB0A5 /* Build configuration list for PBXNativeTarget "DailyWinWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				417AF43B292FE136000AB0A5 /* Debug */,
+				417AF43C292FE136000AB0A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41ADA0F9293BEBE4001A1FC5 /* Build configuration list for PBXNativeTarget "DailyWinTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41ADA0FA293BEBE4001A1FC5 /* Debug */,
+				41ADA0FB293BEBE4001A1FC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -22,12 +22,13 @@ struct TodayGoalsView: View {
     var goals: FetchedResults<Goal>
     
     var todayGoals: [Goal] {
-        goals.filter { $0.isNeedToday }
+        goals.filter { $0.isNeedToday() }
     }
     
     @State private var selectedGoal: Goal?
     @State private var showOverlay = false
     @State private var showAlert = false
+    @State private var stubViewOpacity: Double = 0
     
     private var overlay: some View {
         ZStack {
@@ -71,32 +72,38 @@ struct TodayGoalsView: View {
     
     var body: some View {
         NavigationView {
-            Group {
-                if todayGoals.isEmpty {
-                    stubView.padding()
-                } else {
-                    ScrollView {
-                        ForEach(todayGoals) { goal in
-                            GoalView(model: goal)
-                                .todayCardStyle(isSelected: goal == selectedGoal, isOverlayShown: showOverlay)
-                                .onTapGesture {
-                                    withAnimation {
-                                        if selectedGoal == nil {
-                                            selectedGoal = goal
-                                        } else if selectedGoal == goal {
-                                            showOverlay = true
-                                        } else {
-                                            selectedGoal = nil
-                                            showOverlay = false
-                                        }
+            ZStack {
+                ScrollView {
+                    ForEach(todayGoals) { goal in
+                        GoalView(model: goal)
+                            .todayCardStyle(isSelected: goal == selectedGoal, isOverlayShown: showOverlay)
+                            .onTapGesture {
+                                withAnimation {
+                                    if selectedGoal == nil {
+                                        selectedGoal = goal
+                                    } else if selectedGoal == goal {
+                                        showOverlay = true
+                                    } else {
+                                        selectedGoal = nil
+                                        showOverlay = false
                                     }
                                 }
-                                .overlay {
-                                    if showOverlay, goal == selectedGoal { overlay }
-                                }
-                        }
-                        .padding(.horizontal)
+                            }
+                            .overlay {
+                                if showOverlay, goal == selectedGoal { overlay }
+                            }
                     }
+                    .padding(.horizontal)
+                }
+                
+                if todayGoals.isEmpty {
+                    stubView
+                        .opacity(stubViewOpacity)
+                        .onAppear {
+                            withAnimation {
+                                stubViewOpacity = 1
+                            }
+                        }
                 }
             }
             .navigationTitle("На сегодня")
@@ -111,7 +118,6 @@ struct TodayGoalsView: View {
     
     func markGoalCompleted() {
         withAnimation(.default.delay(0.2)) {
-            selectedGoal?.markCompleted()
             selectedGoal = nil
             showOverlay = false
         }
@@ -120,7 +126,6 @@ struct TodayGoalsView: View {
     
     func markGoalUncompleted() {
         withAnimation(.default.delay(0.2)) {
-            selectedGoal?.markUncompleted()
             selectedGoal = nil
             showOverlay = false
         }

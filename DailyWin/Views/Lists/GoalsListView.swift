@@ -28,7 +28,7 @@ struct GoalsListView: View {
                         GoalDetailsView(goal: goal)
                     } label: {
                         VStack(alignment: .leading, spacing: 6) {
-                            Text(goal.wrappedText)
+                            Text(goal.textDescription)
                                 .font(.headline)
                                 .lineLimit(2)
                             Text(goal.frequencyMode.string)

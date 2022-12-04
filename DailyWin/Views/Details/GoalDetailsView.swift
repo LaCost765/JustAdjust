@@ -17,7 +17,7 @@ struct GoalDetailsView: View {
         List {
             
             Section {
-                Text(goal.wrappedText)
+                Text(goal.textDescription)
                     .font(.title2)
                     .bold()
             } header: {
@@ -61,7 +61,7 @@ struct GoalDetailsView: View {
                         .foregroundColor(.yellow)
                     Text("Прогресс")
                     Spacer()
-                    Text("\(goal.currentProgressInDays) \(goal.getFormattedDays(for: goal.currentProgressInDays))")
+                    Text("\(goal.getCurrentProgressInDays()) \(goal.getDaysDescription(for: goal.getCurrentProgressInDays()))")
                         .foregroundColor(.secondary)
                 }
                 HStack {

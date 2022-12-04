@@ -41,7 +41,7 @@ struct CreateGoalView: View {
                         DatePicker(
                             "Выбрать дату",
                             selection: $startDate,
-                            in: Date()...,
+//                            in: Date()...,
                             displayedComponents: .date
                         )
                             .environment(\.locale, Locale.init(identifier: "ru"))

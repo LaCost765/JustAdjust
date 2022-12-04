@@ -15,8 +15,7 @@ extension Date {
     }
     
     var date: Date {
-        let components = Calendar.current.dateComponents([.year, .month, .day], from: self)
-        return Calendar.current.date(from: components)!
+        Calendar.current.startOfDay(for: self)
     }
     
     var nextDay: Date {
@@ -79,6 +78,25 @@ extension Date {
         case .orderedAscending:
             return true
         }
+    }
+    
+    func isEqual(to date: Date) -> Bool {
+        Calendar.current.isDate(self, equalTo: date, toGranularity: .day)
+    }
+    
+    /// Получить следующую дату соответствующую номеру дня недели
+    /// - Parameter number: Номер дня: от 1(вс) до 7(сб)
+    /// - Returns: Дата
+    func getNextDayBy(number: Int) -> Date {
+        let delta: Int = {
+            if number > self.weekdayNumber {
+                return number - self.weekdayNumber
+            } else {
+                return (7 - self.weekdayNumber) + number
+            }
+        }()
+        
+        return Calendar.current.date(byAdding: .day, value: delta, to: self)!
     }
     
     /// Преобразовать дату в строку

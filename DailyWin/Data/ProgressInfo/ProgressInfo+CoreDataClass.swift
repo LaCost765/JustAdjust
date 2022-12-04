@@ -29,28 +29,31 @@ public class ProgressInfo: NSManagedObject {
 
 extension ProgressInfo {
     
-    func markCompleted() {
-        currentActionDate = calculateNextActionDate()
+    func markCompleted(currentDate: Date = .now.date, shouldResetCurrentStart: Bool) {
+        if shouldResetCurrentStart {
+            currentStartDate = currentDate
+        }
+        currentActionDate = calculateNextActionDate(currentDate: currentDate)
     }
     
-    func markUncompleted() {
-        let nextActionDate = calculateNextActionDate()
+    func markUncompleted(currentDate: Date = .now.date) {
+        let nextActionDate = calculateNextActionDate(currentDate: currentDate)
         currentActionDate = nextActionDate
         currentStartDate = nextActionDate
     }
     
-    private func calculateNextActionDate() -> Date {
+    private func calculateNextActionDate(currentDate: Date) -> Date {
         guard let goal = goal else {
             fatalError()
         }
         
         switch goal.frequencyMode {
         case .everyday:
-            return .now.nextDay
+            return currentDate.nextDay
         case .weekends:
-            return .now.nextWeekendDay
+            return currentDate.nextWeekendDay
         case .weekdays:
-            return .now.nextWeekday
+            return currentDate.nextWeekday
         }
     }
     
