@@ -113,7 +113,7 @@ extension Date {
     ///   - dateStyle: Формат даты
     ///   - timeStyle: Формат времени
     /// - Returns: Дата в формате строки
-    func getFormatted(dateStyle: DateFormatter.Style = .long, timeStyle: DateFormatter.Style = .long) -> String {
+    func getFormatted(dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = dateStyle
         formatter.timeStyle = timeStyle

@@ -60,7 +60,7 @@ struct GoalDetailsView: View {
                         .foregroundColor(.yellow)
                     Text("Прогресс")
                     Spacer()
-                    Text("\(goal.getCurrentProgressInDays()) \(goal.getDaysDescription(for: goal.getCurrentProgressInDays()))")
+                    Text(goal.progressFormattedString)
                         .foregroundColor(.secondary)
                 }
                 HStack {

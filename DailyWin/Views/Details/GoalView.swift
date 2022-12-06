@@ -11,6 +11,20 @@ struct GoalView: View {
     
     let model: Goal
     
+    var progressDescriptionView: some View {
+        HStack(spacing: 4) {
+            
+            let progressInDays = model.getCurrentProgressInDays()
+            let daysDescription = model.getDaysDescription(for: progressInDays)
+            
+            Text(String(progressInDays))
+                .font(.title2.bold())
+            Text(daysDescription)
+                .font(.title3.bold())
+                .foregroundColor(.secondary)
+        }
+    }
+    
     var body: some View {
         VStack {
             HStack(alignment: .top, spacing: 0) {
@@ -28,18 +42,12 @@ struct GoalView: View {
             }
 
             HStack {
-                HStack(spacing: 4) {
-                    Text("\(model.getCurrentProgressInDays())")
-                        .font(.title2.bold())
-                    Text(model.getDaysDescription(for: model.getCurrentProgressInDays()))
-                        .font(.title3.bold())
-                        .foregroundColor(.secondary)
-                }
+                progressDescriptionView
                 Spacer()
                 VStack(alignment: .trailing) {
                     Text(model.frequencyMode.rawValue)
                         .font(.caption)
-                    Text(model.progressInfo?.originStartDate?.getFormatted(dateStyle: .medium, timeStyle: .none) ?? "")
+                    Text(model.originStartDateString)
                         .font(.caption2)
                         .foregroundColor(.secondary)
                 }

@@ -15,9 +15,23 @@ typealias GoalPriorityMode = Goal.PriorityMode
 @objc(Goal)
 public class Goal: NSManagedObject {
     
+    var originStartDateString: String {
+        guard let date = progressInfo?.originStartDate else {
+            assertionFailure()
+            return ""
+        }
+        return date.getFormatted(dateStyle: .medium, timeStyle: .none)
+    }
+    
     /// Текстовое описание цели
     var textDescription: String {
         text ?? "Не удалось получить"
+    }
+    
+    var progressFormattedString: String {
+        let progress = getCurrentProgressInDays()
+        
+        return "\(progress) \(getDaysDescription(for: progress))"
     }
     
     /// Лучший рекорд

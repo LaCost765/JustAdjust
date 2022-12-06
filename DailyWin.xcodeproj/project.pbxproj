@@ -37,6 +37,8 @@
 		41E321FE293F948600977FCE /* EverydayGoalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E321FD293F948600977FCE /* EverydayGoalTests.swift */; };
 		41E32200293F960E00977FCE /* WeekdayGoalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E321FF293F960D00977FCE /* WeekdayGoalTests.swift */; };
 		41E32202293F9FA700977FCE /* WeekendGoalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E32201293F9FA700977FCE /* WeekendGoalTests.swift */; };
+		41E32205293FCABA00977FCE /* DefaultAlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E32204293FCABA00977FCE /* DefaultAlertModifier.swift */; };
+		41E32207293FCAF400977FCE /* TodayGoalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E32206293FCAF400977FCE /* TodayGoalModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,8 @@
 		41E321FD293F948600977FCE /* EverydayGoalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EverydayGoalTests.swift; sourceTree = "<group>"; };
 		41E321FF293F960D00977FCE /* WeekdayGoalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayGoalTests.swift; sourceTree = "<group>"; };
 		41E32201293F9FA700977FCE /* WeekendGoalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekendGoalTests.swift; sourceTree = "<group>"; };
+		41E32204293FCABA00977FCE /* DefaultAlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAlertModifier.swift; sourceTree = "<group>"; };
+		41E32206293FCAF400977FCE /* TodayGoalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayGoalModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +179,7 @@
 				41535745292AA8CF00274DF6 /* Lists */,
 				41535744292AA8BE00274DF6 /* Details */,
 				41535743292AA8A000274DF6 /* Core */,
+				41E32203293FCAA600977FCE /* Modifiers */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,6 +277,15 @@
 				419996CD293B9DAB00294C19 /* CoreDataService.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		41E32203293FCAA600977FCE /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				41E32204293FCABA00977FCE /* DefaultAlertModifier.swift */,
+				41E32206293FCAF400977FCE /* TodayGoalModifier.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,9 +425,11 @@
 				412B459228FC51D600DEFB99 /* DateExtension.swift in Sources */,
 				41D91CE7290EA7680053A98A /* Goal+CoreDataClass.swift in Sources */,
 				41D38551291563C800ACC0E5 /* TodayGoalsView.swift in Sources */,
+				41E32207293FCAF400977FCE /* TodayGoalModifier.swift in Sources */,
 				412B458028FBFCBA00DEFB99 /* DailyWinApp.swift in Sources */,
 				41A3216A29158A7500F1FD70 /* MainTabView.swift in Sources */,
 				41C1EC4429105E57006B4942 /* DataController.swift in Sources */,
+				41E32205293FCABA00977FCE /* DefaultAlertModifier.swift in Sources */,
 				412B459628FC66F800DEFB99 /* CreateGoalView.swift in Sources */,
 				41BEC3D029196512002EA3EC /* GoalDetailsView.swift in Sources */,
 				412B459028FC4A8400DEFB99 /* GoalView.swift in Sources */,
