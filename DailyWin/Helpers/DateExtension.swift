@@ -26,6 +26,11 @@ extension Date {
     }
     
     var nextWeekendDay: Date {
+        
+        if self.weekdayNumber == 7 {
+            return self.nextDay
+        }
+        
         guard let nextWeekend = Calendar.current.nextWeekend(startingAfter: self) else {
             fatalError()
         }

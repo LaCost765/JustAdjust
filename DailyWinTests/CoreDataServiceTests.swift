@@ -19,7 +19,7 @@ import XCTest
  7️⃣ - сб
 */
 
-final class CoreDataServiceTests: XCTestCase {
+class CoreDataServiceTests: XCTestCase {
     
     let service = CoreDataService(currentDate: .now.date)
     var currentGoal: Goal!

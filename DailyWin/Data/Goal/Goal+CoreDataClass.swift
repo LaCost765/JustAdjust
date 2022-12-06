@@ -77,8 +77,8 @@ extension Goal {
         
         guard currentDate.isLessOrEqual(to: currentActionDate) else { return 0 }
         guard currentStartDate.isLess(than: currentActionDate) else { return 0 }
+        guard let lastActionDate = lastActionDate else { return 0 }
         
-        guard let lastActionDate = lastActionDate else { return 0}
         return lastActionDate.getDifferenceInDays(with: currentStartDate)
     }
     

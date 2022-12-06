@@ -1,14 +1,14 @@
 //
-//  CoreDataServiceTests+Everyday.swift
+//  EverydayGoalTests.swift
 //  DailyWinTests
 //
-//  Created by Egor Baranov on 04.12.2022.
+//  Created by Egor Baranov on 06.12.2022.
 //
 
 import XCTest
 @testable import DailyWin
 
-extension CoreDataServiceTests {
+final class EverydayGoalTests: CoreDataServiceTests {
     
     /// ✅ ✅ ✅ ✍️
     func testEveryday_1() throws {
