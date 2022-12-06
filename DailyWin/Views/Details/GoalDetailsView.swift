@@ -10,7 +10,6 @@ import SwiftUI
 struct GoalDetailsView: View {
     
     @ObservedObject var goal: Goal
-    
     @State private var editModeEnabled = false
     
     var body: some View {

@@ -9,15 +9,15 @@ import SwiftUI
 
 struct CreateGoalView: View {
     
-    @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
+    let service: CoreDataServiceProtocol = CoreDataService.instance
     
     @State private var goalText: String = ""
     @State private var selectedPriority = GoalPriorityMode.high.string
     @State private var selectedFrequency = GoalFrequencyMode.everyday.string
     @State private var startDate: Date = Date()
-    
     @State private var showCalendar = false
+    @State private var showErrorAlert = false
         
     var body: some View {
         NavigationView {
@@ -41,7 +41,7 @@ struct CreateGoalView: View {
                         DatePicker(
                             "Выбрать дату",
                             selection: $startDate,
-//                            in: Date()...,
+                            in: Date()...,
                             displayedComponents: .date
                         )
                             .environment(\.locale, Locale.init(identifier: "ru"))
@@ -69,25 +69,29 @@ struct CreateGoalView: View {
                         .disabled(goalText.isEmpty)
                 }
             }
+            .defaultAlert(
+                isPresented: $showErrorAlert,
+                title: "Упс 🫣",
+                message: "Произошла какая-то ошибка, попробуйте еще раз"
+            )
             .navigationTitle("Новое испытание")
             .navigationBarTitleDisplayMode(.inline)
         }
     }
     
     private func createGoal() {
-        let newGoal = Goal(context: moc)
-        newGoal.text = goalText
-        newGoal.priority = selectedPriority
-        newGoal.frequency = selectedFrequency
         
-        let progressInfo = ProgressInfo(
-            goal: newGoal,
-            startDate: startDate,
-            context: moc
-        )
-        newGoal.progressInfo = progressInfo
+        do {
+            _ = try service.addNewGoal(
+                text: goalText,
+                priority: selectedPriority,
+                frequency: selectedFrequency,
+                startDate: startDate
+            )
+        } catch {
+            showErrorAlert = true
+        }
         
-        try? moc.save()
         dismiss()
     }
 }
@@ -95,5 +99,41 @@ struct CreateGoalView: View {
 struct CreateGoalView_Previews: PreviewProvider {
     static var previews: some View {
         CreateGoalView()
+    }
+}
+
+struct DefaultAlertModifier: ViewModifier {
+   
+    let isPresented: Binding<Bool>
+    let title: String
+    let message: String
+    
+    func body(content: Content) -> some View {
+        content
+            .alert(
+                title,
+                isPresented: isPresented,
+                actions: { },
+                message: {
+                    Text(message)
+                }
+            )
+    }
+}
+
+extension View {
+    
+    func defaultAlert(
+        isPresented: Binding<Bool>,
+        title: String,
+        message: String
+    ) -> some View {
+        let style = DefaultAlertModifier(
+            isPresented: isPresented,
+            title: title,
+            message: message
+        )
+        
+        return modifier(style)
     }
 }

@@ -10,12 +10,13 @@ import CoreData
 
 struct TodayGoalsView: View {
     
-    @Environment(\.managedObjectContext) var moc
+    let service: CoreDataServiceProtocol = CoreDataService.instance
     
     @FetchRequest(
         sortDescriptors: [],
         predicate: .init(
-            format: "lastActionDate == nil OR lastActionDate < %@", Date.now.date as NSDate
+            format: "lastActionDate == nil OR lastActionDate < %@",
+            Date.now.date as NSDate
         ),
         animation: .easeIn
     )
@@ -28,6 +29,7 @@ struct TodayGoalsView: View {
     @State private var selectedGoal: Goal?
     @State private var showOverlay = false
     @State private var showAlert = false
+    @State private var showErrorAlert = false
     @State private var stubViewOpacity: Double = 0
     
     private var overlay: some View {
@@ -79,13 +81,11 @@ struct TodayGoalsView: View {
                             .todayCardStyle(isSelected: goal == selectedGoal, isOverlayShown: showOverlay)
                             .onTapGesture {
                                 withAnimation {
-                                    if selectedGoal == nil {
-                                        selectedGoal = goal
-                                    } else if selectedGoal == goal {
+                                    if selectedGoal == goal {
                                         showOverlay = true
                                     } else {
-                                        selectedGoal = nil
                                         showOverlay = false
+                                        selectedGoal = goal
                                     }
                                 }
                             }
@@ -109,34 +109,61 @@ struct TodayGoalsView: View {
             .navigationTitle("На сегодня")
             .navigationBarTitleDisplayMode(.large)
         }
-        .alert("Почему нет целей?", isPresented: $showAlert, actions: {
-            Text("Хорошо")
-        }, message: {
-            Text("Скорее всего вы уже выполнили все цели на сегодня. Если нет, перейдите на другой экран и создайте новые")
-        })
+        .onAppear {
+            service.refresh()
+        }
+        .defaultAlert(
+            isPresented: $showErrorAlert,
+            title: "Упс 🫣",
+            message: "Произошла какая-то ошибка, попробуйте еще раз"
+        )
+        .defaultAlert(
+            isPresented: $showAlert,
+            title: "Почему нет целей?",
+            message: "Скорее всего вы уже выполнили все цели на сегодня. Если нет, перейдите на другой экран и создайте новые"
+        )
     }
     
     func markGoalCompleted() {
-        withAnimation(.default.delay(0.2)) {
+        guard let goal = selectedGoal else {
+            assertionFailure()
+            return
+        }
+        
+        do {
+            try service.markGoalCompleted(goal: goal)
+        } catch {
+            showErrorAlert = true
+        }
+        
+        withAnimation {
             selectedGoal = nil
             showOverlay = false
         }
-        try? moc.save()
     }
     
     func markGoalUncompleted() {
-        withAnimation(.default.delay(0.2)) {
+        guard let goal = selectedGoal else {
+            assertionFailure()
+            return
+        }
+        
+        do {
+            try service.markGoalUncompleted(goal: goal)
+        } catch {
+            showErrorAlert = true
+        }
+        
+        withAnimation {
             selectedGoal = nil
             showOverlay = false
         }
-        try? moc.save()
     }
 }
 
 struct TodayGoalsView_Previews: PreviewProvider {
     static var previews: some View {
         TodayGoalsView()
-            .environment(\.managedObjectContext, DataController.context)
     }
 }
 

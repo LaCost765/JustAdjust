@@ -9,9 +9,10 @@ import SwiftUI
 
 struct GoalsListView: View {
     
-    @Environment(\.managedObjectContext) var moc
+    let service: CoreDataServiceProtocol = CoreDataService.instance
     @FetchRequest(sortDescriptors: []) var goals: FetchedResults<Goal>
     @State private var showCreateScreen = false
+    @State private var showErrorAlert = false
     
     var body: some View {
         NavigationView {
@@ -45,12 +46,18 @@ struct GoalsListView: View {
                     }
                 }
             }
+            .defaultAlert(
+                isPresented: $showErrorAlert,
+                title: "Упс 🫣",
+                message: "Произошла какая-то ошибка, попробуйте еще раз"
+            )
             .navigationTitle("Цели")
             .sheet(isPresented: $showCreateScreen) {
                 CreateGoalView()
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    // фикс из стековерфлоу
                     Text(showCreateScreen ? " " : "").hidden()
                     Button {
                         showCreateScreen = true
@@ -65,8 +72,11 @@ struct GoalsListView: View {
     }
     
     func deleteGoal(goal: Goal) {
-        moc.delete(goal)
-        try? moc.save()
+        do {
+            try service.deleteGoal(goal: goal)
+        } catch {
+            showErrorAlert = true
+        }
     }
 }
 
@@ -74,6 +84,5 @@ struct GoalsListView_Previews: PreviewProvider {
     
     static var previews: some View {
         GoalsListView()
-            .environment(\.managedObjectContext, DataController.context)
     }
 }
