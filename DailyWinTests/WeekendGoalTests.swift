@@ -27,11 +27,11 @@ final class WeekendGoalTests: CoreDataServiceTests {
         setNextDay()
         
         assertGoalData(expectedProgress: 0, expectedBestResult: "0 дней", expectedNeedToday: true)
-        service.markGoalCompleted(goal: currentGoal)
+        try service.markGoalCompleted(goal: currentGoal)
         setNextDay()
         
         assertGoalData(expectedProgress: 1, expectedBestResult: "1 день", expectedNeedToday: true)
-        service.markGoalCompleted(goal: currentGoal)
+        try service.markGoalCompleted(goal: currentGoal)
         assertGoalData(expectedProgress: 2, expectedBestResult: "2 дня подряд", expectedNeedToday: false)
         
         setNextDay()
@@ -58,7 +58,7 @@ final class WeekendGoalTests: CoreDataServiceTests {
         setNextDay()
         
         assertGoalData(expectedProgress: 0, expectedBestResult: "0 дней", expectedNeedToday: true)
-        service.markGoalCompleted(goal: currentGoal)
+        try service.markGoalCompleted(goal: currentGoal)
         assertGoalData(expectedProgress: 1, expectedBestResult: "1 день", expectedNeedToday: false)
         
         setNextDay()
@@ -82,12 +82,12 @@ final class WeekendGoalTests: CoreDataServiceTests {
         setNextDay()
         
         assertGoalData(expectedProgress: 0, expectedBestResult: "0 дней", expectedNeedToday: true)
-        service.markGoalUncompleted(goal: currentGoal)
+        try service.markGoalUncompleted(goal: currentGoal)
         assertGoalData(expectedProgress: 0, expectedBestResult: "0 дней", expectedNeedToday: false)
         setNextDay()
         
         assertGoalData(expectedProgress: 0, expectedBestResult: "0 дней", expectedNeedToday: true)
-        service.markGoalCompleted(goal: currentGoal)
+        try service.markGoalCompleted(goal: currentGoal)
         assertGoalData(expectedProgress: 1, expectedBestResult: "1 день", expectedNeedToday: false)
         
         setNextDay()
@@ -105,7 +105,7 @@ final class WeekendGoalTests: CoreDataServiceTests {
         )
         
         assertGoalData(expectedProgress: 0, expectedBestResult: "0 дней", expectedNeedToday: true)
-        service.markGoalCompleted(goal: currentGoal)
+        try service.markGoalCompleted(goal: currentGoal)
         assertGoalData(expectedProgress: 1, expectedBestResult: "1 день", expectedNeedToday: false)
         
         setNextDay()
@@ -119,12 +119,12 @@ final class WeekendGoalTests: CoreDataServiceTests {
         setNextDay()
         
         assertGoalData(expectedProgress: 1, expectedBestResult: "1 день", expectedNeedToday: true)
-        service.markGoalCompleted(goal: currentGoal)
+        try service.markGoalCompleted(goal: currentGoal)
         assertGoalData(expectedProgress: 7, expectedBestResult: "7 дней подряд", expectedNeedToday: false)
         setNextDay()
         
         assertGoalData(expectedProgress: 7, expectedBestResult: "7 дней подряд", expectedNeedToday: true)
-        service.markGoalCompleted(goal: currentGoal)
+        try service.markGoalCompleted(goal: currentGoal)
         assertGoalData(expectedProgress: 8, expectedBestResult: "8 дней подряд", expectedNeedToday: false)
         
         setNextDay()
@@ -154,12 +154,12 @@ final class WeekendGoalTests: CoreDataServiceTests {
         setNextDay()
         
         assertGoalData(expectedProgress: 0, expectedBestResult: "0 дней", expectedNeedToday: true)
-        service.markGoalCompleted(goal: currentGoal)
+        try service.markGoalCompleted(goal: currentGoal)
         assertGoalData(expectedProgress: 1, expectedBestResult: "1 день", expectedNeedToday: false)
         setNextDay()
         
         assertGoalData(expectedProgress: 1, expectedBestResult: "1 день", expectedNeedToday: true)
-        service.markGoalCompleted(goal: currentGoal)
+        try service.markGoalCompleted(goal: currentGoal)
         assertGoalData(expectedProgress: 2, expectedBestResult: "2 дня подряд", expectedNeedToday: false)
         
         setNextDay()

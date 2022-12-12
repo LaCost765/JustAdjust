@@ -99,9 +99,10 @@ class CoreDataService: CoreDataServiceProtocol {
         try context.save()
     }
     
-    func markGoalUncompleted(goal: Goal) {
+    func markGoalUncompleted(goal: Goal) throws {
         goal.lastActionDate = currentDate
         goal.progressInfo?.markUncompleted(currentDate: currentDate)
+        try context.save()
     }
     
     func refresh() {

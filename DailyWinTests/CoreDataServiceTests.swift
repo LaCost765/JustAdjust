@@ -21,7 +21,7 @@ import XCTest
 
 class CoreDataServiceTests: XCTestCase {
     
-    let service = CoreDataService(currentDate: .now.date)
+    let service = CoreDataService.instance
     var currentGoal: Goal!
     
     var currentDate: Date {
