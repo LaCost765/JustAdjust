@@ -24,6 +24,7 @@ struct CreateGoalView: View {
             Form {
                 Section {
                     TextField("Опишите вашу цель", text: $goalText)
+                        .submitLabel(.done)
                 }
                 
                 Section {
@@ -91,7 +92,6 @@ struct CreateGoalView: View {
         } catch {
             showErrorAlert = true
         }
-        
         dismiss()
     }
 }

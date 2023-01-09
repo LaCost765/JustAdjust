@@ -14,10 +14,7 @@ struct TodayGoalsView: View {
     
     @FetchRequest(
         sortDescriptors: [],
-        predicate: .init(
-            format: "lastActionDate == nil OR lastActionDate < %@",
-            Date.now.date as NSDate
-        ),
+        predicate: DataController.todayGoalsPredicate,
         animation: .easeIn
     )
     var goals: FetchedResults<Goal>

@@ -27,6 +27,7 @@
 		419BC82529326556001E2C80 /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D91CE5290EA7680053A98A /* Goal+CoreDataClass.swift */; };
 		419BC82629326559001E2C80 /* ProgressInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419240D0291AC73700210B76 /* ProgressInfo+CoreDataClass.swift */; };
 		41A3216A29158A7500F1FD70 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A3216929158A7500F1FD70 /* MainTabView.swift */; };
+		41A66F9A2947A5CA008B9878 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C1EC4329105E57006B4942 /* DataController.swift */; };
 		41ADA0EE293BEB36001A1FC5 /* Goal+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADA0ED293BEB36001A1FC5 /* Goal+Enums.swift */; };
 		41ADA0FD293BEC3B001A1FC5 /* CoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADA0FC293BEC3B001A1FC5 /* CoreDataServiceTests.swift */; };
 		41BEC3D029196512002EA3EC /* GoalDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BEC3CF29196512002EA3EC /* GoalDetailsView.swift */; };
@@ -443,6 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41A66F9A2947A5CA008B9878 /* DataController.swift in Sources */,
 				417AF433292FE135000AB0A5 /* DailyWinWidget.swift in Sources */,
 				412C1200293CA70D004CB0CE /* Goal+Enums.swift in Sources */,
 				419BC82329326526001E2C80 /* DateExtension.swift in Sources */,

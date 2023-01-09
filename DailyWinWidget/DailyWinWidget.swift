@@ -10,49 +10,54 @@ import SwiftUI
 import CoreData
 
 struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date())
+    
+    func placeholder(in context: Context) -> WidgetEntry {
+        WidgetEntry.example
     }
 
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date())
-        completion(entry)
+    func getSnapshot(in context: Context, completion: @escaping (WidgetEntry) -> ()) {
+        completion(WidgetEntry.example)
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
     
         let firstDate = Calendar.current.startOfDay(for: .now)
-        let firstEntry = SimpleEntry(date: firstDate)
+        let firstEntry = WidgetEntry.example
         
         let secondDate = Calendar.current.date(byAdding: .day, value: 1, to: firstDate)!
-        let secondEntry = SimpleEntry(date: secondDate)
+        let secondEntry = WidgetEntry.example
 
         let timeline = Timeline(entries: [firstEntry, secondEntry], policy: .atEnd)
         completion(timeline)
     }
 }
 
-struct SimpleEntry: TimelineEntry {
+struct WidgetEntry: TimelineEntry {
     let date: Date
+    let todayGoalsCount: Double
+    let currentGoalsCount: Double
+    
+    var progress: Double {
+        (todayGoalsCount - currentGoalsCount) / todayGoalsCount
+    }
+    
+    var goalsCompleted: Bool {
+        currentGoalsCount.isZero
+    }
+    
+    static let example = WidgetEntry(
+        date: .now,
+        todayGoalsCount: 5,
+        currentGoalsCount: 2
+    )
 }
 
 struct DailyWinWidgetEntryView : View {
     
-    @FetchRequest(
-        sortDescriptors: [],
-        predicate: .init(
-            format: "lastActionDate == nil OR lastActionDate < %@", Date.now.date as NSDate
-        ),
-        animation: .easeIn
-    )
-    var goals: FetchedResults<Goal>
-    
-    var todayGoals: [Goal] {
-        goals.filter { $0.isNeedToday() }
-    }
+    var entry: WidgetEntry
     
     var titleText: String {
-        if todayGoals.isEmpty {
+        if entry.goalsCompleted {
             return "Цели выполнены"
         } else {
             return "Осталось целей"
@@ -60,7 +65,7 @@ struct DailyWinWidgetEntryView : View {
     }
     
     var goalsCountView: some View {
-        Text("\(todayGoals.count)")
+        Text(entry.currentGoalsCount, format: .number)
             .fontWeight(.heavy)
             .font(.title)
             .foregroundColor(.primary.opacity(0.6))
@@ -73,8 +78,6 @@ struct DailyWinWidgetEntryView : View {
             .foregroundColor(.green)
     }
     
-    var entry: Provider.Entry
-
     var body: some View {
         
         VStack(spacing: 16) {
@@ -82,20 +85,20 @@ struct DailyWinWidgetEntryView : View {
             Text(titleText)
                 .fontWeight(.light)
             
-            
             ZStack {
                 Circle()
                     .stroke(lineWidth: 6)
                     .frame(width: 80, height: 80)
+                    .foregroundColor(.green.opacity(0.5))
                 
                 Circle()
-                    .trim(from: 0, to: 0.3)
+                    .trim(from: 0, to: CGFloat(entry.progress))
                     .stroke(style: StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round))
                     .foregroundColor(.green)
                     .rotationEffect(Angle(degrees: 270))
                     .frame(width: 80, height: 80)
                 
-                if todayGoals.isEmpty {
+                if entry.goalsCompleted {
                     goalsCompletedView
                 } else {
                     goalsCountView
@@ -112,6 +115,7 @@ struct DailyWinWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             DailyWinWidgetEntryView(entry: entry)
+                .environment(\.managedObjectContext, DataController.context)
         }
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
@@ -120,7 +124,8 @@ struct DailyWinWidget: Widget {
 
 struct DailyWinWidget_Previews: PreviewProvider {
     static var previews: some View {
-        DailyWinWidgetEntryView(entry: SimpleEntry(date: Date()))
+        DailyWinWidgetEntryView(entry: WidgetEntry.example)
             .previewContext(WidgetPreviewContext(family: .systemSmall))
+            .environment(\.managedObjectContext, DataController.context)
     }
 }

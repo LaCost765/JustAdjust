@@ -14,6 +14,13 @@ class DataController: ObservableObject {
         container.viewContext
     }
     
+    static var todayGoalsPredicate: NSPredicate {
+        .init(
+            format: "lastActionDate == nil OR lastActionDate < %@",
+            Date.now.date as NSDate
+        )
+    }
+    
     static let container: NSPersistentContainer = {
         
         let container = NSPersistentContainer(name: "CoreData")

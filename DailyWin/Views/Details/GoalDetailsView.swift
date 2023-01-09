@@ -10,7 +10,6 @@ import SwiftUI
 struct GoalDetailsView: View {
     
     @ObservedObject var goal: Goal
-    @State private var editModeEnabled = false
     
     var body: some View {
         List {
@@ -78,22 +77,11 @@ struct GoalDetailsView: View {
                 Text("Прогресс")
             }
         }
-        .navigationTitle(editModeEnabled ? "Редактировать" : "Детали")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            Button {
-                editModeEnabled.toggle()
-            } label: {
-                Label("Изменить", systemImage: "square.and.pencil")
-            }
-        }
     }
 }
 
 struct GoalDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            GoalDetailsView(goal: DataController.testGoal)
-        }
+        GoalDetailsView(goal: DataController.testGoal)
     }
 }
