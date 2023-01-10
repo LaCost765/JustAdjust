@@ -43,8 +43,22 @@ public class Goal: NSManagedObject {
         return "\(result) \(getDaysDescription(for: Int(result)))"
     }
     
-    /// Нужно ли отображать цель сегодня
-    func isNeedToday(currentDate: Date = .now.date) -> Bool {
+    /// Нужно ли отображать цель сейчас
+    func needNow(currentDate: Date = .now.date) -> Bool {
+        
+        var uncompleteCondition: Bool {
+            guard let lastActionDate = lastActionDate else {
+                return true
+            }
+
+            return lastActionDate.isLess(than: currentDate)
+        }
+
+        return shouldAppearToday(currentDate: currentDate) && uncompleteCondition
+    }
+    
+    func shouldAppearToday(currentDate: Date) -> Bool {
+        
         guard let startDate = progressInfo?.originStartDate
         else {
             fatalError()
@@ -63,16 +77,8 @@ public class Goal: NSManagedObject {
                 return numberOfWeekday > 1 && numberOfWeekday < 7
             }
         }
-
-        var uncompleteCondition: Bool {
-            guard let lastActionDate = lastActionDate else {
-                return true
-            }
-
-            return lastActionDate.isLess(than: currentDate)
-        }
-
-        return dateCondition && frequencyCondition && uncompleteCondition
+        
+        return dateCondition && frequencyCondition
     }
 }
 

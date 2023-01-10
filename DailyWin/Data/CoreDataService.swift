@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import WidgetKit
 
 protocol CoreDataServiceProtocol {
     
@@ -35,6 +36,10 @@ protocol CoreDataServiceProtocol {
     
     /// Обновить состояние объектов в контейнере
     func refresh()
+    
+    func getGoalsCountForToday() -> Double
+    
+    func getUncompletedGoalsCountForToday() -> Double
 }
 
 class CoreDataService: CoreDataServiceProtocol {
@@ -50,6 +55,26 @@ class CoreDataService: CoreDataServiceProtocol {
     private init() { }
     
     private var context = DataController.context
+    
+    func getGoalsCountForToday() -> Double {
+        let request = NSFetchRequest<Goal>(entityName: "Goal")
+        guard let result = try? context.fetch(request) else {
+            return .zero
+        }
+        
+        let count = result.filter { $0.shouldAppearToday(currentDate: .now) }.count
+        return Double(count)
+    }
+    
+    func getUncompletedGoalsCountForToday() -> Double {
+        let request = NSFetchRequest<Goal>(entityName: "Goal")
+        guard let result = try? context.fetch(request) else {
+            return .zero
+        }
+        
+        let count = result.filter { $0.needNow(currentDate: .now) }.count
+        return Double(count)
+    }
     
     func addNewGoal(
         text: String,
@@ -70,12 +95,14 @@ class CoreDataService: CoreDataServiceProtocol {
         newGoal.progressInfo = progressInfo
         
         try context.save()
+        WidgetCenter.shared.reloadAllTimelines()
         return newGoal
     }
     
     func deleteGoal(goal: Goal) throws {
         context.delete(goal)
         try context.save()
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     func markGoalCompleted(goal: Goal) throws {
@@ -97,12 +124,14 @@ class CoreDataService: CoreDataServiceProtocol {
         }
         
         try context.save()
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     func markGoalUncompleted(goal: Goal) throws {
         goal.lastActionDate = currentDate
         goal.progressInfo?.markUncompleted(currentDate: currentDate)
         try context.save()
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     func refresh() {

@@ -54,7 +54,7 @@ class CoreDataServiceTests: XCTestCase {
     ) {
         let progress = currentGoal.getCurrentProgressInDays(currentDate: currentDate)
         let bestResult = currentGoal.bestResult
-        let isNeedToday = currentGoal.isNeedToday(currentDate: currentDate)
+        let isNeedToday = currentGoal.needNow(currentDate: currentDate)
         
         XCTAssert(progress == expectedProgress, "Результат - \(progress), ожидалось - \(expectedProgress)")
         XCTAssert(bestResult == expectedBestResult, "Результат - \(bestResult), ожидалось - \(expectedBestResult)")

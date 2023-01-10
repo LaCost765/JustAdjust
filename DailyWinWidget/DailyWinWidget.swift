@@ -22,10 +22,18 @@ struct Provider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
     
         let firstDate = Calendar.current.startOfDay(for: .now)
-        let firstEntry = WidgetEntry.example
+        let firstEntry = WidgetEntry(
+            date: firstDate,
+            todayGoalsCount: CoreDataService.instance.getGoalsCountForToday(),
+            currentGoalsCount: CoreDataService.instance.getUncompletedGoalsCountForToday()
+        )
         
         let secondDate = Calendar.current.date(byAdding: .day, value: 1, to: firstDate)!
-        let secondEntry = WidgetEntry.example
+        let secondEntry = WidgetEntry(
+            date: secondDate,
+            todayGoalsCount: CoreDataService.instance.getGoalsCountForToday(),
+            currentGoalsCount: CoreDataService.instance.getUncompletedGoalsCountForToday()
+        )
 
         let timeline = Timeline(entries: [firstEntry, secondEntry], policy: .atEnd)
         completion(timeline)
@@ -48,7 +56,7 @@ struct WidgetEntry: TimelineEntry {
     static let example = WidgetEntry(
         date: .now,
         todayGoalsCount: 5,
-        currentGoalsCount: 2
+        currentGoalsCount: 0
     )
 }
 
@@ -74,8 +82,9 @@ struct DailyWinWidgetEntryView : View {
     var goalsCompletedView: some View {
         Image(systemName: "checkmark")
             .resizable()
-            .frame(width: 40, height: 40)
+            .frame(width: 34, height: 30)
             .foregroundColor(.green)
+            .fontWeight(.heavy)
     }
     
     var body: some View {
@@ -115,10 +124,7 @@ struct DailyWinWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             DailyWinWidgetEntryView(entry: entry)
-                .environment(\.managedObjectContext, DataController.context)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
     }
 }
 
@@ -126,6 +132,5 @@ struct DailyWinWidget_Previews: PreviewProvider {
     static var previews: some View {
         DailyWinWidgetEntryView(entry: WidgetEntry.example)
             .previewContext(WidgetPreviewContext(family: .systemSmall))
-            .environment(\.managedObjectContext, DataController.context)
     }
 }

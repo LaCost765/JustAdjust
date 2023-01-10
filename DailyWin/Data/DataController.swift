@@ -23,7 +23,12 @@ class DataController: ObservableObject {
     
     static let container: NSPersistentContainer = {
         
+        let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.lacost.DailyWin")!
+        let storeURL = containerURL.appendingPathComponent("CoreData.sqlite")
+        let description = NSPersistentStoreDescription(url: storeURL)
+        
         let container = NSPersistentContainer(name: "CoreData")
+        container.persistentStoreDescriptions = [description]
         container.loadPersistentStores { description, error in
             guard let error = error else { return }
             fatalError("Core Data error: '\(error.localizedDescription)'.")

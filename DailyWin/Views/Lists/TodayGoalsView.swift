@@ -20,7 +20,7 @@ struct TodayGoalsView: View {
     var goals: FetchedResults<Goal>
     
     var todayGoals: [Goal] {
-        goals.filter { $0.isNeedToday() }
+        goals.filter { $0.needNow() }
     }
     
     @State private var selectedGoal: Goal?

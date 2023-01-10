@@ -15,6 +15,7 @@
 		412B459428FC54E800DEFB99 /* GoalsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B459328FC54E800DEFB99 /* GoalsListView.swift */; };
 		412B459628FC66F800DEFB99 /* CreateGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B459528FC66F800DEFB99 /* CreateGoalView.swift */; };
 		412C1200293CA70D004CB0CE /* Goal+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADA0ED293BEB36001A1FC5 /* Goal+Enums.swift */; };
+		412E17D2296DD1EE0093AA3F /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419996CD293B9DAB00294C19 /* CoreDataService.swift */; };
 		417AF42E292FE135000AB0A5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417AF42D292FE135000AB0A5 /* WidgetKit.framework */; };
 		417AF430292FE135000AB0A5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417AF42F292FE135000AB0A5 /* SwiftUI.framework */; };
 		417AF433292FE135000AB0A5 /* DailyWinWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AF432292FE135000AB0A5 /* DailyWinWidget.swift */; };
@@ -82,6 +83,7 @@
 		412B459128FC51D600DEFB99 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		412B459328FC54E800DEFB99 /* GoalsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListView.swift; sourceTree = "<group>"; };
 		412B459528FC66F800DEFB99 /* CreateGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalView.swift; sourceTree = "<group>"; };
+		412E17D1296DCF100093AA3F /* DailyWinWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DailyWinWidgetExtension.entitlements; sourceTree = "<group>"; };
 		417AF42B292FE135000AB0A5 /* DailyWinWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DailyWinWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		417AF42D292FE135000AB0A5 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		417AF42F292FE135000AB0A5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -94,6 +96,7 @@
 		41ADA0ED293BEB36001A1FC5 /* Goal+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+Enums.swift"; sourceTree = "<group>"; };
 		41ADA0F3293BEBE4001A1FC5 /* DailyWinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyWinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41ADA0FC293BEC3B001A1FC5 /* CoreDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceTests.swift; sourceTree = "<group>"; };
+		41BAC407296C973A00EE6B83 /* DailyWin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DailyWin.entitlements; sourceTree = "<group>"; };
 		41BEC3CF29196512002EA3EC /* GoalDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailsView.swift; sourceTree = "<group>"; };
 		41C1EC4329105E57006B4942 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		41D38550291563C800ACC0E5 /* TodayGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayGoalsView.swift; sourceTree = "<group>"; };
@@ -136,6 +139,7 @@
 		412B457328FBFCBA00DEFB99 = {
 			isa = PBXGroup;
 			children = (
+				412E17D1296DCF100093AA3F /* DailyWinWidgetExtension.entitlements */,
 				412B457E28FBFCBA00DEFB99 /* DailyWin */,
 				417AF431292FE135000AB0A5 /* DailyWinWidget */,
 				41ADA0F4293BEBE4001A1FC5 /* DailyWinTests */,
@@ -157,6 +161,7 @@
 		412B457E28FBFCBA00DEFB99 /* DailyWin */ = {
 			isa = PBXGroup;
 			children = (
+				41BAC407296C973A00EE6B83 /* DailyWin.entitlements */,
 				41535742292AA89500274DF6 /* Views */,
 				41D91CE4290EA5A00053A98A /* Data */,
 				41535746292AA8E200274DF6 /* Helpers */,
@@ -448,6 +453,7 @@
 				417AF433292FE135000AB0A5 /* DailyWinWidget.swift in Sources */,
 				412C1200293CA70D004CB0CE /* Goal+Enums.swift in Sources */,
 				419BC82329326526001E2C80 /* DateExtension.swift in Sources */,
+				412E17D2296DD1EE0093AA3F /* CoreDataService.swift in Sources */,
 				419BC82529326556001E2C80 /* Goal+CoreDataClass.swift in Sources */,
 				419BC82429326553001E2C80 /* CoreData.xcdatamodeld in Sources */,
 				419BC82629326559001E2C80 /* ProgressInfo+CoreDataClass.swift in Sources */,
@@ -601,6 +607,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DailyWin/DailyWin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DailyWin/Preview Content\"";
@@ -632,6 +639,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DailyWin/DailyWin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DailyWin/Preview Content\"";
@@ -662,6 +670,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = DailyWinWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 49B53529R9;
@@ -690,6 +699,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = DailyWinWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 49B53529R9;
