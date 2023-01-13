@@ -77,6 +77,7 @@ struct GoalDetailsView: View {
                 Text("Прогресс")
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

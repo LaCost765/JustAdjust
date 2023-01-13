@@ -49,13 +49,17 @@ struct WidgetEntry: TimelineEntry {
         (todayGoalsCount - currentGoalsCount) / todayGoalsCount
     }
     
+    var percent: Int {
+        Int(progress * 100)
+    }
+    
     var goalsCompleted: Bool {
         currentGoalsCount.isZero
     }
     
     static let example = WidgetEntry(
         date: .now,
-        todayGoalsCount: 5,
+        todayGoalsCount: 0,
         currentGoalsCount: 0
     )
 }
@@ -73,45 +77,51 @@ struct DailyWinWidgetEntryView : View {
     }
     
     var goalsCountView: some View {
-        Text(entry.currentGoalsCount, format: .number)
-            .fontWeight(.heavy)
-            .font(.title)
-            .foregroundColor(.primary.opacity(0.6))
+        VStack {
+            
+            if entry.todayGoalsCount.isZero {
+                VStack {
+                    Text("Cоздавайте")
+                    Text("Новые")
+                    Text("Привычки")
+                }
+                .foregroundColor(.primary.opacity(0.8))
+                .fontWeight(.bold)
+                .font(.caption)
+            } else {
+                Text("\(entry.percent) %")
+                    .fontWeight(.heavy)
+                    .font(.title2)
+                    .foregroundColor(.primary.opacity(0.8))
+                Text("\(Int(entry.todayGoalsCount) - Int(entry.currentGoalsCount)) из \(Int(entry.todayGoalsCount))")
+                    .font(.caption)
+            }
+        }
     }
-    
-    var goalsCompletedView: some View {
-        Image(systemName: "checkmark")
-            .resizable()
-            .frame(width: 34, height: 30)
-            .foregroundColor(.green)
-            .fontWeight(.heavy)
-    }
-    
+
     var body: some View {
         
         VStack(spacing: 16) {
             
-            Text(titleText)
-                .fontWeight(.light)
-            
             ZStack {
+                
+                LinearGradient(colors: [.red, .green], startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .opacity(0.8)
+                                
                 Circle()
-                    .stroke(lineWidth: 6)
-                    .frame(width: 80, height: 80)
-                    .foregroundColor(.green.opacity(0.5))
+                    .stroke(lineWidth: 12)
+                    .fill(.primary.opacity(0.7))
+                    .frame(width: 100, height: 100)
                 
                 Circle()
                     .trim(from: 0, to: CGFloat(entry.progress))
-                    .stroke(style: StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round))
-                    .foregroundColor(.green)
+                    .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
+                    .fill(Color(red: 17 / 255, green: 136 / 255, blue: 17 / 255))
                     .rotationEffect(Angle(degrees: 270))
-                    .frame(width: 80, height: 80)
+                    .frame(width: 100, height: 100)
                 
-                if entry.goalsCompleted {
-                    goalsCompletedView
-                } else {
-                    goalsCountView
-                }
+                
+                goalsCountView
             }
         }
     }
@@ -125,6 +135,9 @@ struct DailyWinWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             DailyWinWidgetEntryView(entry: entry)
         }
+        .configurationDisplayName("Прогресс")
+        .description("Контролируйте свои привычки в течение дня")
+        .supportedFamilies([.systemSmall])
     }
 }
 
