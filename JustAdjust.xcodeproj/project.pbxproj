@@ -1,0 +1,833 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		412B458028FBFCBA00DEFB99 /* DailyWinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B457F28FBFCBA00DEFB99 /* DailyWinApp.swift */; };
+		412B458428FBFCBA00DEFB99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 412B458328FBFCBA00DEFB99 /* Assets.xcassets */; };
+		412B458728FBFCBA00DEFB99 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 412B458628FBFCBA00DEFB99 /* Preview Assets.xcassets */; };
+		412B459028FC4A8400DEFB99 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B458F28FC4A8400DEFB99 /* GoalView.swift */; };
+		412B459228FC51D600DEFB99 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B459128FC51D600DEFB99 /* DateExtension.swift */; };
+		412B459428FC54E800DEFB99 /* GoalsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B459328FC54E800DEFB99 /* GoalsListView.swift */; };
+		412B459628FC66F800DEFB99 /* CreateGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B459528FC66F800DEFB99 /* CreateGoalView.swift */; };
+		412C1200293CA70D004CB0CE /* Goal+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADA0ED293BEB36001A1FC5 /* Goal+Enums.swift */; };
+		412E17D2296DD1EE0093AA3F /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419996CD293B9DAB00294C19 /* CoreDataService.swift */; };
+		4151DAB62975A7F00055323D /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151DAB52975A7F00055323D /* ViewConstants.swift */; };
+		4151DAB72975A7F00055323D /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151DAB52975A7F00055323D /* ViewConstants.swift */; };
+		417AF42E292FE135000AB0A5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417AF42D292FE135000AB0A5 /* WidgetKit.framework */; };
+		417AF430292FE135000AB0A5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417AF42F292FE135000AB0A5 /* SwiftUI.framework */; };
+		417AF433292FE135000AB0A5 /* JustAdjustWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AF432292FE135000AB0A5 /* JustAdjustWidget.swift */; };
+		417AF435292FE136000AB0A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 417AF434292FE136000AB0A5 /* Assets.xcassets */; };
+		417AF439292FE136000AB0A5 /* JustAdjustWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 417AF42B292FE135000AB0A5 /* JustAdjustWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		419240D2291AC73700210B76 /* ProgressInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419240D0291AC73700210B76 /* ProgressInfo+CoreDataClass.swift */; };
+		419996CE293B9DAB00294C19 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419996CD293B9DAB00294C19 /* CoreDataService.swift */; };
+		419BC82329326526001E2C80 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B459128FC51D600DEFB99 /* DateExtension.swift */; };
+		419BC82429326553001E2C80 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41D91CE1290EA4400053A98A /* CoreData.xcdatamodeld */; };
+		419BC82529326556001E2C80 /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D91CE5290EA7680053A98A /* Goal+CoreDataClass.swift */; };
+		419BC82629326559001E2C80 /* ProgressInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419240D0291AC73700210B76 /* ProgressInfo+CoreDataClass.swift */; };
+		41A3216A29158A7500F1FD70 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A3216929158A7500F1FD70 /* MainTabView.swift */; };
+		41A66F9A2947A5CA008B9878 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C1EC4329105E57006B4942 /* DataController.swift */; };
+		41ADA0EE293BEB36001A1FC5 /* Goal+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADA0ED293BEB36001A1FC5 /* Goal+Enums.swift */; };
+		41ADA0FD293BEC3B001A1FC5 /* CoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADA0FC293BEC3B001A1FC5 /* CoreDataServiceTests.swift */; };
+		41BEC3D029196512002EA3EC /* GoalDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BEC3CF29196512002EA3EC /* GoalDetailsView.swift */; };
+		41C1EC4429105E57006B4942 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C1EC4329105E57006B4942 /* DataController.swift */; };
+		41D38551291563C800ACC0E5 /* TodayGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D38550291563C800ACC0E5 /* TodayGoalsView.swift */; };
+		41D91CE3290EA4400053A98A /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41D91CE1290EA4400053A98A /* CoreData.xcdatamodeld */; };
+		41D91CE7290EA7680053A98A /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D91CE5290EA7680053A98A /* Goal+CoreDataClass.swift */; };
+		41E321FE293F948600977FCE /* EverydayGoalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E321FD293F948600977FCE /* EverydayGoalTests.swift */; };
+		41E32200293F960E00977FCE /* WeekdayGoalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E321FF293F960D00977FCE /* WeekdayGoalTests.swift */; };
+		41E32202293F9FA700977FCE /* WeekendGoalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E32201293F9FA700977FCE /* WeekendGoalTests.swift */; };
+		41E32205293FCABA00977FCE /* DefaultAlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E32204293FCABA00977FCE /* DefaultAlertModifier.swift */; };
+		41E32207293FCAF400977FCE /* TodayGoalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E32206293FCAF400977FCE /* TodayGoalModifier.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		417AF437292FE136000AB0A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 412B457428FBFCBA00DEFB99 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 417AF42A292FE135000AB0A5;
+			remoteInfo = DailyWinWidgetExtension;
+		};
+		41ADA0F7293BEBE4001A1FC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 412B457428FBFCBA00DEFB99 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 412B457B28FBFCBA00DEFB99;
+			remoteInfo = DailyWin;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		417AF43A292FE136000AB0A5 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				417AF439292FE136000AB0A5 /* JustAdjustWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		412B457C28FBFCBA00DEFB99 /* JustAdjust.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustAdjust.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		412B457F28FBFCBA00DEFB99 /* DailyWinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWinApp.swift; sourceTree = "<group>"; };
+		412B458328FBFCBA00DEFB99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		412B458628FBFCBA00DEFB99 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		412B458F28FC4A8400DEFB99 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
+		412B459128FC51D600DEFB99 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		412B459328FC54E800DEFB99 /* GoalsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListView.swift; sourceTree = "<group>"; };
+		412B459528FC66F800DEFB99 /* CreateGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalView.swift; sourceTree = "<group>"; };
+		412E17D1296DCF100093AA3F /* JustAdjustWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JustAdjustWidgetExtension.entitlements; sourceTree = "<group>"; };
+		4151DAB52975A7F00055323D /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
+		417AF42B292FE135000AB0A5 /* JustAdjustWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = JustAdjustWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		417AF42D292FE135000AB0A5 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		417AF42F292FE135000AB0A5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		417AF432292FE135000AB0A5 /* JustAdjustWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustAdjustWidget.swift; sourceTree = "<group>"; };
+		417AF434292FE136000AB0A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		417AF436292FE136000AB0A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		419240D0291AC73700210B76 /* ProgressInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgressInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		419996CD293B9DAB00294C19 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		41A3216929158A7500F1FD70 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		41ADA0ED293BEB36001A1FC5 /* Goal+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+Enums.swift"; sourceTree = "<group>"; };
+		41ADA0F3293BEBE4001A1FC5 /* JustAdjustTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustAdjustTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		41ADA0FC293BEC3B001A1FC5 /* CoreDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceTests.swift; sourceTree = "<group>"; };
+		41BAC407296C973A00EE6B83 /* JustAdjust.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JustAdjust.entitlements; sourceTree = "<group>"; };
+		41BEC3CF29196512002EA3EC /* GoalDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailsView.swift; sourceTree = "<group>"; };
+		41C1EC4329105E57006B4942 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		41D38550291563C800ACC0E5 /* TodayGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayGoalsView.swift; sourceTree = "<group>"; };
+		41D91CE2290EA4400053A98A /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		41D91CE5290EA7680053A98A /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
+		41E321FD293F948600977FCE /* EverydayGoalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EverydayGoalTests.swift; sourceTree = "<group>"; };
+		41E321FF293F960D00977FCE /* WeekdayGoalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayGoalTests.swift; sourceTree = "<group>"; };
+		41E32201293F9FA700977FCE /* WeekendGoalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekendGoalTests.swift; sourceTree = "<group>"; };
+		41E32204293FCABA00977FCE /* DefaultAlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAlertModifier.swift; sourceTree = "<group>"; };
+		41E32206293FCAF400977FCE /* TodayGoalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayGoalModifier.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		412B457928FBFCBA00DEFB99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		417AF428292FE135000AB0A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				417AF430292FE135000AB0A5 /* SwiftUI.framework in Frameworks */,
+				417AF42E292FE135000AB0A5 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41ADA0F0293BEBE4001A1FC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		412B457328FBFCBA00DEFB99 = {
+			isa = PBXGroup;
+			children = (
+				412E17D1296DCF100093AA3F /* JustAdjustWidgetExtension.entitlements */,
+				412B457E28FBFCBA00DEFB99 /* JustAdjust */,
+				417AF431292FE135000AB0A5 /* JustAdjustWidget */,
+				41ADA0F4293BEBE4001A1FC5 /* JustAdjustTests */,
+				417AF42C292FE135000AB0A5 /* Frameworks */,
+				412B457D28FBFCBA00DEFB99 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		412B457D28FBFCBA00DEFB99 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				412B457C28FBFCBA00DEFB99 /* JustAdjust.app */,
+				417AF42B292FE135000AB0A5 /* JustAdjustWidgetExtension.appex */,
+				41ADA0F3293BEBE4001A1FC5 /* JustAdjustTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		412B457E28FBFCBA00DEFB99 /* JustAdjust */ = {
+			isa = PBXGroup;
+			children = (
+				41BAC407296C973A00EE6B83 /* JustAdjust.entitlements */,
+				41535742292AA89500274DF6 /* Views */,
+				41D91CE4290EA5A00053A98A /* Data */,
+				41535746292AA8E200274DF6 /* Helpers */,
+				412B458528FBFCBA00DEFB99 /* Preview Content */,
+				412B458328FBFCBA00DEFB99 /* Assets.xcassets */,
+			);
+			path = JustAdjust;
+			sourceTree = "<group>";
+		};
+		412B458528FBFCBA00DEFB99 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				412B458628FBFCBA00DEFB99 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		41535742292AA89500274DF6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				41535745292AA8CF00274DF6 /* Lists */,
+				41535744292AA8BE00274DF6 /* Details */,
+				41535743292AA8A000274DF6 /* Core */,
+				41E32203293FCAA600977FCE /* Modifiers */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		41535743292AA8A000274DF6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				412B457F28FBFCBA00DEFB99 /* DailyWinApp.swift */,
+				41A3216929158A7500F1FD70 /* MainTabView.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		41535744292AA8BE00274DF6 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				412B459528FC66F800DEFB99 /* CreateGoalView.swift */,
+				41BEC3CF29196512002EA3EC /* GoalDetailsView.swift */,
+				412B458F28FC4A8400DEFB99 /* GoalView.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		41535745292AA8CF00274DF6 /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				41D38550291563C800ACC0E5 /* TodayGoalsView.swift */,
+				412B459328FC54E800DEFB99 /* GoalsListView.swift */,
+			);
+			path = Lists;
+			sourceTree = "<group>";
+		};
+		41535746292AA8E200274DF6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				412B459128FC51D600DEFB99 /* DateExtension.swift */,
+				4151DAB52975A7F00055323D /* ViewConstants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		417AF42C292FE135000AB0A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				417AF42D292FE135000AB0A5 /* WidgetKit.framework */,
+				417AF42F292FE135000AB0A5 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		417AF431292FE135000AB0A5 /* JustAdjustWidget */ = {
+			isa = PBXGroup;
+			children = (
+				417AF432292FE135000AB0A5 /* JustAdjustWidget.swift */,
+				417AF434292FE136000AB0A5 /* Assets.xcassets */,
+				417AF436292FE136000AB0A5 /* Info.plist */,
+			);
+			path = JustAdjustWidget;
+			sourceTree = "<group>";
+		};
+		419240C6291AC4C700210B76 /* Goal */ = {
+			isa = PBXGroup;
+			children = (
+				41D91CE5290EA7680053A98A /* Goal+CoreDataClass.swift */,
+				41ADA0ED293BEB36001A1FC5 /* Goal+Enums.swift */,
+			);
+			path = Goal;
+			sourceTree = "<group>";
+		};
+		419240CB291AC69E00210B76 /* ProgressInfo */ = {
+			isa = PBXGroup;
+			children = (
+				419240D0291AC73700210B76 /* ProgressInfo+CoreDataClass.swift */,
+			);
+			path = ProgressInfo;
+			sourceTree = "<group>";
+		};
+		41ADA0F4293BEBE4001A1FC5 /* JustAdjustTests */ = {
+			isa = PBXGroup;
+			children = (
+				41ADA0FC293BEC3B001A1FC5 /* CoreDataServiceTests.swift */,
+				41E321FD293F948600977FCE /* EverydayGoalTests.swift */,
+				41E321FF293F960D00977FCE /* WeekdayGoalTests.swift */,
+				41E32201293F9FA700977FCE /* WeekendGoalTests.swift */,
+			);
+			path = JustAdjustTests;
+			sourceTree = "<group>";
+		};
+		41D91CE4290EA5A00053A98A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				419240CB291AC69E00210B76 /* ProgressInfo */,
+				419240C6291AC4C700210B76 /* Goal */,
+				41D91CE1290EA4400053A98A /* CoreData.xcdatamodeld */,
+				41C1EC4329105E57006B4942 /* DataController.swift */,
+				419996CD293B9DAB00294C19 /* CoreDataService.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		41E32203293FCAA600977FCE /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				41E32204293FCABA00977FCE /* DefaultAlertModifier.swift */,
+				41E32206293FCAF400977FCE /* TodayGoalModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		412B457B28FBFCBA00DEFB99 /* JustAdjust */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 412B458A28FBFCBA00DEFB99 /* Build configuration list for PBXNativeTarget "JustAdjust" */;
+			buildPhases = (
+				412B457828FBFCBA00DEFB99 /* Sources */,
+				412B457928FBFCBA00DEFB99 /* Frameworks */,
+				412B457A28FBFCBA00DEFB99 /* Resources */,
+				417AF43A292FE136000AB0A5 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				417AF438292FE136000AB0A5 /* PBXTargetDependency */,
+			);
+			name = JustAdjust;
+			productName = DailyWin;
+			productReference = 412B457C28FBFCBA00DEFB99 /* JustAdjust.app */;
+			productType = "com.apple.product-type.application";
+		};
+		417AF42A292FE135000AB0A5 /* JustAdjustWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 417AF43D292FE136000AB0A5 /* Build configuration list for PBXNativeTarget "JustAdjustWidgetExtension" */;
+			buildPhases = (
+				417AF427292FE135000AB0A5 /* Sources */,
+				417AF428292FE135000AB0A5 /* Frameworks */,
+				417AF429292FE135000AB0A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JustAdjustWidgetExtension;
+			productName = DailyWinWidgetExtension;
+			productReference = 417AF42B292FE135000AB0A5 /* JustAdjustWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		41ADA0F2293BEBE4001A1FC5 /* JustAdjustTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41ADA0F9293BEBE4001A1FC5 /* Build configuration list for PBXNativeTarget "JustAdjustTests" */;
+			buildPhases = (
+				41ADA0EF293BEBE4001A1FC5 /* Sources */,
+				41ADA0F0293BEBE4001A1FC5 /* Frameworks */,
+				41ADA0F1293BEBE4001A1FC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41ADA0F8293BEBE4001A1FC5 /* PBXTargetDependency */,
+			);
+			name = JustAdjustTests;
+			productName = DailyWinTests;
+			productReference = 41ADA0F3293BEBE4001A1FC5 /* JustAdjustTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		412B457428FBFCBA00DEFB99 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					412B457B28FBFCBA00DEFB99 = {
+						CreatedOnToolsVersion = 14.0;
+					};
+					417AF42A292FE135000AB0A5 = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+					41ADA0F2293BEBE4001A1FC5 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 412B457B28FBFCBA00DEFB99;
+					};
+				};
+			};
+			buildConfigurationList = 412B457728FBFCBA00DEFB99 /* Build configuration list for PBXProject "JustAdjust" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ru,
+			);
+			mainGroup = 412B457328FBFCBA00DEFB99;
+			productRefGroup = 412B457D28FBFCBA00DEFB99 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				412B457B28FBFCBA00DEFB99 /* JustAdjust */,
+				417AF42A292FE135000AB0A5 /* JustAdjustWidgetExtension */,
+				41ADA0F2293BEBE4001A1FC5 /* JustAdjustTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		412B457A28FBFCBA00DEFB99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				412B458728FBFCBA00DEFB99 /* Preview Assets.xcassets in Resources */,
+				412B458428FBFCBA00DEFB99 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		417AF429292FE135000AB0A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				417AF435292FE136000AB0A5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41ADA0F1293BEBE4001A1FC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		412B457828FBFCBA00DEFB99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				412B459428FC54E800DEFB99 /* GoalsListView.swift in Sources */,
+				419996CE293B9DAB00294C19 /* CoreDataService.swift in Sources */,
+				412B459228FC51D600DEFB99 /* DateExtension.swift in Sources */,
+				41D91CE7290EA7680053A98A /* Goal+CoreDataClass.swift in Sources */,
+				41D38551291563C800ACC0E5 /* TodayGoalsView.swift in Sources */,
+				41E32207293FCAF400977FCE /* TodayGoalModifier.swift in Sources */,
+				412B458028FBFCBA00DEFB99 /* DailyWinApp.swift in Sources */,
+				41A3216A29158A7500F1FD70 /* MainTabView.swift in Sources */,
+				41C1EC4429105E57006B4942 /* DataController.swift in Sources */,
+				41E32205293FCABA00977FCE /* DefaultAlertModifier.swift in Sources */,
+				412B459628FC66F800DEFB99 /* CreateGoalView.swift in Sources */,
+				4151DAB62975A7F00055323D /* ViewConstants.swift in Sources */,
+				41BEC3D029196512002EA3EC /* GoalDetailsView.swift in Sources */,
+				412B459028FC4A8400DEFB99 /* GoalView.swift in Sources */,
+				41D91CE3290EA4400053A98A /* CoreData.xcdatamodeld in Sources */,
+				419240D2291AC73700210B76 /* ProgressInfo+CoreDataClass.swift in Sources */,
+				41ADA0EE293BEB36001A1FC5 /* Goal+Enums.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		417AF427292FE135000AB0A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41A66F9A2947A5CA008B9878 /* DataController.swift in Sources */,
+				417AF433292FE135000AB0A5 /* JustAdjustWidget.swift in Sources */,
+				412C1200293CA70D004CB0CE /* Goal+Enums.swift in Sources */,
+				4151DAB72975A7F00055323D /* ViewConstants.swift in Sources */,
+				419BC82329326526001E2C80 /* DateExtension.swift in Sources */,
+				412E17D2296DD1EE0093AA3F /* CoreDataService.swift in Sources */,
+				419BC82529326556001E2C80 /* Goal+CoreDataClass.swift in Sources */,
+				419BC82429326553001E2C80 /* CoreData.xcdatamodeld in Sources */,
+				419BC82629326559001E2C80 /* ProgressInfo+CoreDataClass.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41ADA0EF293BEBE4001A1FC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41E32200293F960E00977FCE /* WeekdayGoalTests.swift in Sources */,
+				41ADA0FD293BEC3B001A1FC5 /* CoreDataServiceTests.swift in Sources */,
+				41E32202293F9FA700977FCE /* WeekendGoalTests.swift in Sources */,
+				41E321FE293F948600977FCE /* EverydayGoalTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		417AF438292FE136000AB0A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 417AF42A292FE135000AB0A5 /* JustAdjustWidgetExtension */;
+			targetProxy = 417AF437292FE136000AB0A5 /* PBXContainerItemProxy */;
+		};
+		41ADA0F8293BEBE4001A1FC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 412B457B28FBFCBA00DEFB99 /* JustAdjust */;
+			targetProxy = 41ADA0F7293BEBE4001A1FC5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		412B458828FBFCBA00DEFB99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		412B458928FBFCBA00DEFB99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		412B458B28FBFCBA00DEFB99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = JustAdjust/JustAdjust.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"JustAdjust/Preview Content\"";
+				DEVELOPMENT_TEAM = 49B53529R9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Привыкай";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lacost.JustAdjust;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		412B458C28FBFCBA00DEFB99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = JustAdjust/JustAdjust.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"JustAdjust/Preview Content\"";
+				DEVELOPMENT_TEAM = 49B53529R9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Привыкай";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lacost.JustAdjust;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		417AF43B292FE136000AB0A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = JustAdjustWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 49B53529R9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JustAdjustWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = JustAdjustWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lacost.JustAdjust.JustAdjustWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		417AF43C292FE136000AB0A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = JustAdjustWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 49B53529R9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JustAdjustWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = JustAdjustWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lacost.JustAdjust.JustAdjustWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		41ADA0FA293BEBE4001A1FC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 49B53529R9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lacost.JustAdjustTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JustAdjust.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/JustAdjust";
+			};
+			name = Debug;
+		};
+		41ADA0FB293BEBE4001A1FC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 49B53529R9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lacost.JustAdjustTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JustAdjust.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/JustAdjust";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		412B457728FBFCBA00DEFB99 /* Build configuration list for PBXProject "JustAdjust" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				412B458828FBFCBA00DEFB99 /* Debug */,
+				412B458928FBFCBA00DEFB99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		412B458A28FBFCBA00DEFB99 /* Build configuration list for PBXNativeTarget "JustAdjust" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				412B458B28FBFCBA00DEFB99 /* Debug */,
+				412B458C28FBFCBA00DEFB99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		417AF43D292FE136000AB0A5 /* Build configuration list for PBXNativeTarget "JustAdjustWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				417AF43B292FE136000AB0A5 /* Debug */,
+				417AF43C292FE136000AB0A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41ADA0F9293BEBE4001A1FC5 /* Build configuration list for PBXNativeTarget "JustAdjustTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41ADA0FA293BEBE4001A1FC5 /* Debug */,
+				41ADA0FB293BEBE4001A1FC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		41D91CE1290EA4400053A98A /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				41D91CE2290EA4400053A98A /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 41D91CE2290EA4400053A98A /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 412B457428FBFCBA00DEFB99 /* Project object */;
+}
