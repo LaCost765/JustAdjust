@@ -20,7 +20,8 @@ extension Date {
     
     var nextDay: Date {
         guard let day = Calendar.current.date(byAdding: .day, value: 1, to: self) else {
-            fatalError()
+            assertionFailure()
+            return .now
         }
         return day
     }
@@ -32,7 +33,8 @@ extension Date {
         }
         
         guard let nextWeekend = Calendar.current.nextWeekend(startingAfter: self) else {
-            fatalError()
+            assertionFailure()
+            return .now
         }
         return nextWeekend.start
     }
@@ -49,12 +51,14 @@ extension Date {
             case 1:
                 return 1
             default:
-                fatalError()
+                assertionFailure()
+                return 0
             }
         }
         
         guard let nextWeekDay = Calendar.current.date(byAdding: .day, value: daysToAdd, to: self) else {
-            fatalError()
+            assertionFailure()
+            return .now
         }
         
         return nextWeekDay

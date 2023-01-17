@@ -19,7 +19,7 @@ struct GoalsListView: View {
             List {
                 
                 if goals.isEmpty {
-                    Button("Добавить цель") {
+                    Button("Добавить новую привычку") {
                         showCreateScreen = true
                     }
                 }
@@ -51,7 +51,7 @@ struct GoalsListView: View {
                 title: "Упс 🫣",
                 message: "Произошла какая-то ошибка, попробуйте еще раз"
             )
-            .navigationTitle("Цели")
+            .navigationTitle("Привычки")
             .sheet(isPresented: $showCreateScreen) {
                 CreateGoalView()
             }
@@ -84,5 +84,6 @@ struct GoalsListView_Previews: PreviewProvider {
     
     static var previews: some View {
         GoalsListView()
+            .environment(\.managedObjectContext, DataController.context)
     }
 }

@@ -18,8 +18,6 @@ struct GoalDetailsView: View {
                 Text(goal.textDescription)
                     .font(.title2)
                     .bold()
-            } header: {
-                Text("Цель")
             }
             
             Section {

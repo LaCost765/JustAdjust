@@ -12,6 +12,7 @@ struct TodayGoalsView: View {
     
     let service: CoreDataServiceProtocol = CoreDataService.instance
     
+    @Environment(\.scenePhase) var scenePhase
     @FetchRequest(
         sortDescriptors: [],
         predicate: DataController.todayGoalsPredicate,
@@ -31,8 +32,8 @@ struct TodayGoalsView: View {
     
     private var overlay: some View {
         ZStack {
-            LinearGradient(colors: [.red, .green], startPoint: .topLeading, endPoint: .bottomTrailing)
-                .opacity(0.8)
+            ViewConstats.gradient.opacity(0.8)
+            
             HStack {
                 Spacer()
                 Button(action: markGoalUncompleted) {
@@ -50,6 +51,12 @@ struct TodayGoalsView: View {
                         .foregroundColor(.white)
                 }
                 Spacer()
+            }
+        }
+        .onTapGesture {
+            withAnimation {
+                showOverlay = false
+                selectedGoal = nil
             }
         }
         .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -71,7 +78,7 @@ struct TodayGoalsView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
+            ZStack {                
                 ScrollView {
                     ForEach(todayGoals) { goal in
                         GoalView(model: goal)
@@ -89,6 +96,7 @@ struct TodayGoalsView: View {
                             .overlay {
                                 if showOverlay, goal == selectedGoal { overlay }
                             }
+                            .padding(.bottom, 4)
                     }
                     .padding(.horizontal)
                 }
@@ -106,9 +114,11 @@ struct TodayGoalsView: View {
             .navigationTitle("На сегодня")
             .navigationBarTitleDisplayMode(.large)
         }
-        .onAppear {
-            service.refresh()
-        }
+        .onChange(of: scenePhase, perform: { phase in
+            if phase == .active {
+                service.refresh()
+            }
+        })
         .defaultAlert(
             isPresented: $showErrorAlert,
             title: "Упс 🫣",
@@ -161,5 +171,6 @@ struct TodayGoalsView: View {
 struct TodayGoalsView_Previews: PreviewProvider {
     static var previews: some View {
         TodayGoalsView()
+            .environment(\.managedObjectContext, DataController.context)
     }
 }

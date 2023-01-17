@@ -61,7 +61,8 @@ public class Goal: NSManagedObject {
         
         guard let startDate = progressInfo?.originStartDate
         else {
-            fatalError()
+            assertionFailure()
+            return false
         }
 
         let dateCondition = currentDate >= startDate.date
@@ -92,7 +93,8 @@ extension Goal {
               let currentActionDate = progressInfo.currentActionDate,
               let currentStartDate = progressInfo.currentStartDate
         else {
-            fatalError()
+            assertionFailure()
+            return .zero
         }
         
         guard currentDate.isLessOrEqual(to: currentActionDate) else { return 0 }

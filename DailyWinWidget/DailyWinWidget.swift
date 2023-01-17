@@ -80,21 +80,20 @@ struct DailyWinWidgetEntryView : View {
         VStack {
             
             if entry.todayGoalsCount.isZero {
-                VStack {
-                    Text("Cоздавайте")
-                    Text("Новые")
-                    Text("Привычки")
-                }
-                .foregroundColor(.primary.opacity(0.8))
-                .fontWeight(.bold)
-                .font(.caption)
+                Image(systemName: "plus")
+                    .resizable()
+                    .foregroundStyle(.secondary)
+                    .fontWeight(.semibold)
+                    .frame(width: 40, height: 40)
             } else {
                 Text("\(entry.percent) %")
                     .fontWeight(.heavy)
-                    .font(.title2)
-                    .foregroundColor(.primary.opacity(0.8))
+                    .font(.title)
+                    .foregroundStyle(.primary)
+                
                 Text("\(Int(entry.todayGoalsCount) - Int(entry.currentGoalsCount)) из \(Int(entry.todayGoalsCount))")
-                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .fontWeight(.semibold)
             }
         }
     }
@@ -105,21 +104,19 @@ struct DailyWinWidgetEntryView : View {
             
             ZStack {
                 
-                LinearGradient(colors: [.red, .green], startPoint: .topLeading, endPoint: .bottomTrailing)
-                    .opacity(0.8)
+                ViewConstats.gradient.opacity(0.3)
                                 
                 Circle()
-                    .stroke(lineWidth: 12)
-                    .fill(.primary.opacity(0.7))
-                    .frame(width: 100, height: 100)
+                    .stroke(lineWidth: 14)
+                    .fill(.secondary.opacity(0.5))
+                    .frame(width: 120, height: 120)
                 
                 Circle()
                     .trim(from: 0, to: CGFloat(entry.progress))
-                    .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
-                    .fill(Color(red: 17 / 255, green: 136 / 255, blue: 17 / 255))
+                    .stroke(style: StrokeStyle(lineWidth: 14, lineCap: .round, lineJoin: .round))
+                    .fill(.green)
                     .rotationEffect(Angle(degrees: 270))
-                    .frame(width: 100, height: 100)
-                
+                    .frame(width: 120, height: 120)
                 
                 goalsCountView
             }

@@ -16,6 +16,8 @@
 		412B459628FC66F800DEFB99 /* CreateGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B459528FC66F800DEFB99 /* CreateGoalView.swift */; };
 		412C1200293CA70D004CB0CE /* Goal+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADA0ED293BEB36001A1FC5 /* Goal+Enums.swift */; };
 		412E17D2296DD1EE0093AA3F /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419996CD293B9DAB00294C19 /* CoreDataService.swift */; };
+		4151DAB62975A7F00055323D /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151DAB52975A7F00055323D /* ViewConstants.swift */; };
+		4151DAB72975A7F00055323D /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151DAB52975A7F00055323D /* ViewConstants.swift */; };
 		417AF42E292FE135000AB0A5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417AF42D292FE135000AB0A5 /* WidgetKit.framework */; };
 		417AF430292FE135000AB0A5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417AF42F292FE135000AB0A5 /* SwiftUI.framework */; };
 		417AF433292FE135000AB0A5 /* DailyWinWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AF432292FE135000AB0A5 /* DailyWinWidget.swift */; };
@@ -84,6 +86,7 @@
 		412B459328FC54E800DEFB99 /* GoalsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListView.swift; sourceTree = "<group>"; };
 		412B459528FC66F800DEFB99 /* CreateGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalView.swift; sourceTree = "<group>"; };
 		412E17D1296DCF100093AA3F /* DailyWinWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DailyWinWidgetExtension.entitlements; sourceTree = "<group>"; };
+		4151DAB52975A7F00055323D /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
 		417AF42B292FE135000AB0A5 /* DailyWinWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DailyWinWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		417AF42D292FE135000AB0A5 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		417AF42F292FE135000AB0A5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -222,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				412B459128FC51D600DEFB99 /* DateExtension.swift */,
+				4151DAB52975A7F00055323D /* ViewConstants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -437,6 +441,7 @@
 				41C1EC4429105E57006B4942 /* DataController.swift in Sources */,
 				41E32205293FCABA00977FCE /* DefaultAlertModifier.swift in Sources */,
 				412B459628FC66F800DEFB99 /* CreateGoalView.swift in Sources */,
+				4151DAB62975A7F00055323D /* ViewConstants.swift in Sources */,
 				41BEC3D029196512002EA3EC /* GoalDetailsView.swift in Sources */,
 				412B459028FC4A8400DEFB99 /* GoalView.swift in Sources */,
 				41D91CE3290EA4400053A98A /* CoreData.xcdatamodeld in Sources */,
@@ -452,6 +457,7 @@
 				41A66F9A2947A5CA008B9878 /* DataController.swift in Sources */,
 				417AF433292FE135000AB0A5 /* DailyWinWidget.swift in Sources */,
 				412C1200293CA70D004CB0CE /* Goal+Enums.swift in Sources */,
+				4151DAB72975A7F00055323D /* ViewConstants.swift in Sources */,
 				419BC82329326526001E2C80 /* DateExtension.swift in Sources */,
 				412E17D2296DD1EE0093AA3F /* CoreDataService.swift in Sources */,
 				419BC82529326556001E2C80 /* Goal+CoreDataClass.swift in Sources */,
@@ -618,9 +624,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -628,9 +634,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = lacost.DailyWin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -651,9 +660,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -661,9 +670,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = lacost.DailyWin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

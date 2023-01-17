@@ -44,7 +44,8 @@ extension ProgressInfo {
     
     private func calculateNextActionDate(currentDate: Date) -> Date {
         guard let goal = goal else {
-            fatalError()
+            assertionFailure()
+            return .now
         }
         
         switch goal.frequencyMode {
@@ -61,7 +62,8 @@ extension ProgressInfo {
         guard let goal = goal,
               let startDate = originStartDate
         else {
-            fatalError()
+            assertionFailure()
+            return .now
         }
         
         switch goal.frequencyMode {

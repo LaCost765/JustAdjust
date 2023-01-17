@@ -12,16 +12,20 @@ struct MainTabView: View {
     @Environment(\.managedObjectContext) var moc
     
     var body: some View {
-        TabView {
-            TodayGoalsView()
-                .tabItem {
-                    Image(systemName: "star.fill")
-                }
+        
+        ZStack {
             
-            GoalsListView()
-                .tabItem {
-                    Image(systemName: "house.fill")
-                }
+            TabView {
+                TodayGoalsView()
+                    .tabItem {
+                        Image(systemName: "star.fill")
+                    }
+                
+                GoalsListView()
+                    .tabItem {
+                        Image(systemName: "house.fill")
+                    }
+            }
         }
     }
 }

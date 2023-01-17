@@ -110,7 +110,8 @@ class CoreDataService: CoreDataServiceProtocol {
         guard let progressInfo = goal.progressInfo,
               let currentActionDate = progressInfo.currentActionDate
         else {
-            fatalError()
+            assertionFailure()
+            return
         }
         
         goal.lastActionDate = currentDate

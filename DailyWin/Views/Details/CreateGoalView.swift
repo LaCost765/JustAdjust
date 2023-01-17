@@ -23,7 +23,7 @@ struct CreateGoalView: View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Опишите вашу цель", text: $goalText)
+                    TextField("Описание", text: $goalText)
                         .submitLabel(.done)
                 }
                 
@@ -75,7 +75,7 @@ struct CreateGoalView: View {
                 title: "Упс 🫣",
                 message: "Произошла какая-то ошибка, попробуйте еще раз"
             )
-            .navigationTitle("Новое испытание")
+            .navigationTitle("Новая привычка")
             .navigationBarTitleDisplayMode(.inline)
         }
     }
