@@ -13,12 +13,12 @@ import CoreData
 public class ProgressInfo: NSManagedObject {
 
     convenience init(
-        goal: Goal,
+        habit: Habit,
         startDate: Date,
         context: NSManagedObjectContext
     ) {
         self.init(context: context)
-        self.goal = goal
+        self.habit = habit
         self.originStartDate = startDate
         
         let firstActionDate = calculateFirstActionDate()
@@ -43,12 +43,12 @@ extension ProgressInfo {
     }
     
     private func calculateNextActionDate(currentDate: Date) -> Date {
-        guard let goal = goal else {
+        guard let habit = habit else {
             assertionFailure()
             return .now
         }
         
-        switch goal.frequencyMode {
+        switch habit.frequencyMode {
         case .everyday:
             return currentDate.nextDay
         case .weekends:
@@ -59,14 +59,14 @@ extension ProgressInfo {
     }
     
     private func calculateFirstActionDate() -> Date {
-        guard let goal = goal,
+        guard let habit = habit,
               let startDate = originStartDate
         else {
             assertionFailure()
             return .now
         }
         
-        switch goal.frequencyMode {
+        switch habit.frequencyMode {
         case .everyday:
             return startDate
         case .weekends:

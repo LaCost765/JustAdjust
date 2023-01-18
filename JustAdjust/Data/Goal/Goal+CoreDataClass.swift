@@ -1,5 +1,5 @@
 //
-//  Goal+CoreDataClass.swift
+//  Habit+CoreDataClass.swift
 //  JustAdjust
 //
 //  Created by Egor Baranov on 30.10.2022.
@@ -9,11 +9,11 @@
 import Foundation
 import CoreData
 
-typealias GoalFrequencyMode = Goal.FrequencyMode
-typealias GoalPriorityMode = Goal.PriorityMode
+typealias HabitFrequencyMode = Habit.FrequencyMode
+typealias HabitPriorityMode = Habit.PriorityMode
 
-@objc(Goal)
-public class Goal: NSManagedObject {
+@objc(Habit)
+public class Habit: NSManagedObject {
     
     var originStartDateString: String {
         guard let date = progressInfo?.originStartDate else {
@@ -83,7 +83,7 @@ public class Goal: NSManagedObject {
     }
 }
 
-extension Goal {
+extension Habit {
     
     /// Получить текуший прогресс в днях
     /// - Parameter currentDate: Текущая дата

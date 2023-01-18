@@ -1,5 +1,5 @@
 //
-//  GoalsListView.swift
+//  HabitsListView.swift
 //  JustAdjust
 //
 //  Created by Egor Baranov on 16.10.2022.
@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct GoalsListView: View {
+struct HabitsListView: View {
     
     let service: CoreDataServiceProtocol = CoreDataService.instance
-    @FetchRequest(sortDescriptors: []) var goals: FetchedResults<Goal>
+    @FetchRequest(sortDescriptors: []) var habits: FetchedResults<Habit>
     @State private var showCreateScreen = false
     @State private var showErrorAlert = false
     
@@ -18,28 +18,28 @@ struct GoalsListView: View {
         NavigationView {
             List {
                 
-                if goals.isEmpty {
+                if habits.isEmpty {
                     Button("Добавить новую привычку") {
                         showCreateScreen = true
                     }
                 }
                 
-                ForEach(goals) { goal in
+                ForEach(habits) { habit in
                     NavigationLink {
-                        GoalDetailsView(goal: goal)
+                        HabitDetailsView(habit: habit)
                     } label: {
                         VStack(alignment: .leading, spacing: 6) {
-                            Text(goal.textDescription)
+                            Text(habit.textDescription)
                                 .font(.headline)
                                 .lineLimit(2)
-                            Text(goal.frequencyMode.string)
+                            Text(habit.frequencyMode.string)
                                 .foregroundStyle(.secondary)
                                 .font(.subheadline)
                         }
                     }
                     .swipeActions(edge: .trailing) {
                         Button(role: .destructive) {
-                            deleteGoal(goal: goal)
+                            deleteHabit(habit: habit)
                         } label: {
                             Label("Удалить", systemImage: "trash")
                         }
@@ -53,7 +53,7 @@ struct GoalsListView: View {
             )
             .navigationTitle("Привычки")
             .sheet(isPresented: $showCreateScreen) {
-                CreateGoalView()
+                CreateHabitView()
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
@@ -71,19 +71,19 @@ struct GoalsListView: View {
         }
     }
     
-    func deleteGoal(goal: Goal) {
+    func deleteHabit(habit: Habit) {
         do {
-            try service.deleteGoal(goal: goal)
+            try service.deleteHabit(habit: habit)
         } catch {
             showErrorAlert = true
         }
     }
 }
 
-struct GoalsListView_Previews: PreviewProvider {
+struct HabitsListView_Previews: PreviewProvider {
     
     static var previews: some View {
-        GoalsListView()
+        HabitsListView()
             .environment(\.managedObjectContext, DataController.context)
     }
 }

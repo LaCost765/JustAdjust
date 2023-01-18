@@ -1,5 +1,5 @@
 //
-//  GoalView.swift
+//  HabitView.swift
 //  JustAdjust
 //
 //  Created by Egor Baranov on 16.10.2022.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct GoalView: View {
+struct HabitView: View {
     
-    let model: Goal
+    let model: Habit
     
     var progressDescriptionView: some View {
         HStack(spacing: 4) {

@@ -1,5 +1,5 @@
 //
-//  GoalDetailsView.swift
+//  HabitDetailsView.swift
 //  JustAdjust
 //
 //  Created by Egor Baranov on 07.11.2022.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct GoalDetailsView: View {
+struct HabitDetailsView: View {
     
-    @ObservedObject var goal: Goal
+    @ObservedObject var habit: Habit
     
     var body: some View {
         List {
             
             Section {
-                Text(goal.textDescription)
+                Text(habit.textDescription)
                     .font(.title2)
                     .bold()
             }
@@ -29,7 +29,7 @@ struct GoalDetailsView: View {
                         .foregroundColor(.cyan)
                     Text("Как часто")
                     Spacer()
-                    Text(goal.frequencyMode.string)
+                    Text(habit.frequencyMode.string)
                         .foregroundColor(.secondary)
                 }
                 HStack {
@@ -41,7 +41,7 @@ struct GoalDetailsView: View {
                     Text("Важность")
                     Spacer()
                         .foregroundColor(.red)
-                    Text(goal.priorityMode.string)
+                    Text(habit.priorityMode.string)
                         .foregroundColor(.secondary)
                 }
             } header: {
@@ -57,7 +57,7 @@ struct GoalDetailsView: View {
                         .foregroundColor(.yellow)
                     Text("Прогресс")
                     Spacer()
-                    Text(goal.progressFormattedString)
+                    Text(habit.progressFormattedString)
                         .foregroundColor(.secondary)
                 }
                 HStack {
@@ -68,7 +68,7 @@ struct GoalDetailsView: View {
                         .foregroundColor(.blue)
                     Text("Рекорд")
                     Spacer()
-                    Text("\(goal.bestResult)")
+                    Text("\(habit.bestResult)")
                         .foregroundColor(.secondary)
                 }
             } header: {
@@ -79,8 +79,8 @@ struct GoalDetailsView: View {
     }
 }
 
-struct GoalDetailsView_Previews: PreviewProvider {
+struct HabitDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        GoalDetailsView(goal: DataController.testGoal)
+        HabitDetailsView(habit: DataController.testHabit)
     }
 }

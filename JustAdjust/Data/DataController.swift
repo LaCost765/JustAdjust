@@ -14,7 +14,7 @@ class DataController: ObservableObject {
         container.viewContext
     }
     
-    static var todayGoalsPredicate: NSPredicate {
+    static var todayHabitsPredicate: NSPredicate {
         .init(
             format: "lastActionDate == nil OR lastActionDate < %@",
             Date.now.date as NSDate
@@ -41,15 +41,15 @@ class DataController: ObservableObject {
 }
 
 extension DataController {
-    static var testGoal: Goal {
-        let goal = Goal(context: context)
-        goal.text = "Тестовая цель, не очень длинная, не очень короткая"
-        goal.frequency = "каждый день"
-        goal.priority = "Высокая"
+    static var testHabit: Habit {
+        let habit = Habit(context: context)
+        habit.text = "Тестовая цель, не очень длинная, не очень короткая"
+        habit.frequency = "каждый день"
+        habit.priority = "Высокая"
         
-        let progressInfo = ProgressInfo(goal: goal, startDate: .now, context: context)
-        goal.progressInfo = progressInfo
+        let progressInfo = ProgressInfo(habit: habit, startDate: .now, context: context)
+        habit.progressInfo = progressInfo
         
-        return goal
+        return habit
     }
 }

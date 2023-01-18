@@ -35,7 +35,7 @@
 		41ADA0FD293BEC3B001A1FC5 /* CoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADA0FC293BEC3B001A1FC5 /* CoreDataServiceTests.swift */; };
 		41BEC3D029196512002EA3EC /* GoalDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BEC3CF29196512002EA3EC /* GoalDetailsView.swift */; };
 		41C1EC4429105E57006B4942 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C1EC4329105E57006B4942 /* DataController.swift */; };
-		41D38551291563C800ACC0E5 /* TodayGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D38550291563C800ACC0E5 /* TodayGoalsView.swift */; };
+		41D38551291563C800ACC0E5 /* TodayHabitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D38550291563C800ACC0E5 /* TodayHabitsView.swift */; };
 		41D91CE3290EA4400053A98A /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41D91CE1290EA4400053A98A /* CoreData.xcdatamodeld */; };
 		41D91CE7290EA7680053A98A /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D91CE5290EA7680053A98A /* Goal+CoreDataClass.swift */; };
 		41E321FE293F948600977FCE /* EverydayGoalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E321FD293F948600977FCE /* EverydayGoalTests.swift */; };
@@ -102,7 +102,7 @@
 		41BAC407296C973A00EE6B83 /* JustAdjust.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JustAdjust.entitlements; sourceTree = "<group>"; };
 		41BEC3CF29196512002EA3EC /* GoalDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailsView.swift; sourceTree = "<group>"; };
 		41C1EC4329105E57006B4942 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		41D38550291563C800ACC0E5 /* TodayGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayGoalsView.swift; sourceTree = "<group>"; };
+		41D38550291563C800ACC0E5 /* TodayHabitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayHabitsView.swift; sourceTree = "<group>"; };
 		41D91CE2290EA4400053A98A /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		41D91CE5290EA7680053A98A /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
 		41E321FD293F948600977FCE /* EverydayGoalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EverydayGoalTests.swift; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 		41535745292AA8CF00274DF6 /* Lists */ = {
 			isa = PBXGroup;
 			children = (
-				41D38550291563C800ACC0E5 /* TodayGoalsView.swift */,
+				41D38550291563C800ACC0E5 /* TodayHabitsView.swift */,
 				412B459328FC54E800DEFB99 /* GoalsListView.swift */,
 			);
 			path = Lists;
@@ -434,7 +434,7 @@
 				419996CE293B9DAB00294C19 /* CoreDataService.swift in Sources */,
 				412B459228FC51D600DEFB99 /* DateExtension.swift in Sources */,
 				41D91CE7290EA7680053A98A /* Goal+CoreDataClass.swift in Sources */,
-				41D38551291563C800ACC0E5 /* TodayGoalsView.swift in Sources */,
+				41D38551291563C800ACC0E5 /* TodayHabitsView.swift in Sources */,
 				41E32207293FCAF400977FCE /* TodayGoalModifier.swift in Sources */,
 				412B458028FBFCBA00DEFB99 /* DailyWinApp.swift in Sources */,
 				41A3216A29158A7500F1FD70 /* MainTabView.swift in Sources */,

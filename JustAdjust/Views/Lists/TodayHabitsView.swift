@@ -1,5 +1,5 @@
 //
-//  TodayGoalsView.swift
+//  TodayHabitsView.swift
 //  JustAdjust
 //
 //  Created by Egor Baranov on 04.11.2022.
@@ -8,23 +8,23 @@
 import SwiftUI
 import CoreData
 
-struct TodayGoalsView: View {
+struct TodayHabitsView: View {
     
     let service: CoreDataServiceProtocol = CoreDataService.instance
     
     @Environment(\.scenePhase) var scenePhase
     @FetchRequest(
         sortDescriptors: [],
-        predicate: DataController.todayGoalsPredicate,
+        predicate: DataController.todayHabitsPredicate,
         animation: .easeIn
     )
-    var goals: FetchedResults<Goal>
+    var habits: FetchedResults<Habit>
     
-    var todayGoals: [Goal] {
-        goals.filter { $0.needNow() }
+    var todayHabits: [Habit] {
+        habits.filter { $0.needNow() }
     }
     
-    @State private var selectedGoal: Goal?
+    @State private var selectedHabit: Habit?
     @State private var showOverlay = false
     @State private var showAlert = false
     @State private var showErrorAlert = false
@@ -36,7 +36,7 @@ struct TodayGoalsView: View {
             
             HStack {
                 Spacer()
-                Button(action: markGoalUncompleted) {
+                Button(action: markHabitUncompleted) {
                     Image(systemName: "xmark.circle.fill")
                         .resizable()
                         .frame(width: 40, height: 40)
@@ -44,7 +44,7 @@ struct TodayGoalsView: View {
                 }
                 Spacer()
                 Spacer()
-                Button(action: markGoalCompleted) {
+                Button(action: markHabitCompleted) {
                     Image(systemName: "checkmark.circle.fill")
                         .resizable()
                         .frame(width: 40, height: 40)
@@ -56,7 +56,7 @@ struct TodayGoalsView: View {
         .onTapGesture {
             withAnimation {
                 showOverlay = false
-                selectedGoal = nil
+                selectedHabit = nil
             }
         }
         .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -80,28 +80,28 @@ struct TodayGoalsView: View {
         NavigationView {
             ZStack {                
                 ScrollView {
-                    ForEach(todayGoals) { goal in
-                        GoalView(model: goal)
-                            .todayCardStyle(isSelected: goal == selectedGoal, isOverlayShown: showOverlay)
+                    ForEach(todayHabits) { habit in
+                        HabitView(model: habit)
+                            .todayCardStyle(isSelected: habit == selectedHabit, isOverlayShown: showOverlay)
                             .onTapGesture {
                                 withAnimation {
-                                    if selectedGoal == goal {
+                                    if selectedHabit == habit {
                                         showOverlay = true
                                     } else {
                                         showOverlay = false
-                                        selectedGoal = goal
+                                        selectedHabit = habit
                                     }
                                 }
                             }
                             .overlay {
-                                if showOverlay, goal == selectedGoal { overlay }
+                                if showOverlay, habit == selectedHabit { overlay }
                             }
                             .padding(.bottom, 4)
                     }
                     .padding(.horizontal)
                 }
                 
-                if todayGoals.isEmpty {
+                if todayHabits.isEmpty {
                     stubView
                         .opacity(stubViewOpacity)
                         .onAppear {
@@ -131,46 +131,46 @@ struct TodayGoalsView: View {
         )
     }
     
-    func markGoalCompleted() {
-        guard let goal = selectedGoal else {
+    func markHabitCompleted() {
+        guard let habit = selectedHabit else {
             assertionFailure()
             return
         }
         
         do {
-            try service.markGoalCompleted(goal: goal)
+            try service.markHabitCompleted(habit: habit)
         } catch {
             showErrorAlert = true
         }
         
         withAnimation {
-            selectedGoal = nil
+            selectedHabit = nil
             showOverlay = false
         }
     }
     
-    func markGoalUncompleted() {
-        guard let goal = selectedGoal else {
+    func markHabitUncompleted() {
+        guard let habit = selectedHabit else {
             assertionFailure()
             return
         }
         
         do {
-            try service.markGoalUncompleted(goal: goal)
+            try service.markHabitUncompleted(habit: habit)
         } catch {
             showErrorAlert = true
         }
         
         withAnimation {
-            selectedGoal = nil
+            selectedHabit = nil
             showOverlay = false
         }
     }
 }
 
-struct TodayGoalsView_Previews: PreviewProvider {
+struct TodayHabitsView_Previews: PreviewProvider {
     static var previews: some View {
-        TodayGoalsView()
+        TodayHabitsView()
             .environment(\.managedObjectContext, DataController.context)
     }
 }

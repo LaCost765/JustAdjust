@@ -22,39 +22,39 @@ import XCTest
 class CoreDataServiceTests: XCTestCase {
     
     let service = CoreDataService.instance
-    var currentGoal: Goal!
+    var currentHabit: Habit!
     
     var currentDate: Date {
         service.customDate ?? .now.date
     }
     
     override func tearDownWithError() throws {
-        guard let goal = currentGoal else { return }
-        try service.deleteGoal(goal: goal)
+        guard let habit = currentHabit else { return }
+        try service.deleteHabit(habit: habit)
     }
     
-    func setupGoal(
+    func setupHabit(
         text: String,
-        priority: GoalPriorityMode,
-        frequency: GoalFrequencyMode
+        priority: HabitPriorityMode,
+        frequency: HabitFrequencyMode
     ) throws {
-        let goal = try service.addNewGoal(
+        let habit = try service.addNewHabit(
             text: text,
             priority: priority.string,
             frequency: frequency.string,
             startDate: currentDate
         )
-        currentGoal = goal
+        currentHabit = habit
     }
     
-    func assertGoalData(
+    func assertHabitData(
         expectedProgress: Int,
         expectedBestResult: String,
         expectedNeedToday: Bool
     ) {
-        let progress = currentGoal.getCurrentProgressInDays(currentDate: currentDate)
-        let bestResult = currentGoal.bestResult
-        let isNeedToday = currentGoal.needNow(currentDate: currentDate)
+        let progress = currentHabit.getCurrentProgressInDays(currentDate: currentDate)
+        let bestResult = currentHabit.bestResult
+        let isNeedToday = currentHabit.needNow(currentDate: currentDate)
         
         XCTAssert(progress == expectedProgress, "Результат - \(progress), ожидалось - \(expectedProgress)")
         XCTAssert(bestResult == expectedBestResult, "Результат - \(bestResult), ожидалось - \(expectedBestResult)")

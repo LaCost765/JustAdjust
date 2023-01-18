@@ -1,5 +1,5 @@
 //
-//  TodayGoalModifier.swift
+//  TodayHabitModifier.swift
 //  JustAdjust
 //
 //  Created by Egor Baranov on 06.12.2022.
@@ -7,21 +7,21 @@
 
 import SwiftUI
 
-struct TodayGoalModifier: ViewModifier {
+struct TodayHabitModifier: ViewModifier {
    
-    let isGoalSelected: Bool
+    let isHabitSelected: Bool
     let showOverlay: Bool
     
     var blurAmount: CGFloat {
-        isGoalSelected && showOverlay ? 3 : 0
+        isHabitSelected && showOverlay ? 3 : 0
     }
     
     var scaleAmount: CGFloat {
-        isGoalSelected ? 1 : 0.97
+        isHabitSelected ? 1 : 0.97
     }
     
     var shadowAmount: CGFloat {
-        isGoalSelected ? 10 : 0
+        isHabitSelected ? 10 : 0
     }
     
     func body(content: Content) -> some View {
@@ -41,8 +41,8 @@ extension View {
         isSelected: Bool,
         isOverlayShown: Bool
     ) -> some View {
-        let style = TodayGoalModifier(
-            isGoalSelected: isSelected,
+        let style = TodayHabitModifier(
+            isHabitSelected: isSelected,
             showOverlay: isOverlayShown
         )
         return modifier(style)

@@ -18,28 +18,28 @@ protocol CoreDataServiceProtocol {
     ///   - frequency: Частота
     ///   - startDate: Дата начала отсчета прогресса
     /// - Returns: Созданная цель
-    func addNewGoal(
+    func addNewHabit(
         text: String,
         priority: String,
         frequency: String,
         startDate: Date
-    ) throws -> Goal
+    ) throws -> Habit
     
     /// Удалить цель из контейнера
-    func deleteGoal(goal: Goal) throws
+    func deleteHabit(habit: Habit) throws
     
     /// Пометить цель выполненной
-    func markGoalCompleted(goal: Goal) throws
+    func markHabitCompleted(habit: Habit) throws
     
     /// Пометить цель невыполненной
-    func markGoalUncompleted(goal: Goal) throws
+    func markHabitUncompleted(habit: Habit) throws
     
     /// Обновить состояние объектов в контейнере
     func refresh()
     
-    func getGoalsCountForToday() -> Double
+    func getHabitsCountForToday() -> Double
     
-    func getUncompletedGoalsCountForToday() -> Double
+    func getUncompletedHabitsCountForToday() -> Double
 }
 
 class CoreDataService: CoreDataServiceProtocol {
@@ -56,8 +56,8 @@ class CoreDataService: CoreDataServiceProtocol {
     
     private var context = DataController.context
     
-    func getGoalsCountForToday() -> Double {
-        let request = NSFetchRequest<Goal>(entityName: "Goal")
+    func getHabitsCountForToday() -> Double {
+        let request = NSFetchRequest<Habit>(entityName: "Habit")
         guard let result = try? context.fetch(request) else {
             return .zero
         }
@@ -66,8 +66,8 @@ class CoreDataService: CoreDataServiceProtocol {
         return Double(count)
     }
     
-    func getUncompletedGoalsCountForToday() -> Double {
-        let request = NSFetchRequest<Goal>(entityName: "Goal")
+    func getUncompletedHabitsCountForToday() -> Double {
+        let request = NSFetchRequest<Habit>(entityName: "Habit")
         guard let result = try? context.fetch(request) else {
             return .zero
         }
@@ -76,50 +76,50 @@ class CoreDataService: CoreDataServiceProtocol {
         return Double(count)
     }
     
-    func addNewGoal(
+    func addNewHabit(
         text: String,
         priority: String,
         frequency: String,
         startDate: Date
-    ) throws -> Goal {
-        let newGoal = Goal(context: context)
-        newGoal.text = text
-        newGoal.priority = priority
-        newGoal.frequency = frequency
+    ) throws -> Habit {
+        let newHabit = Habit(context: context)
+        newHabit.text = text
+        newHabit.priority = priority
+        newHabit.frequency = frequency
         
         let progressInfo = ProgressInfo(
-            goal: newGoal,
+            habit: newHabit,
             startDate: startDate.date,
             context: context
         )
-        newGoal.progressInfo = progressInfo
+        newHabit.progressInfo = progressInfo
         
         try context.save()
         WidgetCenter.shared.reloadAllTimelines()
-        return newGoal
+        return newHabit
     }
     
-    func deleteGoal(goal: Goal) throws {
-        context.delete(goal)
+    func deleteHabit(habit: Habit) throws {
+        context.delete(habit)
         try context.save()
         WidgetCenter.shared.reloadAllTimelines()
     }
     
-    func markGoalCompleted(goal: Goal) throws {
+    func markHabitCompleted(habit: Habit) throws {
         
-        guard let progressInfo = goal.progressInfo,
+        guard let progressInfo = habit.progressInfo,
               let currentActionDate = progressInfo.currentActionDate
         else {
             assertionFailure()
             return
         }
         
-        goal.lastActionDate = currentDate
+        habit.lastActionDate = currentDate
         
         let shoudResetCurrentStart = !currentActionDate.isEqual(to: currentDate)
         progressInfo.markCompleted(currentDate: currentDate, shouldResetCurrentStart: shoudResetCurrentStart)
         
-        let currentProgress = goal.getCurrentProgressInDays(currentDate: currentDate)
+        let currentProgress = habit.getCurrentProgressInDays(currentDate: currentDate)
         if currentProgress > progressInfo.bestResult {
             progressInfo.bestResult = Int16(currentProgress)
         }
@@ -128,9 +128,9 @@ class CoreDataService: CoreDataServiceProtocol {
         WidgetCenter.shared.reloadAllTimelines()
     }
     
-    func markGoalUncompleted(goal: Goal) throws {
-        goal.lastActionDate = currentDate
-        goal.progressInfo?.markUncompleted(currentDate: currentDate)
+    func markHabitUncompleted(habit: Habit) throws {
+        habit.lastActionDate = currentDate
+        habit.progressInfo?.markUncompleted(currentDate: currentDate)
         try context.save()
         WidgetCenter.shared.reloadAllTimelines()
     }

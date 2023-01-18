@@ -1,5 +1,5 @@
 //
-//  CreateGoalView.swift
+//  CreateHabitView.swift
 //  JustAdjust
 //
 //  Created by Egor Baranov on 16.10.2022.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct CreateGoalView: View {
+struct CreateHabitView: View {
     
     @Environment(\.dismiss) var dismiss
     let service: CoreDataServiceProtocol = CoreDataService.instance
     
-    @State private var goalText: String = ""
-    @State private var selectedPriority = GoalPriorityMode.high.string
-    @State private var selectedFrequency = GoalFrequencyMode.everyday.string
+    @State private var habitText: String = ""
+    @State private var selectedPriority = HabitPriorityMode.high.string
+    @State private var selectedFrequency = HabitFrequencyMode.everyday.string
     @State private var startDate: Date = Date()
     @State private var showCalendar = false
     @State private var showErrorAlert = false
@@ -23,7 +23,7 @@ struct CreateGoalView: View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Описание", text: $goalText)
+                    TextField("Описание", text: $habitText)
                         .submitLabel(.done)
                 }
                 
@@ -51,13 +51,13 @@ struct CreateGoalView: View {
                     }
                     
                     Picker("Важность", selection: $selectedPriority) {
-                        ForEach(GoalPriorityMode.allCases, id: \.string) { mode in
+                        ForEach(HabitPriorityMode.allCases, id: \.string) { mode in
                             Text(mode.string.lowercased())
                         }
                     }
                     
                     Picker("Частота", selection: $selectedFrequency) {
-                        ForEach(GoalFrequencyMode.allCases, id: \.string) { mode in
+                        ForEach(HabitFrequencyMode.allCases, id: \.string) { mode in
                             Text(mode.string)
                         }
                     }
@@ -66,8 +66,8 @@ struct CreateGoalView: View {
                 }
                 
                 Section {
-                    Button("Создать", action: createGoal)
-                        .disabled(goalText.isEmpty)
+                    Button("Создать", action: createHabit)
+                        .disabled(habitText.isEmpty)
                 }
             }
             .defaultAlert(
@@ -80,11 +80,11 @@ struct CreateGoalView: View {
         }
     }
     
-    private func createGoal() {
+    private func createHabit() {
         
         do {
-            _ = try service.addNewGoal(
-                text: goalText,
+            _ = try service.addNewHabit(
+                text: habitText,
                 priority: selectedPriority,
                 frequency: selectedFrequency,
                 startDate: startDate
@@ -96,8 +96,8 @@ struct CreateGoalView: View {
     }
 }
 
-struct CreateGoalView_Previews: PreviewProvider {
+struct CreateHabitView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateGoalView()
+        CreateHabitView()
     }
 }

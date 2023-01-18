@@ -16,12 +16,12 @@ struct MainTabView: View {
         ZStack {
             
             TabView {
-                TodayGoalsView()
+                TodayHabitsView()
                     .tabItem {
                         Image(systemName: "star.fill")
                     }
                 
-                GoalsListView()
+                HabitsListView()
                     .tabItem {
                         Image(systemName: "house.fill")
                     }

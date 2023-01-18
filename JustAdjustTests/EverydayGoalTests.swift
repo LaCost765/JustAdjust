@@ -1,5 +1,5 @@
 //
-//  EverydayGoalTests.swift
+//  EverydayHabitTests.swift
 //  JustAdjustTests
 //
 //  Created by Egor Baranov on 06.12.2022.
@@ -8,207 +8,207 @@
 import XCTest
 @testable import JustAdjust
 
-final class EverydayGoalTests: CoreDataServiceTests {
+final class EverydayHabitTests: CoreDataServiceTests {
     
     /// ✅ ✅ ✅ ✍️
     func testEveryday_1() throws {
 
-        try setupGoal(
+        try setupHabit(
             text: "testEveryday_1",
             priority: .high,
             frequency: .everyday
         )
         
-        try service.markGoalCompleted(goal: currentGoal)
+        try service.markHabitCompleted(habit: currentHabit)
         setNextDay()
         
-        try service.markGoalCompleted(goal: currentGoal)
+        try service.markHabitCompleted(habit: currentHabit)
         setNextDay()
         
-        try service.markGoalCompleted(goal: currentGoal)
-        assertGoalData(expectedProgress: 3, expectedBestResult: "3 дня подряд", expectedNeedToday: false)
+        try service.markHabitCompleted(habit: currentHabit)
+        assertHabitData(expectedProgress: 3, expectedBestResult: "3 дня подряд", expectedNeedToday: false)
     }
     
     /// ✅ ✅ ❌ ✍️
     func testEveryday_2() throws {
 
-        try setupGoal(
+        try setupHabit(
             text: "testEveryday_2",
             priority: .high,
             frequency: .everyday
         )
         
-        try service.markGoalCompleted(goal: currentGoal)
+        try service.markHabitCompleted(habit: currentHabit)
         setNextDay()
         
-        try service.markGoalCompleted(goal: currentGoal)
+        try service.markHabitCompleted(habit: currentHabit)
         setNextDay()
         
-        try service.markGoalUncompleted(goal: currentGoal)
-        assertGoalData(expectedProgress: 0, expectedBestResult: "2 дня подряд", expectedNeedToday: false)
+        try service.markHabitUncompleted(habit: currentHabit)
+        assertHabitData(expectedProgress: 0, expectedBestResult: "2 дня подряд", expectedNeedToday: false)
     }
     
     /// ✅ ✅ ❓ ✍️
     func testEveryday_3() throws {
 
-        try setupGoal(
+        try setupHabit(
             text: "testEveryday_3",
             priority: .high,
             frequency: .everyday
         )
         
-        try service.markGoalCompleted(goal: currentGoal)
+        try service.markHabitCompleted(habit: currentHabit)
         setNextDay()
         
-        try service.markGoalCompleted(goal: currentGoal)
+        try service.markHabitCompleted(habit: currentHabit)
         setNextDay()
         
         setNextDay()
-        assertGoalData(expectedProgress: 0, expectedBestResult: "2 дня подряд", expectedNeedToday: true)
+        assertHabitData(expectedProgress: 0, expectedBestResult: "2 дня подряд", expectedNeedToday: true)
     }
     
     /// ❌ ✅ ✅ ✍️
     func testEveryday_4() throws {
 
-        try setupGoal(
+        try setupHabit(
             text: "testEveryday_4",
             priority: .high,
             frequency: .everyday
         )
         
-        try service.markGoalUncompleted(goal: currentGoal)
+        try service.markHabitUncompleted(habit: currentHabit)
         setNextDay()
         
-        try service.markGoalCompleted(goal: currentGoal)
+        try service.markHabitCompleted(habit: currentHabit)
         setNextDay()
         
-        try service.markGoalCompleted(goal: currentGoal)
-        assertGoalData(expectedProgress: 2, expectedBestResult: "2 дня подряд", expectedNeedToday: false)
+        try service.markHabitCompleted(habit: currentHabit)
+        assertHabitData(expectedProgress: 2, expectedBestResult: "2 дня подряд", expectedNeedToday: false)
     }
     
     /// ✅ ❓ ✅ ✍️
     func testEveryday_5() throws {
 
-        try setupGoal(
+        try setupHabit(
             text: "testEveryday_5",
             priority: .high,
             frequency: .everyday
         )
         
-        try service.markGoalCompleted(goal: currentGoal)
+        try service.markHabitCompleted(habit: currentHabit)
         setNextDay()
         
         setNextDay()
         
-        try service.markGoalCompleted(goal: currentGoal)
-        assertGoalData(expectedProgress: 1, expectedBestResult: "1 день", expectedNeedToday: false)
+        try service.markHabitCompleted(habit: currentHabit)
+        assertHabitData(expectedProgress: 1, expectedBestResult: "1 день", expectedNeedToday: false)
     }
     
     /// ✅ ❓ ✍️ ✅ ✅ ✍️
     func testEveryday_6() throws {
 
-        try setupGoal(
+        try setupHabit(
             text: "testEveryday_6",
             priority: .high,
             frequency: .everyday
         )
         
-        try service.markGoalCompleted(goal: currentGoal)
+        try service.markHabitCompleted(habit: currentHabit)
         setNextDay()
         
         setNextDay()
-        assertGoalData(expectedProgress: 0, expectedBestResult: "1 день", expectedNeedToday: true)
+        assertHabitData(expectedProgress: 0, expectedBestResult: "1 день", expectedNeedToday: true)
         
-        try service.markGoalCompleted(goal: currentGoal)
+        try service.markHabitCompleted(habit: currentHabit)
         setNextDay()
         
-        try service.markGoalCompleted(goal: currentGoal)
-        assertGoalData(expectedProgress: 2, expectedBestResult: "2 дня подряд", expectedNeedToday: false)
+        try service.markHabitCompleted(habit: currentHabit)
+        assertHabitData(expectedProgress: 2, expectedBestResult: "2 дня подряд", expectedNeedToday: false)
     }
     
     /// ✅ ❌ ✅ ✅ ❓ ✍️
     func testEveryday_7() throws {
 
-        try setupGoal(
+        try setupHabit(
             text: "testEveryday_7",
             priority: .high,
             frequency: .everyday
         )
         
-        try service.markGoalCompleted(goal: currentGoal)
+        try service.markHabitCompleted(habit: currentHabit)
         setNextDay()
         
-        try service.markGoalUncompleted(goal: currentGoal)
+        try service.markHabitUncompleted(habit: currentHabit)
         setNextDay()
         
-        try service.markGoalCompleted(goal: currentGoal)
+        try service.markHabitCompleted(habit: currentHabit)
         setNextDay()
         
-        try service.markGoalCompleted(goal: currentGoal)
+        try service.markHabitCompleted(habit: currentHabit)
         setNextDay()
         
         setNextDay()
-        assertGoalData(expectedProgress: 0, expectedBestResult: "2 дня подряд", expectedNeedToday: true)
+        assertHabitData(expectedProgress: 0, expectedBestResult: "2 дня подряд", expectedNeedToday: true)
     }
     
     /// ❌ ❌ ✍️ ✅ ✅ ✅ ✍️
     func testEveryday_8() throws {
 
-        try setupGoal(
+        try setupHabit(
             text: "testEveryday_8",
             priority: .high,
             frequency: .everyday
         )
         
-        try service.markGoalUncompleted(goal: currentGoal)
+        try service.markHabitUncompleted(habit: currentHabit)
         setNextDay()
         
-        try service.markGoalUncompleted(goal: currentGoal)
-        assertGoalData(expectedProgress: 0, expectedBestResult: "0 дней", expectedNeedToday: false)
+        try service.markHabitUncompleted(habit: currentHabit)
+        assertHabitData(expectedProgress: 0, expectedBestResult: "0 дней", expectedNeedToday: false)
         setNextDay()
         
-        try service.markGoalCompleted(goal: currentGoal)
+        try service.markHabitCompleted(habit: currentHabit)
         setNextDay()
         
-        try service.markGoalCompleted(goal: currentGoal)
+        try service.markHabitCompleted(habit: currentHabit)
         setNextDay()
         
-        try service.markGoalCompleted(goal: currentGoal)
-        assertGoalData(expectedProgress: 3, expectedBestResult: "3 дня подряд", expectedNeedToday: false)
+        try service.markHabitCompleted(habit: currentHabit)
+        assertHabitData(expectedProgress: 3, expectedBestResult: "3 дня подряд", expectedNeedToday: false)
         
         setNextDay()
-        assertGoalData(expectedProgress: 3, expectedBestResult: "3 дня подряд", expectedNeedToday: true)
+        assertHabitData(expectedProgress: 3, expectedBestResult: "3 дня подряд", expectedNeedToday: true)
     }
     
     /// ✅ ❌ ❓ ✍️ ✅ ✅ ✍️
     func testEveryday_9() throws {
 
-        try setupGoal(
+        try setupHabit(
             text: "testEveryday_9",
             priority: .high,
             frequency: .everyday
         )
         
-        try service.markGoalCompleted(goal: currentGoal)
+        try service.markHabitCompleted(habit: currentHabit)
         setNextDay()
         
-        try service.markGoalUncompleted(goal: currentGoal)
+        try service.markHabitUncompleted(habit: currentHabit)
         setNextDay()
         
         setNextDay()
-        assertGoalData(expectedProgress: 0, expectedBestResult: "1 день", expectedNeedToday: true)
+        assertHabitData(expectedProgress: 0, expectedBestResult: "1 день", expectedNeedToday: true)
         
-        try service.markGoalCompleted(goal: currentGoal)
+        try service.markHabitCompleted(habit: currentHabit)
         setNextDay()
         
-        try service.markGoalCompleted(goal: currentGoal)
-        assertGoalData(expectedProgress: 2, expectedBestResult: "2 дня подряд", expectedNeedToday: false)
+        try service.markHabitCompleted(habit: currentHabit)
+        assertHabitData(expectedProgress: 2, expectedBestResult: "2 дня подряд", expectedNeedToday: false)
     }
     
     /// ❓ ❓ ❓ ✍️ ✅ ✅ ❌ ✍️
     func testEveryday_10() throws {
 
-        try setupGoal(
+        try setupHabit(
             text: "testEveryday_10",
             priority: .high,
             frequency: .everyday
@@ -217,15 +217,15 @@ final class EverydayGoalTests: CoreDataServiceTests {
         setNextDay()
         setNextDay()
         setNextDay()
-        assertGoalData(expectedProgress: 0, expectedBestResult: "0 дней", expectedNeedToday: true)
+        assertHabitData(expectedProgress: 0, expectedBestResult: "0 дней", expectedNeedToday: true)
         
-        try service.markGoalCompleted(goal: currentGoal)
+        try service.markHabitCompleted(habit: currentHabit)
         setNextDay()
         
-        try service.markGoalCompleted(goal: currentGoal)
+        try service.markHabitCompleted(habit: currentHabit)
         setNextDay()
         
-        try service.markGoalUncompleted(goal: currentGoal)
-        assertGoalData(expectedProgress: 0, expectedBestResult: "2 дня подряд", expectedNeedToday: false)
+        try service.markHabitUncompleted(habit: currentHabit)
+        assertHabitData(expectedProgress: 0, expectedBestResult: "2 дня подряд", expectedNeedToday: false)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  Goal+Enums.swift
+//  Habit+Enums.swift
 //  JustAdjust
 //
 //  Created by Egor Baranov on 03.12.2022.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-extension Goal {
+extension Habit {
     var priorityMode: PriorityMode {
         guard let priority = priority,
               let mode = PriorityMode.init(rawValue: priority)
@@ -24,7 +24,7 @@ extension Goal {
     }
 }
 
-extension Goal {
+extension Habit {
     
     enum PriorityMode: String, CaseIterable {
         case high = "высокая"

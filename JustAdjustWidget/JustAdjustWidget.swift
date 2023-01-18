@@ -24,15 +24,15 @@ struct Provider: TimelineProvider {
         let firstDate = Calendar.current.startOfDay(for: .now)
         let firstEntry = WidgetEntry(
             date: firstDate,
-            todayGoalsCount: CoreDataService.instance.getGoalsCountForToday(),
-            currentGoalsCount: CoreDataService.instance.getUncompletedGoalsCountForToday()
+            todayHabitsCount: CoreDataService.instance.getHabitsCountForToday(),
+            currentHabitsCount: CoreDataService.instance.getUncompletedHabitsCountForToday()
         )
         
         let secondDate = Calendar.current.date(byAdding: .day, value: 1, to: firstDate)!
         let secondEntry = WidgetEntry(
             date: secondDate,
-            todayGoalsCount: CoreDataService.instance.getGoalsCountForToday(),
-            currentGoalsCount: CoreDataService.instance.getUncompletedGoalsCountForToday()
+            todayHabitsCount: CoreDataService.instance.getHabitsCountForToday(),
+            currentHabitsCount: CoreDataService.instance.getUncompletedHabitsCountForToday()
         )
 
         let timeline = Timeline(entries: [firstEntry, secondEntry], policy: .atEnd)
@@ -42,25 +42,25 @@ struct Provider: TimelineProvider {
 
 struct WidgetEntry: TimelineEntry {
     let date: Date
-    let todayGoalsCount: Double
-    let currentGoalsCount: Double
+    let todayHabitsCount: Double
+    let currentHabitsCount: Double
     
     var progress: Double {
-        (todayGoalsCount - currentGoalsCount) / todayGoalsCount
+        (todayHabitsCount - currentHabitsCount) / todayHabitsCount
     }
     
     var percent: Int {
         Int(progress * 100)
     }
     
-    var goalsCompleted: Bool {
-        currentGoalsCount.isZero
+    var habitsCompleted: Bool {
+        currentHabitsCount.isZero
     }
     
     static let example = WidgetEntry(
         date: .now,
-        todayGoalsCount: 0,
-        currentGoalsCount: 0
+        todayHabitsCount: 0,
+        currentHabitsCount: 0
     )
 }
 
@@ -69,17 +69,17 @@ struct JustAdjustWidgetEntryView : View {
     var entry: WidgetEntry
     
     var titleText: String {
-        if entry.goalsCompleted {
+        if entry.habitsCompleted {
             return "Цели выполнены"
         } else {
             return "Осталось целей"
         }
     }
     
-    var goalsCountView: some View {
+    var habitsCountView: some View {
         VStack {
             
-            if entry.todayGoalsCount.isZero {
+            if entry.todayHabitsCount.isZero {
                 Image(systemName: "plus")
                     .resizable()
                     .foregroundStyle(.secondary)
@@ -91,7 +91,7 @@ struct JustAdjustWidgetEntryView : View {
                     .font(.title)
                     .foregroundStyle(.primary)
                 
-                Text("\(Int(entry.todayGoalsCount) - Int(entry.currentGoalsCount)) из \(Int(entry.todayGoalsCount))")
+                Text("\(Int(entry.todayHabitsCount) - Int(entry.currentHabitsCount)) из \(Int(entry.todayHabitsCount))")
                     .foregroundStyle(.secondary)
                     .fontWeight(.semibold)
             }
@@ -118,7 +118,7 @@ struct JustAdjustWidgetEntryView : View {
                     .rotationEffect(Angle(degrees: 270))
                     .frame(width: 120, height: 120)
                 
-                goalsCountView
+                habitsCountView
             }
         }
     }
