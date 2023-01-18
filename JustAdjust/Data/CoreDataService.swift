@@ -89,7 +89,7 @@ class CoreDataService: CoreDataServiceProtocol {
         
         let progressInfo = ProgressInfo(
             habit: newHabit,
-            startDate: startDate.date,
+            startDate: startDate,
             context: context
         )
         newHabit.progressInfo = progressInfo

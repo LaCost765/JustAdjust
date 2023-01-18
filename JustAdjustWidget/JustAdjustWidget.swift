@@ -59,8 +59,8 @@ struct WidgetEntry: TimelineEntry {
     
     static let example = WidgetEntry(
         date: .now,
-        todayHabitsCount: 0,
-        currentHabitsCount: 0
+        todayHabitsCount: 5,
+        currentHabitsCount: 3
     )
 }
 
@@ -121,6 +121,7 @@ struct JustAdjustWidgetEntryView : View {
                 habitsCountView
             }
         }
+        .widgetURL(URL(string: "justAdjust://todayHabits/all"))
     }
 }
 

@@ -10,21 +10,37 @@ import SwiftUI
 struct MainTabView: View {
     
     @Environment(\.managedObjectContext) var moc
+    @Environment(\.scenePhase) var scenePhase
+    @State private var selectedTab: Int = 1
     
     var body: some View {
         
         ZStack {
             
-            TabView {
+            TabView(selection: $selectedTab) {
                 TodayHabitsView()
                     .tabItem {
                         Image(systemName: "star.fill")
                     }
+                    .tag(1)
                 
                 HabitsListView()
                     .tabItem {
                         Image(systemName: "house.fill")
                     }
+                    .tag(2)
+            }
+        }
+        .onChange(of: scenePhase, perform: { phase in
+            if phase == .active {
+                CoreDataService.instance.refresh()
+            }
+        })
+        .onOpenURL { url in
+            guard url.scheme == "justAdjust"
+            else { return }
+            withAnimation {
+                selectedTab = 1
             }
         }
     }

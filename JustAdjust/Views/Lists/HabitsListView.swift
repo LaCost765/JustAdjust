@@ -9,8 +9,13 @@ import SwiftUI
 
 struct HabitsListView: View {
     
+    @FetchRequest(
+        sortDescriptors: [
+            SortDescriptor(\.progressInfo?.originStartDate, order: .reverse)
+        ]
+    )
+    var habits: FetchedResults<Habit>
     let service: CoreDataServiceProtocol = CoreDataService.instance
-    @FetchRequest(sortDescriptors: []) var habits: FetchedResults<Habit>
     @State private var showCreateScreen = false
     @State private var showErrorAlert = false
     

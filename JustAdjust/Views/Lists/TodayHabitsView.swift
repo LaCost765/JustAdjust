@@ -12,9 +12,10 @@ struct TodayHabitsView: View {
     
     let service: CoreDataServiceProtocol = CoreDataService.instance
     
-    @Environment(\.scenePhase) var scenePhase
     @FetchRequest(
-        sortDescriptors: [],
+        sortDescriptors: [
+            SortDescriptor(\.progressInfo?.originStartDate, order: .reverse)
+        ],
         predicate: DataController.todayHabitsPredicate,
         animation: .easeIn
     )
@@ -114,11 +115,6 @@ struct TodayHabitsView: View {
             .navigationTitle("На сегодня")
             .navigationBarTitleDisplayMode(.large)
         }
-        .onChange(of: scenePhase, perform: { phase in
-            if phase == .active {
-                service.refresh()
-            }
-        })
         .defaultAlert(
             isPresented: $showErrorAlert,
             title: "Упс 🫣",
@@ -127,7 +123,7 @@ struct TodayHabitsView: View {
         .defaultAlert(
             isPresented: $showAlert,
             title: "Почему нет целей?",
-            message: "Скорее всего вы уже выполнили все цели на сегодня. Если нет, перейдите на другой экран и создайте новые"
+            message: "Скорее всего вы закрыли все привычки на сегодня. Если нет, перейдите на другой экран и создайте новые"
         )
     }
     
