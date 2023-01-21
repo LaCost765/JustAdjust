@@ -1,5 +1,5 @@
 //
-//  ExtensionsTests.swift
+//  CommonTests.swift
 //  JustAdjustTests
 //
 //  Created by Egor Baranov on 21.01.2023.
@@ -7,7 +7,7 @@
 
 import XCTest
 
-final class ExtensionsTests: XCTestCase {
+extension CoreDataServiceTests {
 
     /// Тест склонения слова "дни" для соответствующего числа
     func testDaysInRowDescription() {

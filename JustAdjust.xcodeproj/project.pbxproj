@@ -32,7 +32,7 @@
 		41A3216A29158A7500F1FD70 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A3216929158A7500F1FD70 /* MainTabView.swift */; };
 		41A66F9A2947A5CA008B9878 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C1EC4329105E57006B4942 /* DataController.swift */; };
 		41A6FA37297BC1C600E871B5 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A6FA36297BC1C600E871B5 /* IntExtension.swift */; };
-		41A6FA39297BC96500E871B5 /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A6FA38297BC96500E871B5 /* ExtensionsTests.swift */; };
+		41A6FA39297BC96500E871B5 /* CommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A6FA38297BC96500E871B5 /* CommonTests.swift */; };
 		41A6FA3A297BC96900E871B5 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A6FA36297BC1C600E871B5 /* IntExtension.swift */; };
 		41A6FA3B297BCF4000E871B5 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A6FA36297BC1C600E871B5 /* IntExtension.swift */; };
 		41ADA0EE293BEB36001A1FC5 /* Goal+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADA0ED293BEB36001A1FC5 /* Goal+Enums.swift */; };
@@ -101,7 +101,7 @@
 		419996CD293B9DAB00294C19 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		41A3216929158A7500F1FD70 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		41A6FA36297BC1C600E871B5 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
-		41A6FA38297BC96500E871B5 /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
+		41A6FA38297BC96500E871B5 /* CommonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTests.swift; sourceTree = "<group>"; };
 		41ADA0ED293BEB36001A1FC5 /* Goal+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+Enums.swift"; sourceTree = "<group>"; };
 		41ADA0F3293BEBE4001A1FC5 /* JustAdjustTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustAdjustTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41ADA0FC293BEC3B001A1FC5 /* CoreDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceTests.swift; sourceTree = "<group>"; };
@@ -280,7 +280,7 @@
 				41E321FD293F948600977FCE /* EverydayGoalTests.swift */,
 				41E321FF293F960D00977FCE /* WeekdayGoalTests.swift */,
 				41E32201293F9FA700977FCE /* WeekendGoalTests.swift */,
-				41A6FA38297BC96500E871B5 /* ExtensionsTests.swift */,
+				41A6FA38297BC96500E871B5 /* CommonTests.swift */,
 			);
 			path = JustAdjustTests;
 			sourceTree = "<group>";
@@ -480,7 +480,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41A6FA39297BC96500E871B5 /* ExtensionsTests.swift in Sources */,
+				41A6FA39297BC96500E871B5 /* CommonTests.swift in Sources */,
 				41E32200293F960E00977FCE /* WeekdayGoalTests.swift in Sources */,
 				41ADA0FD293BEC3B001A1FC5 /* CoreDataServiceTests.swift in Sources */,
 				41E32202293F9FA700977FCE /* WeekendGoalTests.swift in Sources */,
