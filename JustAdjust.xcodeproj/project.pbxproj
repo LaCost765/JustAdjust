@@ -31,6 +31,10 @@
 		419BC82629326559001E2C80 /* ProgressInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419240D0291AC73700210B76 /* ProgressInfo+CoreDataClass.swift */; };
 		41A3216A29158A7500F1FD70 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A3216929158A7500F1FD70 /* MainTabView.swift */; };
 		41A66F9A2947A5CA008B9878 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C1EC4329105E57006B4942 /* DataController.swift */; };
+		41A6FA37297BC1C600E871B5 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A6FA36297BC1C600E871B5 /* IntExtension.swift */; };
+		41A6FA39297BC96500E871B5 /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A6FA38297BC96500E871B5 /* ExtensionsTests.swift */; };
+		41A6FA3A297BC96900E871B5 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A6FA36297BC1C600E871B5 /* IntExtension.swift */; };
+		41A6FA3B297BCF4000E871B5 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A6FA36297BC1C600E871B5 /* IntExtension.swift */; };
 		41ADA0EE293BEB36001A1FC5 /* Goal+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADA0ED293BEB36001A1FC5 /* Goal+Enums.swift */; };
 		41ADA0FD293BEC3B001A1FC5 /* CoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADA0FC293BEC3B001A1FC5 /* CoreDataServiceTests.swift */; };
 		41BEC3D029196512002EA3EC /* GoalDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BEC3CF29196512002EA3EC /* GoalDetailsView.swift */; };
@@ -96,6 +100,8 @@
 		419240D0291AC73700210B76 /* ProgressInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgressInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		419996CD293B9DAB00294C19 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		41A3216929158A7500F1FD70 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		41A6FA36297BC1C600E871B5 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
+		41A6FA38297BC96500E871B5 /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
 		41ADA0ED293BEB36001A1FC5 /* Goal+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+Enums.swift"; sourceTree = "<group>"; };
 		41ADA0F3293BEBE4001A1FC5 /* JustAdjustTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustAdjustTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41ADA0FC293BEC3B001A1FC5 /* CoreDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceTests.swift; sourceTree = "<group>"; };
@@ -226,6 +232,7 @@
 			children = (
 				412B459128FC51D600DEFB99 /* DateExtension.swift */,
 				4151DAB52975A7F00055323D /* ViewConstants.swift */,
+				41A6FA36297BC1C600E871B5 /* IntExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -273,6 +280,7 @@
 				41E321FD293F948600977FCE /* EverydayGoalTests.swift */,
 				41E321FF293F960D00977FCE /* WeekdayGoalTests.swift */,
 				41E32201293F9FA700977FCE /* WeekendGoalTests.swift */,
+				41A6FA38297BC96500E871B5 /* ExtensionsTests.swift */,
 			);
 			path = JustAdjustTests;
 			sourceTree = "<group>";
@@ -435,6 +443,7 @@
 				412B459228FC51D600DEFB99 /* DateExtension.swift in Sources */,
 				41D91CE7290EA7680053A98A /* Goal+CoreDataClass.swift in Sources */,
 				41D38551291563C800ACC0E5 /* TodayHabitsView.swift in Sources */,
+				41A6FA37297BC1C600E871B5 /* IntExtension.swift in Sources */,
 				41E32207293FCAF400977FCE /* TodayGoalModifier.swift in Sources */,
 				412B458028FBFCBA00DEFB99 /* DailyWinApp.swift in Sources */,
 				41A3216A29158A7500F1FD70 /* MainTabView.swift in Sources */,
@@ -457,6 +466,7 @@
 				41A66F9A2947A5CA008B9878 /* DataController.swift in Sources */,
 				417AF433292FE135000AB0A5 /* JustAdjustWidget.swift in Sources */,
 				412C1200293CA70D004CB0CE /* Goal+Enums.swift in Sources */,
+				41A6FA3B297BCF4000E871B5 /* IntExtension.swift in Sources */,
 				4151DAB72975A7F00055323D /* ViewConstants.swift in Sources */,
 				419BC82329326526001E2C80 /* DateExtension.swift in Sources */,
 				412E17D2296DD1EE0093AA3F /* CoreDataService.swift in Sources */,
@@ -470,10 +480,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41A6FA39297BC96500E871B5 /* ExtensionsTests.swift in Sources */,
 				41E32200293F960E00977FCE /* WeekdayGoalTests.swift in Sources */,
 				41ADA0FD293BEC3B001A1FC5 /* CoreDataServiceTests.swift in Sources */,
 				41E32202293F9FA700977FCE /* WeekendGoalTests.swift in Sources */,
 				41E321FE293F948600977FCE /* EverydayGoalTests.swift in Sources */,
+				41A6FA3A297BC96900E871B5 /* IntExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,11 +15,9 @@ struct HabitView: View {
         HStack(spacing: 4) {
             
             let progressInDays = model.getCurrentProgressInDays()
-            let daysDescription = model.getDaysDescription(for: progressInDays)
-            
             Text(String(progressInDays))
                 .font(.title2.bold())
-            Text(daysDescription)
+            Text(progressInDays.daysInRowDescription)
                 .font(.title3.bold())
                 .foregroundColor(.secondary)
         }
