@@ -83,7 +83,7 @@ class CoreDataService: CoreDataServiceProtocol {
         startDate: Date
     ) throws -> Habit {
         let newHabit = Habit(context: context)
-        newHabit.text = text
+        newHabit.text = text.trimmingCharacters(in: .whitespacesAndNewlines)
         newHabit.priority = priority
         newHabit.frequency = frequency
         

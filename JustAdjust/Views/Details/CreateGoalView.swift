@@ -67,7 +67,11 @@ struct CreateHabitView: View {
                 
                 Section {
                     Button("Создать", action: createHabit)
-                        .disabled(habitText.isEmpty)
+                        .disabled(
+                            habitText
+                                .trimmingCharacters(in: .whitespacesAndNewlines)
+                                .isEmpty
+                        )
                 }
             }
             .defaultAlert(
