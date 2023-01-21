@@ -31,7 +31,7 @@ public class Habit: NSManagedObject {
     var progressFormattedString: String {
         let progress = getCurrentProgressInDays()
         
-        return "\(progress) \(getDaysDescription(for: progress))"
+        return "\(progress) \(progress.daysInRowDescription)"
     }
     
     /// Лучший рекорд
@@ -40,7 +40,7 @@ public class Habit: NSManagedObject {
             return "отсутствует"
         }
         
-        return "\(result) \(getDaysDescription(for: Int(result)))"
+        return "\(result) \(Int(result).daysInRowDescription)"
     }
     
     /// Нужно ли отображать цель сейчас
@@ -102,27 +102,5 @@ extension Habit {
         guard let lastActionDate = lastActionDate else { return 0 }
         
         return lastActionDate.getDifferenceInDays(with: currentStartDate)
-    }
-    
-    /// Получить корректную форму во множественном числе слова "день"
-    /// - Parameter days: Количество дней
-    /// - Returns: Слово "день" в нужной форме
-    func getDaysDescription(for days: Int) -> String {
-        
-        guard days < 10 || days > 20 else {
-            return "дней подряд"
-        }
-
-        let lastDigit = days % 10
-        switch lastDigit {
-        case 0:
-            return "дней"
-        case 1:
-            return "день"
-        case 2...4:
-            return "дня подряд"
-        default:
-            return "дней подряд"
-        }
     }
 }
