@@ -4,8 +4,10 @@
 
 # Привыкай: легко и просто!
 
-![build and test](https://github.com/LaCost765/JustAdjust/actions/workflows/build_and_test_workflow.yml/badge.svg)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/LaCost765/JustAdjust/build_and_test_workflow.yml?label=build%20and%20test)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/LaCost765/JustAdjust)
 ![GitHub issues](https://img.shields.io/github/issues/LaCost765/JustAdjust)
+![GitHub last commit](https://img.shields.io/github/last-commit/LaCost765/JustAdjust)
 
 
 Используемые технологии
@@ -34,3 +36,9 @@
 Не ели сладкое уже 2 месяца? Отличный повод похвастаться перед друзьями ;)
 
 Обязательно устанавливайте виджет, он поможет вам не пропускать свои привычки
+
+## Контакты
+
+- [Habr Career](https://career.habr.com/egorcheckk)
+- [VK](https://vk.com/egorcheckk)
+- [Telegram](https://t.me/Egorcheckk)
