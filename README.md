@@ -4,6 +4,9 @@
 
 # Привыкай: легко и просто!
 
+![build and test](https://github.com/LaCost765/JustAdjust/actions/workflows/build_and_test_workflow.yml/badge.svg)
+![GitHub issues](https://img.shields.io/github/issues/LaCost765/JustAdjust)
+
 Здесь будут бейджи
 
 Используемые технологии: SwiftUI, CoreData, WidgetKit
