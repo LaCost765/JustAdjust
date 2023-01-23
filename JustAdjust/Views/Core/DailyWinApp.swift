@@ -14,6 +14,9 @@ struct JustAdjustApp: App {
         WindowGroup {
             MainTabView()
                 .environment(\.managedObjectContext, DataController.context)
+                .onAppear {
+                    UserDefaults.standard.set(false, forKey: "isFirstOpen")
+                }
         }
     }
 }
