@@ -12,6 +12,7 @@ struct MainTabView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.scenePhase) var scenePhase
     @State private var selectedTab: Int = 1
+    @State private var showOnboarding: Bool = !UserDefaults.standard.bool(forKey: "wasOpened")
     
     var body: some View {
         
@@ -42,6 +43,9 @@ struct MainTabView: View {
             withAnimation {
                 selectedTab = 1
             }
+        }
+        .sheet(isPresented: $showOnboarding) {
+            OnboardingView()
         }
     }
 }

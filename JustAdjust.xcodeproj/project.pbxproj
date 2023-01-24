@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		411BE34E297EE4E1004E6B0D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411BE34D297EE4E1004E6B0D /* OnboardingView.swift */; };
 		412B458028FBFCBA00DEFB99 /* DailyWinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B457F28FBFCBA00DEFB99 /* DailyWinApp.swift */; };
 		412B458428FBFCBA00DEFB99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 412B458328FBFCBA00DEFB99 /* Assets.xcassets */; };
 		412B458728FBFCBA00DEFB99 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 412B458628FBFCBA00DEFB99 /* Preview Assets.xcassets */; };
@@ -81,6 +82,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		411BE34D297EE4E1004E6B0D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		412B457C28FBFCBA00DEFB99 /* JustAdjust.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustAdjust.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		412B457F28FBFCBA00DEFB99 /* DailyWinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWinApp.swift; sourceTree = "<group>"; };
 		412B458328FBFCBA00DEFB99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -145,6 +147,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		411BE34C297EE486004E6B0D /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				411BE34D297EE4E1004E6B0D /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		412B457328FBFCBA00DEFB99 = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +201,7 @@
 		41535742292AA89500274DF6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				411BE34C297EE486004E6B0D /* Onboarding */,
 				41535745292AA8CF00274DF6 /* Lists */,
 				41535744292AA8BE00274DF6 /* Details */,
 				41535743292AA8A000274DF6 /* Core */,
@@ -449,6 +460,7 @@
 				41A3216A29158A7500F1FD70 /* MainTabView.swift in Sources */,
 				41C1EC4429105E57006B4942 /* DataController.swift in Sources */,
 				41E32205293FCABA00977FCE /* DefaultAlertModifier.swift in Sources */,
+				411BE34E297EE4E1004E6B0D /* OnboardingView.swift in Sources */,
 				412B459628FC66F800DEFB99 /* CreateGoalView.swift in Sources */,
 				4151DAB62975A7F00055323D /* ViewConstants.swift in Sources */,
 				41BEC3D029196512002EA3EC /* GoalDetailsView.swift in Sources */,
