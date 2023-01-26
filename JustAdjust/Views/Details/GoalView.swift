@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HabitView: View {
     
-    let model: Habit
+    @ObservedObject var model: Habit
     
     var progressDescriptionView: some View {
         HStack(spacing: 4) {

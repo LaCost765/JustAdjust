@@ -37,6 +37,9 @@ protocol CoreDataServiceProtocol {
     /// Обновить состояние объектов в контейнере
     func refresh()
     
+    /// Сохранить изменения контекста
+    func saveContext()
+    
     func getHabitsCountForToday() -> Double
     
     func getUncompletedHabitsCountForToday() -> Double
@@ -55,6 +58,10 @@ class CoreDataService: CoreDataServiceProtocol {
     private init() { }
     
     private var context = DataController.context
+    
+    func saveContext() {
+        try? context.save()
+    }
     
     func getHabitsCountForToday() -> Double {
         let request = NSFetchRequest<Habit>(entityName: "Habit")

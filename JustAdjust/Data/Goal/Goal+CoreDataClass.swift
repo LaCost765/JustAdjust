@@ -43,6 +43,11 @@ public class Habit: NSManagedObject {
         return "\(result) \(Int(result).daysInRowDescription)"
     }
     
+    func resetProgress() {
+        lastActionDate = nil
+        progressInfo?.resetProgress()
+    }
+    
     /// Нужно ли отображать цель сейчас
     func needNow(currentDate: Date = .now.date) -> Bool {
         

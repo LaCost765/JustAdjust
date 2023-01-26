@@ -55,12 +55,14 @@ struct CreateHabitView: View {
                             Text(mode.string.lowercased())
                         }
                     }
+                    .pickerStyle(.menu)
                     
                     Picker("Частота", selection: $selectedFrequency) {
                         ForEach(HabitFrequencyMode.allCases, id: \.string) { mode in
                             Text(mode.string)
                         }
                     }
+                    .pickerStyle(.menu)
                 } header: {
                     Text("Параметры")
                 }
