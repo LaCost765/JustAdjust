@@ -69,7 +69,7 @@ struct HabitsListView: View {
                     } label: {
                         Image(systemName: "plus.circle.fill")
                             .resizable()
-                            .frame(width: 30, height: 30)
+                            .frame(width: 32, height: 32)
                     }
                 }
             }

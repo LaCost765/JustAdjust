@@ -1,5 +1,5 @@
 //
-//  HabitView.swift
+//  HabitCardView.swift
 //  JustAdjust
 //
 //  Created by Egor Baranov on 16.10.2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HabitView: View {
+struct HabitCardView: View {
     
     @ObservedObject var model: Habit
     

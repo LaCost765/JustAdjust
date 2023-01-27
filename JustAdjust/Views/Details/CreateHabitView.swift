@@ -23,8 +23,7 @@ struct CreateHabitView: View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Описание", text: $habitText)
-                        .submitLabel(.done)
+                    TextField("Описание", text: $habitText, axis: .vertical)
                 }
                 
                 Section {

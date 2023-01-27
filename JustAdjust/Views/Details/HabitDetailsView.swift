@@ -23,10 +23,6 @@ struct HabitDetailsView: View {
         habitPriority = habit.priorityMode.string
     }
     
-    var editButtonTitle: String {
-        editMode ? "Готово" : "Править"
-    }
-    
     var descriptionView: some View {
         TextField("Описание привычки", text: $habitText, axis: .vertical)
             .font(.title2)
@@ -132,10 +128,25 @@ struct HabitDetailsView: View {
                 Text("Прогресс")
             }
         }
+        .navigationBarBackButtonHidden(editMode)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            Button(editButtonTitle) {
-                toolbarButtonClicked()
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    toolbarButtonClicked()
+                } label: {
+                    Image(
+                        systemName: editMode ? "checkmark.circle.fill" : "square.and.pencil.circle.fill"
+                    )
+                    .resizable()
+                    .frame(width: 32, height: 32)
+                }
+            }
+            
+            if editMode {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Отменить") { undoChanges() }
+                }
             }
         }
         .alert("Изменив частоту привычки вы потеряете весь текущий прогресс!", isPresented: $showAlert) {
@@ -157,6 +168,15 @@ struct HabitDetailsView: View {
             return
         }
         applyChanges()
+    }
+    
+    func undoChanges() {
+        withAnimation {
+            habitText = habit.textDescription
+            habitPriority = habit.priorityMode.string
+            habitFrequency = habit.frequencyMode.string
+            editMode = false
+        }
     }
     
     func applyChanges() {

@@ -61,6 +61,7 @@ class CoreDataService: CoreDataServiceProtocol {
     
     func saveContext() {
         try? context.save()
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     func getHabitsCountForToday() -> Double {
