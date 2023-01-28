@@ -47,7 +47,7 @@ protocol CoreDataServiceProtocol {
 
 class CoreDataService: CoreDataServiceProtocol {
     
-    static let instance = CoreDataService()
+    static let instance: CoreDataServiceProtocol = CoreDataService()
     
     var currentDate: Date {
         customDate ?? .now.date

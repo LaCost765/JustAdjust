@@ -9,24 +9,36 @@ import SwiftUI
 
 struct HabitDetailsView: View {
     
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var habit: Habit
+    @FocusState var textFieldFocused: Bool
+    
+    @State private var editMode: Bool = false
     @State private var habitText: String
     @State private var habitFrequency: String
     @State private var habitPriority: String
-    @State private var editMode = false
     @State private var showAlert = false
         
     init(habit: Habit) {
         self.habit = habit
-        habitText = habit.textDescription
-        habitFrequency = habit.frequencyMode.string
-        habitPriority = habit.priorityMode.string
+        _habitText = State(initialValue: habit.textDescription)
+        _habitFrequency = State(initialValue: habit.frequencyMode.string)
+        _habitPriority = State(initialValue: habit.priorityMode.string)
+    }
+    
+    var isDarkMode: Bool {
+        colorScheme == .dark
+    }
+    
+    var hasChanges: Bool {
+        habit.textDescription != habitText.trimmingCharacters(in: .whitespacesAndNewlines) || habit.frequencyMode.string != habitFrequency || habit.priorityMode.string != habitPriority
     }
     
     var descriptionView: some View {
         TextField("Описание привычки", text: $habitText, axis: .vertical)
             .font(.title2)
             .bold()
+            .focused($textFieldFocused)
             .disabled(!editMode)
     }
     
@@ -128,6 +140,8 @@ struct HabitDetailsView: View {
                 Text("Прогресс")
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(isDarkMode ? Color.formDarkColor : Color.formLightColor)
         .navigationBarBackButtonHidden(editMode)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -141,6 +155,7 @@ struct HabitDetailsView: View {
                     .resizable()
                     .frame(width: 32, height: 32)
                 }
+                .disabled(editMode && !hasChanges)
             }
             
             if editMode {
@@ -157,13 +172,12 @@ struct HabitDetailsView: View {
     
     func toolbarButtonClicked() {
         guard editMode else {
-            withAnimation {
-                editMode = true
-            }
+            withAnimation { editMode = true }
+            textFieldFocused = true
             return
         }
         
-        if habitFrequency != habit.frequencyMode.string {
+        guard habitFrequency == habit.frequencyMode.string else {
             showAlert = true
             return
         }
@@ -180,17 +194,18 @@ struct HabitDetailsView: View {
     }
     
     func applyChanges() {
-        habit.text = habitText
-        habit.priority = habitPriority
+        defer {
+            withAnimation { editMode = false }
+        }
+        guard hasChanges else { return }
         
+        habit.text = habitText.trimmingCharacters(in: .whitespacesAndNewlines)
+        habitText = habit.textDescription
+        habit.priority = habitPriority
         if habitFrequency != habit.frequencyMode.string {
             habit.resetProgress()
         }
-        
         CoreDataService.instance.saveContext()
-        withAnimation {
-            editMode = false
-        }
     }
 }
 

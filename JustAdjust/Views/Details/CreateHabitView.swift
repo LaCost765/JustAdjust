@@ -10,7 +10,7 @@ import SwiftUI
 struct CreateHabitView: View {
     
     @Environment(\.dismiss) var dismiss
-    let service: CoreDataServiceProtocol = CoreDataService.instance
+    @Environment(\.colorScheme) var colorScheme
     
     @State private var habitText: String = ""
     @State private var selectedPriority = HabitPriorityMode.high.string
@@ -18,6 +18,10 @@ struct CreateHabitView: View {
     @State private var startDate: Date = Date()
     @State private var showCalendar = false
     @State private var showErrorAlert = false
+    
+    var isDarkMode: Bool {
+        colorScheme == .dark
+    }
         
     var body: some View {
         NavigationView {
@@ -75,6 +79,8 @@ struct CreateHabitView: View {
                         )
                 }
             }
+            .scrollContentBackground(.hidden)
+            .background(isDarkMode ? Color.formDarkColor : Color.formLightColor)
             .defaultAlert(
                 isPresented: $showErrorAlert,
                 title: "Упс 🫣",
@@ -88,7 +94,7 @@ struct CreateHabitView: View {
     private func createHabit() {
         
         do {
-            _ = try service.addNewHabit(
+            _ = try CoreDataService.instance.addNewHabit(
                 text: habitText,
                 priority: selectedPriority,
                 frequency: selectedFrequency,

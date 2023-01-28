@@ -9,15 +9,19 @@ import SwiftUI
 
 struct HabitsListView: View {
     
+    @Environment(\.colorScheme) var colorScheme
     @FetchRequest(
         sortDescriptors: [
             SortDescriptor(\.progressInfo?.originStartDate, order: .reverse)
         ]
     )
     var habits: FetchedResults<Habit>
-    let service: CoreDataServiceProtocol = CoreDataService.instance
     @State private var showCreateScreen = false
     @State private var showErrorAlert = false
+    
+    var isDarkMode: Bool {
+        colorScheme == .dark
+    }
     
     var body: some View {
         NavigationView {
@@ -56,6 +60,8 @@ struct HabitsListView: View {
                 title: "Упс 🫣",
                 message: "Произошла какая-то ошибка, попробуйте еще раз"
             )
+            .scrollContentBackground(.hidden)
+            .background(isDarkMode ? Color.formDarkColor : Color.formLightColor)
             .navigationTitle("Привычки")
             .sheet(isPresented: $showCreateScreen) {
                 CreateHabitView()
@@ -78,7 +84,7 @@ struct HabitsListView: View {
     
     func deleteHabit(habit: Habit) {
         do {
-            try service.deleteHabit(habit: habit)
+            try CoreDataService.instance.deleteHabit(habit: habit)
         } catch {
             showErrorAlert = true
         }

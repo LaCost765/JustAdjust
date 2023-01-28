@@ -20,6 +20,7 @@
 		4151DAB62975A7F00055323D /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151DAB52975A7F00055323D /* ViewConstants.swift */; };
 		4151DAB72975A7F00055323D /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151DAB52975A7F00055323D /* ViewConstants.swift */; };
 		4171409F29845E3A00B54434 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4171409E29845E3A00B54434 /* StringExtension.swift */; };
+		417918A62985141B006337D2 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417918A52985141B006337D2 /* ColorExtension.swift */; };
 		417AF42E292FE135000AB0A5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417AF42D292FE135000AB0A5 /* WidgetKit.framework */; };
 		417AF430292FE135000AB0A5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417AF42F292FE135000AB0A5 /* SwiftUI.framework */; };
 		417AF433292FE135000AB0A5 /* JustAdjustWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417AF432292FE135000AB0A5 /* JustAdjustWidget.swift */; };
@@ -95,6 +96,7 @@
 		412E17D1296DCF100093AA3F /* JustAdjustWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JustAdjustWidgetExtension.entitlements; sourceTree = "<group>"; };
 		4151DAB52975A7F00055323D /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
 		4171409E29845E3A00B54434 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		417918A52985141B006337D2 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		417AF42B292FE135000AB0A5 /* JustAdjustWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = JustAdjustWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		417AF42D292FE135000AB0A5 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		417AF42F292FE135000AB0A5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -247,6 +249,7 @@
 				4151DAB52975A7F00055323D /* ViewConstants.swift */,
 				41A6FA36297BC1C600E871B5 /* IntExtension.swift */,
 				4171409E29845E3A00B54434 /* StringExtension.swift */,
+				417918A52985141B006337D2 /* ColorExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				41C1EC4429105E57006B4942 /* DataController.swift in Sources */,
 				41E32205293FCABA00977FCE /* DefaultAlertModifier.swift in Sources */,
 				411BE34E297EE4E1004E6B0D /* OnboardingView.swift in Sources */,
+				417918A62985141B006337D2 /* ColorExtension.swift in Sources */,
 				4171409F29845E3A00B54434 /* StringExtension.swift in Sources */,
 				412B459628FC66F800DEFB99 /* CreateHabitView.swift in Sources */,
 				4151DAB62975A7F00055323D /* ViewConstants.swift in Sources */,
