@@ -9,7 +9,9 @@ import Foundation
 import CoreData
 import WidgetKit
 
-protocol CoreDataServiceProtocol {
+protocol CoreDataServiceProtocol: AnyObject {
+    
+    var customDate: Date? { get set }
     
     /// Создать и добавить в контейнер новую цель
     /// - Parameters:
