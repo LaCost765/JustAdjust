@@ -51,21 +51,19 @@ struct HabitDetailsView: View {
                     .frame(width: 24)
                     .foregroundColor(.cyan)
                 Text("Как часто")
-                Spacer()
-                if editMode {
+                Menu {
                     Picker("Частота", selection: $habitFrequency) {
                         ForEach(HabitFrequencyMode.allCases, id: \.string) { mode in
                             Text(mode.string)
                         }
                     }
-                    .labelsHidden()
-                    .pickerStyle(.menu)
-                    .transition(.opacity.combined(with: .scale))
-                } else {
+                } label: {
                     Text(habitFrequency)
-                        .foregroundColor(.secondary)
-                        .transition(.opacity.combined(with: .scale))
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .lineLimit(1)
                 }
+                .disabled(!editMode)
+                .foregroundColor(editMode ? .accentColor : .secondary)
             }
             HStack {
                 Image(systemName: "flag.square.fill")
@@ -74,23 +72,19 @@ struct HabitDetailsView: View {
                     .frame(width: 24)
                     .foregroundColor(.red)
                 Text("Важность")
-                Spacer()
-                    .foregroundColor(.red)
-                
-                if editMode {
+                Menu {
                     Picker("Важность", selection: $habitPriority) {
                         ForEach(HabitPriorityMode.allCases, id: \.string) { mode in
                             Text(mode.string.lowercased())
                         }
                     }
-                    .labelsHidden()
-                    .pickerStyle(.menu)
-                    .transition(.opacity.combined(with: .scale))
-                } else {
+                } label: {
                     Text(habitPriority)
-                        .foregroundColor(.secondary)
-                        .transition(.opacity.combined(with: .scale))
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .lineLimit(1)
                 }
+                .disabled(!editMode)
+                .foregroundColor(editMode ? .accentColor : .secondary)
             }
         }
     }
@@ -203,6 +197,7 @@ struct HabitDetailsView: View {
         habitText = habit.textDescription
         habit.priority = habitPriority
         if habitFrequency != habit.frequencyMode.string {
+            habit.frequency = habitFrequency
             habit.resetProgress()
         }
         CoreDataService.instance.saveContext()

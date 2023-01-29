@@ -53,19 +53,33 @@ struct CreateHabitView: View {
                             
                     }
                     
-                    Picker("Важность", selection: $selectedPriority) {
-                        ForEach(HabitPriorityMode.allCases, id: \.string) { mode in
-                            Text(mode.string.lowercased())
+                    HStack {
+                        Text("Важность")
+                        Menu {
+                            Picker("Важность", selection: $selectedPriority) {
+                                ForEach(HabitPriorityMode.allCases, id: \.string) { mode in
+                                    Text(mode.string.lowercased())
+                                }
+                            }
+                        } label: {
+                            Text(selectedPriority)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
                         }
                     }
-                    .pickerStyle(.menu)
                     
-                    Picker("Частота", selection: $selectedFrequency) {
-                        ForEach(HabitFrequencyMode.allCases, id: \.string) { mode in
-                            Text(mode.string)
+                    HStack {
+                        Text("Частота")
+                        Menu {
+                            Picker("Частота", selection: $selectedFrequency) {
+                                ForEach(HabitFrequencyMode.allCases, id: \.string) { mode in
+                                    Text(mode.string.lowercased())
+                                }
+                            }
+                        } label: {
+                            Text(selectedFrequency)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
                         }
                     }
-                    .pickerStyle(.menu)
                 } header: {
                     Text("Параметры")
                 }
