@@ -17,7 +17,6 @@ public class Habit: NSManagedObject {
     
     var originStartDateString: String {
         guard let date = progressInfo?.originStartDate else {
-            assertionFailure()
             return ""
         }
         return date.getFormatted(dateStyle: .medium, timeStyle: .none)
@@ -43,6 +42,11 @@ public class Habit: NSManagedObject {
         return "\(result) \(Int(result).daysInRowDescription)"
     }
     
+    func resetProgress() {
+        lastActionDate = nil
+        progressInfo?.resetProgress()
+    }
+    
     /// Нужно ли отображать цель сейчас
     func needNow(currentDate: Date = .now.date) -> Bool {
         
@@ -61,7 +65,6 @@ public class Habit: NSManagedObject {
         
         guard let startDate = progressInfo?.originStartDate
         else {
-            assertionFailure()
             return false
         }
 
@@ -93,7 +96,6 @@ extension Habit {
               let currentActionDate = progressInfo.currentActionDate,
               let currentStartDate = progressInfo.currentStartDate
         else {
-            assertionFailure()
             return .zero
         }
         

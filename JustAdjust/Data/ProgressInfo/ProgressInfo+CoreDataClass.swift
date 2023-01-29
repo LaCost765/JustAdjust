@@ -29,6 +29,12 @@ public class ProgressInfo: NSManagedObject {
 
 extension ProgressInfo {
     
+    func resetProgress() {
+        let firstActionDate = calculateFirstActionDate()
+        self.currentActionDate = firstActionDate
+        self.currentStartDate = firstActionDate
+    }
+    
     func markCompleted(currentDate: Date = .now.date, shouldResetCurrentStart: Bool) {
         if shouldResetCurrentStart {
             currentStartDate = currentDate

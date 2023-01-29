@@ -90,7 +90,7 @@ struct OnboardingView: View {
         }
         .background(.secondary.opacity(0.1))
         .onAppear {
-            UserDefaults.standard.set(true, forKey: "wasOpened")
+            UserDefaults.standard.set(true, forKey: String.didShowOnboardingKey)
         }
     }
 }

@@ -9,7 +9,9 @@ import Foundation
 import CoreData
 import WidgetKit
 
-protocol CoreDataServiceProtocol {
+protocol CoreDataServiceProtocol: AnyObject {
+    
+    var customDate: Date? { get set }
     
     /// Создать и добавить в контейнер новую цель
     /// - Parameters:
@@ -37,6 +39,9 @@ protocol CoreDataServiceProtocol {
     /// Обновить состояние объектов в контейнере
     func refresh()
     
+    /// Сохранить изменения контекста
+    func saveContext()
+    
     func getHabitsCountForToday() -> Double
     
     func getUncompletedHabitsCountForToday() -> Double
@@ -44,7 +49,7 @@ protocol CoreDataServiceProtocol {
 
 class CoreDataService: CoreDataServiceProtocol {
     
-    static let instance = CoreDataService()
+    static let instance: CoreDataServiceProtocol = CoreDataService()
     
     var currentDate: Date {
         customDate ?? .now.date
@@ -55,6 +60,11 @@ class CoreDataService: CoreDataServiceProtocol {
     private init() { }
     
     private var context = DataController.context
+    
+    func saveContext() {
+        try? context.save()
+        WidgetCenter.shared.reloadAllTimelines()
+    }
     
     func getHabitsCountForToday() -> Double {
         let request = NSFetchRequest<Habit>(entityName: "Habit")

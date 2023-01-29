@@ -10,7 +10,7 @@ import SwiftUI
 struct CreateHabitView: View {
     
     @Environment(\.dismiss) var dismiss
-    let service: CoreDataServiceProtocol = CoreDataService.instance
+    @Environment(\.colorScheme) var colorScheme
     
     @State private var habitText: String = ""
     @State private var selectedPriority = HabitPriorityMode.high.string
@@ -18,13 +18,16 @@ struct CreateHabitView: View {
     @State private var startDate: Date = Date()
     @State private var showCalendar = false
     @State private var showErrorAlert = false
+    
+    var isDarkMode: Bool {
+        colorScheme == .dark
+    }
         
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Описание", text: $habitText)
-                        .submitLabel(.done)
+                    TextField("Описание", text: $habitText, axis: .vertical)
                 }
                 
                 Section {
@@ -50,15 +53,31 @@ struct CreateHabitView: View {
                             
                     }
                     
-                    Picker("Важность", selection: $selectedPriority) {
-                        ForEach(HabitPriorityMode.allCases, id: \.string) { mode in
-                            Text(mode.string.lowercased())
+                    HStack {
+                        Text("Важность")
+                        Menu {
+                            Picker("Важность", selection: $selectedPriority) {
+                                ForEach(HabitPriorityMode.allCases, id: \.string) { mode in
+                                    Text(mode.string.lowercased())
+                                }
+                            }
+                        } label: {
+                            Text(selectedPriority)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
                         }
                     }
                     
-                    Picker("Частота", selection: $selectedFrequency) {
-                        ForEach(HabitFrequencyMode.allCases, id: \.string) { mode in
-                            Text(mode.string)
+                    HStack {
+                        Text("Частота")
+                        Menu {
+                            Picker("Частота", selection: $selectedFrequency) {
+                                ForEach(HabitFrequencyMode.allCases, id: \.string) { mode in
+                                    Text(mode.string.lowercased())
+                                }
+                            }
+                        } label: {
+                            Text(selectedFrequency)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
                         }
                     }
                 } header: {
@@ -74,6 +93,8 @@ struct CreateHabitView: View {
                         )
                 }
             }
+            .scrollContentBackground(.hidden)
+            .background(isDarkMode ? Color.formDarkColor : Color.formLightColor)
             .defaultAlert(
                 isPresented: $showErrorAlert,
                 title: "Упс 🫣",
@@ -87,7 +108,7 @@ struct CreateHabitView: View {
     private func createHabit() {
         
         do {
-            _ = try service.addNewHabit(
+            _ = try CoreDataService.instance.addNewHabit(
                 text: habitText,
                 priority: selectedPriority,
                 frequency: selectedFrequency,

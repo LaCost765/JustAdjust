@@ -12,7 +12,7 @@ struct MainTabView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.scenePhase) var scenePhase
     @State private var selectedTab: Int = 1
-    @State private var showOnboarding: Bool = !UserDefaults.standard.bool(forKey: "wasOpened")
+    @State private var showOnboarding: Bool = !UserDefaults.standard.bool(forKey: String.didShowOnboardingKey)
     
     var body: some View {
         
