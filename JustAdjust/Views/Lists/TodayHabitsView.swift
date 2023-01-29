@@ -82,7 +82,7 @@ struct TodayHabitsView: View {
             ZStack {                
                 ScrollView {
                     ForEach(todayHabits) { habit in
-                        HabitView(model: habit)
+                        HabitCardView(model: habit)
                             .todayCardStyle(isSelected: habit == selectedHabit, isOverlayShown: showOverlay)
                             .onTapGesture {
                                 withAnimation {

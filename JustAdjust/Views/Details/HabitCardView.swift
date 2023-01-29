@@ -1,5 +1,5 @@
 //
-//  HabitView.swift
+//  HabitCardView.swift
 //  JustAdjust
 //
 //  Created by Egor Baranov on 16.10.2022.
@@ -7,19 +7,17 @@
 
 import SwiftUI
 
-struct HabitView: View {
+struct HabitCardView: View {
     
-    let model: Habit
+    @ObservedObject var model: Habit
     
     var progressDescriptionView: some View {
         HStack(spacing: 4) {
             
             let progressInDays = model.getCurrentProgressInDays()
-            let daysDescription = model.getDaysDescription(for: progressInDays)
-            
             Text(String(progressInDays))
                 .font(.title2.bold())
-            Text(daysDescription)
+            Text(progressInDays.daysInRowDescription)
                 .font(.title3.bold())
                 .foregroundColor(.secondary)
         }

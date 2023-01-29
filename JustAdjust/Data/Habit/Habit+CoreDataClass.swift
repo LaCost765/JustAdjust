@@ -17,7 +17,6 @@ public class Habit: NSManagedObject {
     
     var originStartDateString: String {
         guard let date = progressInfo?.originStartDate else {
-            assertionFailure()
             return ""
         }
         return date.getFormatted(dateStyle: .medium, timeStyle: .none)
@@ -31,7 +30,7 @@ public class Habit: NSManagedObject {
     var progressFormattedString: String {
         let progress = getCurrentProgressInDays()
         
-        return "\(progress) \(getDaysDescription(for: progress))"
+        return "\(progress) \(progress.daysInRowDescription)"
     }
     
     /// Лучший рекорд
@@ -40,7 +39,12 @@ public class Habit: NSManagedObject {
             return "отсутствует"
         }
         
-        return "\(result) \(getDaysDescription(for: Int(result)))"
+        return "\(result) \(Int(result).daysInRowDescription)"
+    }
+    
+    func resetProgress() {
+        lastActionDate = nil
+        progressInfo?.resetProgress()
     }
     
     /// Нужно ли отображать цель сейчас
@@ -61,7 +65,6 @@ public class Habit: NSManagedObject {
         
         guard let startDate = progressInfo?.originStartDate
         else {
-            assertionFailure()
             return false
         }
 
@@ -93,7 +96,6 @@ extension Habit {
               let currentActionDate = progressInfo.currentActionDate,
               let currentStartDate = progressInfo.currentStartDate
         else {
-            assertionFailure()
             return .zero
         }
         
@@ -102,27 +104,5 @@ extension Habit {
         guard let lastActionDate = lastActionDate else { return 0 }
         
         return lastActionDate.getDifferenceInDays(with: currentStartDate)
-    }
-    
-    /// Получить корректную форму во множественном числе слова "день"
-    /// - Parameter days: Количество дней
-    /// - Returns: Слово "день" в нужной форме
-    func getDaysDescription(for days: Int) -> String {
-        
-        guard days < 10 || days > 20 else {
-            return "дней подряд"
-        }
-
-        let lastDigit = days % 10
-        switch lastDigit {
-        case 0:
-            return "дней"
-        case 1:
-            return "день"
-        case 2...4:
-            return "дня подряд"
-        default:
-            return "дней подряд"
-        }
     }
 }
