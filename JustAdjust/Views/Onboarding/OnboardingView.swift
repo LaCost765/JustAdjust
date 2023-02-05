@@ -68,7 +68,7 @@ struct OnboardingView: View {
                 OnboardingCellView(
                     imageName: "rectangle.3.group.fill",
                     title: "Устанавливайте виджет",
-                    subtitle: "Настройте привычки один раз и забудьте, контролируйте их с помощью виджета"
+                    subtitle: "Настройте привычки один раз и забудьте, контролируйте их с помощью виджета."
                 )
                 .padding(.bottom)
             }
